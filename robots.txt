@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hamza-turhan-portfolio.vercel.app/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow sensitive areas (none for this portfolio site)
+# Allow all content to be indexed for maximum visibility

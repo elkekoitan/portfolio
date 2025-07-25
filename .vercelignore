@@ -1,0 +1,37 @@
+# Files and directories to ignore during Vercel deployment
+
+# Development files
+*.md
+!README.md
+deploy.sh
+.git/
+.gitignore
+
+# Node modules (not needed for static site)
+node_modules/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment files (if any)
+.env*
+!.env.example
+
+# Cache directories
+.cache/
+.temp/
+
+# Build artifacts (not applicable for static site, but good practice)
+dist/
+build/

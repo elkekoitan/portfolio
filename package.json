@@ -1,0 +1,32 @@
+{
+  "name": "hamza-turhan-interview-portfolio",
+  "version": "1.0.0",
+  "description": "Professional interview portfolio showcasing projects and technical expertise",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve .",
+    "build": "echo 'Static site - no build needed'",
+    "start": "serve .",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "portfolio",
+    "interview",
+    "full-stack",
+    "react-native",
+    "ai",
+    "machine-learning",
+    "javascript",
+    "python"
+  ],
+  "author": "Hamza Turhan <turhanhamza@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elkekoitan/interview-portfolio"
+  },
+  "homepage": "https://hamza-turhan-portfolio.vercel.app"
+}
