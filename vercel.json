@@ -1,16 +1,15 @@
 {
   "version": 2,
-  "name": "hamza-turhan-interview-portfolio",
   "builds": [
     {
       "src": "index.html",
       "use": "@vercel/static"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
