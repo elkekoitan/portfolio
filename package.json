@@ -1,32 +1,33 @@
 {
-  "name": "hamza-turhan-interview-portfolio",
+  "name": "hamza-turhan-portfolio",
   "version": "1.0.0",
-  "description": "Professional interview portfolio showcasing projects and technical expertise",
+  "description": "Professional interview portfolio with password protection - Senior Full Stack Developer showcase",
   "main": "index.html",
   "scripts": {
-    "dev": "serve .",
+    "dev": "python -m http.server 3000",
     "build": "echo 'Static site - no build needed'",
-    "start": "serve .",
-    "deploy": "vercel --prod"
+    "start": "python -m http.server 8000"
   },
   "keywords": [
     "portfolio",
-    "interview",
-    "full-stack",
+    "full-stack-developer",
     "react-native",
-    "ai",
-    "machine-learning",
-    "javascript",
-    "python"
+    "ai-ml",
+    "interview",
+    "password-protected"
   ],
-  "author": "Hamza Turhan <turhanhamza@gmail.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "serve": "^14.2.1"
+  "author": {
+    "name": "Hamza Turhan",
+    "email": "turhanhamza@gmail.com",
+    "url": "https://github.com/elkekoitan"
   },
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/elkekoitan/interview-portfolio"
+    "url": "https://github.com/elkekoitan/hamza-turhan-interview-portfolio.git"
   },
-  "homepage": "https://hamza-turhan-portfolio.vercel.app"
+  "homepage": "https://hamza-turhan-portfolio.vercel.app",
+  "engines": {
+    "node": ">=14.0.0"
+  }
 }
