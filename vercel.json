@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "hamza-turhan-portfolio",
   "builds": [
     {
       "src": "index.html",
@@ -13,7 +12,6 @@
       "dest": "/index.html"
     }
   ],
-  "functions": {},
   "headers": [
     {
       "source": "/(.*)",
