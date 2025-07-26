@@ -42,7 +42,22 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900">
+    <div className="min-h-screen bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-2000"></div>
+      </div>
+
+      {/* Glassmorphism Grid Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="grid grid-cols-12 gap-4 h-full">
+          {Array.from({ length: 144 }).map((_, i) => (
+            <div key={i} className="border border-white/10 rounded-lg"></div>
+          ))}
+        </div>
+      </div>
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 glass">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,12 +94,14 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="glass-card p-8 rounded-3xl"
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="gradient-text">Full-Stack Developer</span>
               <br />
               <span className="text-white">AI/ML Engineer</span>
             </h1>
+            <div className="w-24 h-1 bg-gradient-to-r from-accent-cyan to-accent-purple mx-auto mb-6 rounded-full"></div>
             <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Specializing in modern web technologies, AI/ML solutions, and algorithmic trading platforms.
               Creating innovative solutions that drive business growth.
