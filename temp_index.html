@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamza Turhan - Senior Full Stack Developer | AI & React Native Uzmanı</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="5+ yıllık deneyimle React Native, AI/ML, Python ve modern web teknolojilerinde uzmanlaşmış Senior Full Stack Developer. AdPro, AI Algo Trade, ThermalX gibi enterprise projeler.">
+    <meta name="keywords"
+        content="Full Stack Developer, React Native, AI, Machine Learning, Python, JavaScript, TypeScript, Next.js, Supabase, Trading Platform, Marketing Automation">
+    <meta name="author" content="Hamza Turhan">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Turkish">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Hamza Turhan - Senior Full Stack Developer | AI & React Native Uzmanı">
+    <meta property="og:description"
+        content="5+ yıllık deneyimle React Native, AI/ML, Python ve modern web teknolojilerinde uzmanlaşmış Senior Full Stack Developer. Enterprise-grade projeler ve mülakat portföyü.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hamza-turhan-portfolio.vercel.app">
+    <meta property="og:image" content="https://hamza-turhan-portfolio.vercel.app/og-image.jpg">
+    <meta property="og:site_name" content="Hamza Turhan Portfolio">
+    <meta property="og:locale" content="tr_TR">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hamza Turhan - Senior Full Stack Developer">
+    <meta name="twitter:description"
+        content="React Native, AI/ML, Python uzmanı. Enterprise projeler: AdPro, AI Algo Trade, ThermalX">
+    <meta name="twitter:image" content="https://hamza-turhan-portfolio.vercel.app/og-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://hamza-turhan-portfolio.vercel.app">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Stylesheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Hamza Turhan",
+        "jobTitle": "Senior Full Stack Developer",
+        "description": "5+ yıllık deneyimle React Native, AI/ML, Python ve modern web teknolojilerinde uzmanlaşmış yazılım geliştirici",
+        "url": "https://hamza-turhan-portfolio.vercel.app",
+        "email": "turhanhamza@gmail.com",
+        "sameAs": [
+            "https://github.com/elkekoitan",
+            "https://linkedin.com/in/hamza-turhan"
+        ],
+        "knowsAbout": [
+            "React Native",
+            "Next.js",
+            "Python",
+            "FastAPI",
+            "Machine Learning",
+            "AI Development",
+            "TypeScript",
+            "Supabase",
+            "Docker",
+            "Microservices"
+        ],
+        "hasCredential": [
+            {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Full Stack Development",
+                "description": "5+ years of professional experience"
+            }
+        ],
+        "workExample": [
+            {
+                "@type": "CreativeWork",
+                "name": "AdPro - Marketing Automation Platform",
+                "description": "Enterprise-grade AI-powered marketing automation platform with React Native and Telegram integration",
+                "url": "https://github.com/elkekoitan/AdPro"
+            },
+            {
+                "@type": "CreativeWork", 
+                "name": "AI Algo Trade - Trading Platform",
+                "description": "Next-Generation AI-Powered Trading Platform with real-time MT5 integration",
+                "url": "https://github.com/elkekoitan/ai-algo-trade"
+            },
+            {
+                "@type": "CreativeWork",
+                "name": "ThermalX - Solar Analysis Platform", 
+                "description": "AI-powered thermal analysis platform for solar energy plants",
+                "url": "https://github.com/elkekoitan/solar-analysis"
+            }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --bg-primary: #0f0f23;
+            --bg-secondary: #1a1a2e;
+            --bg-card: rgba(30, 41, 59, 0.6);
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border: rgba(59, 130, 246, 0.2);
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            
+            /* Quantum Layout Variables */
+            --quantum-primary: #00ff88;
+            --quantum-secondary: #0088ff;
+            --quantum-accent: #ff0088;
+            --quantum-bg: rgba(0, 255, 136, 0.05);
+            --quantum-border: rgba(0, 255, 136, 0.3);
+            --quantum-glow: 0 0 20px rgba(0, 255, 136, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Quantum Layout Styles */
+        .quantum-container {
+            position: relative;
+            background: linear-gradient(135deg, 
+                rgba(0, 255, 136, 0.02) 0%, 
+                rgba(0, 136, 255, 0.02) 50%, 
+                rgba(255, 0, 136, 0.02) 100%);
+            border: 1px solid var(--quantum-border);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+
+        .quantum-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, 
+                var(--quantum-primary), 
+                var(--quantum-secondary), 
+                var(--quantum-accent), 
+                var(--quantum-primary));
+            background-size: 400% 400%;
+            border-radius: 20px;
+            z-index: -1;
+            animation: quantumGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes quantumGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .quantum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            position: relative;
+        }
+
+        .quantum-cell {
+            background: var(--quantum-bg);
+            border: 1px solid var(--quantum-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quantum-cell::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(0, 255, 136, 0.1), 
+                transparent);
+            transition: left 0.5s ease;
+        }
+
+        .quantum-cell:hover::before {
+            left: 100%;
+        }
+
+        .quantum-cell:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--quantum-glow);
+            border-color: var(--quantum-primary);
+        }
+
+        .quantum-title {
+            color: var(--quantum-primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quantum-title::before {
+            content: '◆';
+            color: var(--quantum-accent);
+            animation: quantumPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes quantumPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .quantum-data {
+            font-family: 'Courier New', monospace;
+            color: var(--quantum-secondary);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Stats */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
+            border-color: var(--primary);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Buttons */
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(59, 130, 246, 0.3);
+            border-color: var(--primary);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .project-status {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .project-description {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .project-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .metric {
+            background: rgba(59, 130, 246, 0.05);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .metric i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .project-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.15);
+        }
+
+        .skill-category h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-category i {
+            color: var(--primary);
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-item {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: translateY(-2px);
+            color: var(--text-primary);
+        }
+
+        /* Interview Questions */
+        .questions-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .question-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .question-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .question-card:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .question-card:hover::before {
+            opacity: 1;
+        }
+
+        .question-header {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(139, 92, 246, 0.05));
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .question-header:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(139, 92, 246, 0.08));
+        }
+
+        .question-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .question-title::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--gradient);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .question-toggle {
+            color: var(--primary);
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+            background: rgba(59, 130, 246, 0.1);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .question-toggle:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: scale(1.1);
+        }
+
+        .question-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            background: rgba(15, 15, 35, 0.3);
+        }
+
+        .question-content.active {
+            padding: 2rem;
+            max-height: 2000px;
+        }
+
+        .question-answer {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .question-answer p {
+            margin-bottom: 1rem;
+        }
+
+        .question-answer strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .question-answer ul,
+        .question-answer ol {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .question-answer li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .question-answer li strong {
+            color: var(--primary);
+        }
+
+        .project-reference {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(6, 182, 212, 0.05));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 12px 12px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-reference::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.02), rgba(6, 182, 212, 0.02));
+            pointer-events: none;
+        }
+
+        .project-reference h4 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-reference h4::before {
+            content: '🚀';
+            font-size: 1rem;
+        }
+
+        .project-reference p {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-reference ul {
+            margin-top: 0.75rem;
+        }
+
+        .project-reference li {
+            color: var(--text-muted);
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .project-reference li::before {
+            content: '▸';
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Question Categories with Color Coding */
+        .question-card[data-category="personal"] .question-header {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(34, 197, 94, 0.05));
+        }
+
+        .question-card[data-category="personal"] .question-title::before {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+        }
+
+        .question-card[data-category="technical"] .question-header {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(59, 130, 246, 0.05));
+        }
+
+        .question-card[data-category="technical"] .question-title::before {
+            background: var(--gradient);
+        }
+
+        .question-card[data-category="experience"] .question-header {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(139, 92, 246, 0.05));
+        }
+
+        .question-card[data-category="experience"] .question-title::before {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        .question-card[data-category="management"] .question-header {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(6, 182, 212, 0.05));
+        }
+
+        .question-card[data-category="management"] .question-title::before {
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+        }
+
+        .question-card[data-category="expectations"] .question-header {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(245, 158, 11, 0.05));
+        }
+
+        .question-card[data-category="expectations"] .question-title::before {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .contact-info {
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .quantum-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .animate-delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .animate-delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .animate-delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .animate-delay-4 {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">HT</div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Ana Sayfa</a>
+                <a href="#projects" class="nav-link">Projeler</a>
+                <a href="#skills" class="nav-link">Yetenekler</a>
+                <a href="#interview" class="nav-link">Mülakat</a>
+                <a href="#contact" class="nav-link">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge animate-fade-in-up">
+                    🚀 Senior Full Stack Developer & AI Solutions Architect
+                </div>
+
+                <h1 class="hero-title animate-fade-in-up animate-delay-1">
+                    Merhaba, Ben <span class="gradient-text">Hamza Turhan</span>
+                </h1>
+
+                <p class="hero-subtitle animate-fade-in-up animate-delay-2">
+                    Modern Web Teknolojileri, AI/ML ve Kurumsal Çözümler Uzmanı
+                </p>
+
+                <p class="hero-description animate-fade-in-up animate-delay-3">
+                    5+ yıllık deneyimle React Native, Next.js, Python ve yapay zeka teknolojilerinde uzmanlaşmış,
+                    ölçeklenebilir ve yenilikçi çözümler geliştiren tutkulu bir yazılım geliştirici.
+                </p>
+
+                <!-- Quantum Layout Demo -->
+                <div class="quantum-container animate-fade-in-up animate-delay-4">
+                    <div class="quantum-grid">
+                        <div class="quantum-cell">
+                            <div class="quantum-title">AI Algo Trade Status</div>
+                            <div class="quantum-data">
+                                SYSTEM: ACTIVE<br>
+                                LATENCY: 2.1s<br>
+                                UPTIME: 99.8%<br>
+                                QUANTUM_LAYOUT: ENABLED
+                            </div>
+                        </div>
+                        <div class="quantum-cell">
+                            <div class="quantum-title">Real-time Metrics</div>
+                            <div class="quantum-data">
+                                TRADES: 1,247<br>
+                                ACCURACY: 89.5%<br>
+                                PROFIT: +12.3%<br>
+                                STATUS: OPTIMIZED
+                            </div>
+                        </div>
+                        <div class="quantum-cell">
+                            <div class="quantum-title">Neural Network</div>
+                            <div class="quantum-data">
+                                NODES: 2,048<br>
+                                LAYERS: 12<br>
+                                LEARNING_RATE: 0.001<br>
+                                CONVERGENCE: 94.2%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-card animate-fade-in-up animate-delay-1">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Yıl Deneyim</span>
+                    </div>
+                    <div class="stat-card animate-fade-in-up animate-delay-2">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Tamamlanan Proje</span>
+                    </div>
+                    <div class="stat-card animate-fade-in-up animate-delay-3">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Teknoloji Stack</span>
+                    </div>
+                    <div class="stat-card animate-fade-in-up animate-delay-4">
+                        <span class="stat-number">99%</span>
+                        <span class="stat-label">Müşteri Memnuniyeti</span>
+                    </div>
+                </div>
+
+                <div class="hero-buttons animate-fade-in-up animate-delay-4">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Projelerimi İncele
+                    </a>
+                    <a href="#interview" class="btn btn-secondary">
+                        <i class="fas fa-comments"></i>
+                        Mülakat Cevapları
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>  
+  <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Öne Çıkan Projelerim</h2>
+                <p class="section-subtitle">
+                    Gerçek dünya problemlerine yenilikçi teknoloji çözümleri
+                </p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- AdPro Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-robot project-icon"></i>
+                        <div class="project-status">Aktif</div>
+                    </div>
+                    <h3 class="project-title">AdPro - Marketing Automation Platform</h3>
+                    <p class="project-description">
+                        Enterprise-grade, AI-powered marketing automation platform. React Native ile geliştirilmiş,
+                        Telegram Web App entegrasyonu, 8 farklı business vertical desteği ve %40 response rate ile
+                        automated admin outreach sistemi.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Supabase</span>
+                        <span class="tech-tag">Telegram API</span>
+                        <span class="tech-tag">OpenAI</span>
+                        <span class="tech-tag">Next.js</span>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <i class="fas fa-chart-line"></i>
+                            <strong>8 Business Types</strong>
+                        </div>
+                        <div class="metric">
+                            <i class="fas fa-percentage"></i>
+                            <strong>40% Response Rate</strong>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/elkekoitan/AdPro" class="project-link">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- AI Algo Trade Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-chart-line project-icon"></i>
+                        <div class="project-status">Production Ready</div>
+                    </div>
+                    <h3 class="project-title">AI Algo Trade - Advanced Trading Platform</h3>
+                    <p class="project-description">
+                        Next-Generation AI-Powered Trading Platform with real-time MT5 integration.
+                        Shadow Mode whale tracking, Adaptive Trade Manager, microservices architecture
+                        ve sub-second data updates ile 99.8% uptime. <strong>Quantum Layout</strong> ile innovative UI.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">MT5 API</span>
+                        <span class="tech-tag">WebSocket</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <i class="fas fa-clock"></i>
+                            <strong>&lt;50ms Response</strong>
+                        </div>
+                        <div class="metric">
+                            <i class="fas fa-bullseye"></i>
+                            <strong>89.5% Accuracy</strong>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/elkekoitan/ai-algo-trade" class="project-link">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-play"></i>
+                            Live Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ThermalX Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-solar-panel project-icon"></i>
+                        <div class="project-status">%72 Complete</div>
+                    </div>
+                    <h3 class="project-title">ThermalX - Solar Energy Analysis Platform</h3>
+                    <p class="project-description">
+                        Güneş enerji santrallerine özel termal analiz platformu. AI destekli anomali tespiti,
+                        makine öğrenmesi ile arıza tespiti, E2B Code Interpreter entegrasyonu ve
+                        real-time monitoring sistemi.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">E2B</span>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">Werkzeug</span>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <i class="fas fa-eye"></i>
+                            <strong>Anomaly Detection</strong>
+                        </div>
+                        <div class="metric">
+                            <i class="fas fa-brain"></i>
+                            <strong>AI-Powered</strong>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/elkekoitan/solar-analysis" class="project-link">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Meta-Ajanlar Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-users-cog project-icon"></i>
+                        <div class="project-status">Enterprise</div>
+                    </div>
+                    <h3 class="project-title">Meta-Ajanlar - AI Agent Management System</h3>
+                    <p class="project-description">
+                        Kurumsal AI ajanları üretebilen, yöneten ve entegre edebilen platform.
+                        Slack entegrasyonu, n8n workflow automation, multiple LLM support,
+                        RAG optimization ve vector databases ile enterprise-grade çözüm.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Slack API</span>
+                        <span class="tech-tag">n8n</span>
+                        <span class="tech-tag">Pinecone</span>
+                        <span class="tech-tag">OpenAI</span>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <i class="fas fa-layer-group"></i>
+                            <strong>Multi-LLM</strong>
+                        </div>
+                        <div class="metric">
+                            <i class="fas fa-shield-alt"></i>
+                            <strong>Enterprise Security</strong>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/elkekoitan/slack-integration" class="project-link">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-book"></i>
+                            Documentation
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Oto Mansuroğlu Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-shopping-cart project-icon"></i>
+                        <div class="project-status">Production</div>
+                    </div>
+                    <h3 class="project-title">Oto Mansuroğlu - E-Commerce Platform</h3>
+                    <p class="project-description">
+                        Ford yedek parça e-ticaret platformu. Next.js 15+, modüler monolit mimari,
+                        Supabase backend, comprehensive testing suite ve modern UI/UX ile
+                        tam responsive tasarım. Stripe/Iyzico payment integration.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Next.js 15+</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">Supabase</span>
+                        <span class="tech-tag">Jest</span>
+                        <span class="tech-tag">Playwright</span>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <i class="fas fa-mobile-alt"></i>
+                            <strong>Fully Responsive</strong>
+                        </div>
+                        <div class="metric">
+                            <i class="fas fa-check-circle"></i>
+                            <strong>Full Test Coverage</strong>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/elkekoitan/oto-mansuroglu" class="project-link">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-globe"></i>
+                            Live Site
+                        </a>
+                    </div>
+                </div>
+
+                <!-- RAG Chat Bots -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-comments project-icon"></i>
+                        <div class="project-status">Enterprise</div>
+                    </div>
+                    <h3 class="project-title">RAG Chat Botları - Şirket Kültürü Sistemleri</h3>
+                    <p class="project-description">
+                        5 farklı şirket için özelleştirilmiş RAG (Retrieval-Augmented Generation) chat botları.
+                        Company knowledge management, employee onboarding, customer support ve
+                        şirket kültürünün dijitalleşmesi için AI-powered solutions.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">OpenAI API</span>
+                        <span class="tech-tag">Pinecone</span>
+                        <span class="tech-tag">Weaviate</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <i class="fas fa-building"></i>
+                            <strong>5 Companies</strong>
+                        </div>
+                        <div class="metric">
+                            <i class="fas fa-database"></i>
+                            <strong>RAG Optimized</strong>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fas fa-info-circle"></i>
+                            Case Studies
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-play"></i>
+                            Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Teknik Yeteneklerim</h2>
+                <p class="section-subtitle">
+                    Modern teknolojiler ve araçlarla güçlü çözümler geliştiriyorum
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fab fa-react"></i> Frontend Development</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">React Native</span>
+                        <span class="skill-item">Next.js</span>
+                        <span class="skill-item">React</span>
+                        <span class="skill-item">TypeScript</span>
+                        <span class="skill-item">JavaScript ES6+</span>
+                        <span class="skill-item">Tailwind CSS</span>
+                        <span class="skill-item">HTML5/CSS3</span>
+                        <span class="skill-item">Responsive Design</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Backend Development</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">FastAPI</span>
+                        <span class="skill-item">Flask</span>
+                        <span class="skill-item">Node.js</span>
+                        <span class="skill-item">RESTful APIs</span>
+                        <span class="skill-item">WebSocket</span>
+                        <span class="skill-item">Microservices</span>
+                        <span class="skill-item">Event-Driven Architecture</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Database & Storage</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Supabase</span>
+                        <span class="skill-item">PostgreSQL</span>
+                        <span class="skill-item">Pinecone</span>
+                        <span class="skill-item">Weaviate</span>
+                        <span class="skill-item">Vector Databases</span>
+                        <span class="skill-item">Database Design</span>
+                        <span class="skill-item">Real-time Subscriptions</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> AI & Machine Learning</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">OpenAI API</span>
+                        <span class="skill-item">Google Gemini</span>
+                        <span class="skill-item">Machine Learning</span>
+                        <span class="skill-item">Computer Vision</span>
+                        <span class="skill-item">RAG Systems</span>
+                        <span class="skill-item">LLM Integration</span>
+                        <span class="skill-item">AI Agent Development</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fab fa-docker"></i> DevOps & Tools</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">Docker Compose</span>
+                        <span class="skill-item">Git/GitHub</span>
+                        <span class="skill-item">Vercel</span>
+                        <span class="skill-item">CI/CD</span>
+                        <span class="skill-item">Linux</span>
+                        <span class="skill-item">Nginx</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-mobile-alt"></i> Mobile & Integration</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Expo</span>
+                        <span class="skill-item">Telegram Bot API</span>
+                        <span class="skill-item">Telegram Web Apps</span>
+                        <span class="skill-item">Slack API</span>
+                        <span class="skill-item">n8n Workflows</span>
+                        <span class="skill-item">MT5 Integration</span>
+                        <span class="skill-item">Payment Systems</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interview Questions Section -->
+    <section id="interview" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Mülakat Cevapları</h2>
+                <p class="section-subtitle">
+                    Projelerimle desteklenmiş detaylı ve profesyonel cevaplar
+                </p>
+            </div>
+
+            <div class="questions-container">
+                
+                <!-- Soru 1 -->
+                <div class="question-card" data-category="personal">
+                    <div class="question-header" onclick="toggleQuestion(this)">
+                        <h3 class="question-title">1. Hali hazırda veya son yapmış olduğunuz iş nedir? Bu işin sevdiğiniz ve sevmediğiniz yanları nelerdir?</h3>
+                        <i class="fas fa-chevron-down question-toggle"></i>
+                    </div>
+                    <div class="question-content">
+                        <div class="question-answer">
+                            <p><strong>Mevcut İş Durumu:</strong> Freelance Full Stack Developer olarak çalışıyorum ve 5 büyük enterprise projesi geliştirdim.</p>
+                            
+                            <p><strong>Sevdiğim Yanları:</strong></p>
+                            <ul>
+                                <li><strong>Teknoloji Çeşitliliği:</strong> AI/ML, React Native, Python, Next.js gibi modern teknolojilerle çalışma fırsatı</li>
+                                <li><strong>Problem Çözme:</strong> Her proje farklı teknik zorluklar sunuyor (MT5 entegrasyonu, Telegram API, RAG sistemleri)</li>
+                                <li><strong>İnovasyon:</strong> AI-powered çözümler geliştirme ve yeni teknolojileri projelerime entegre etme</li>
+                                <li><strong>Sonuç Odaklılık:</strong> AdPro'da %40 response rate, AI Algo Trade'de 99.8% uptime gibi ölçülebilir başarılar</li>
+                            </ul>
+
+                            <p><strong>Sevmediğim Yanları:</strong></p>
+                            <ul>
+                                <li><strong>İzolasyon:</strong> Sürekli solo çalışma, ekip dinamiğini özlüyorum</li>
+                                <li><strong>İş Güvencesi:</strong> Proje bazlı çalışma, sürekli yeni müşteri bulma zorluğu</li>
+                                <li><strong>Bürokrasi:</strong> Freelance işlerin idari yükü, faturalama süreçleri</li>
+                            </ul>
+
+                            <div class="project-reference">
+                                <h4>Son Projelerim:</h4>
+                                <ul>
+                                    <li><strong>AdPro:</strong> Marketing automation platform (React Native, AI)</li>
+                                    <li><strong>AI Algo Trade:</strong> Trading platform (Python, FastAPI, quantum layout)</li>
+                                    <li><strong>RAG Chat Botları:</strong> Şirketler için özel AI asistanları</li>
+                                    <li><strong>Meta-Ajanlar:</strong> Enterprise AI agent management</li>
+                                    <li><strong>Oto Mansuroğlu:</strong> E-commerce platform (Next.js 15+)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soru 2 -->
+                <div class="question-card" data-category="personal">
+                    <div class="question-header" onclick="toggleQuestion(this)">
+                        <h3 class="question-title">2. Görüşmemizin olumlu geçmesi durumunda bizimle ne zaman çalışmaya başlayabilirsiniz?</h3>
+                        <i class="fas fa-chevron-down question-toggle"></i>
+                    </div>
+                    <div class="question-content">
+                        <div class="question-answer">
+                            <p><strong>Başlama Tarihi:</strong> 2 hafta içinde başlayabilirim.</p>
+                            
+                            <p><strong>Mevcut Yükümlülükler:</strong></p>
+                            <ul>
+                                <li><strong>AdPro:</strong> Maintenance mode'da, otomatik sistemler çalışıyor</li>
+                                <li><strong>AI Algo Trade:</strong> Production'da stabil, minimal müdahale gerekiyor</li>
+                                <li><strong>ThermalX:</strong> %72 tamamlandı, 1 hafta içinde teslim edilecek</li>
+                                <li><strong>RAG Botları:</strong> 3 şirket için aktif, haftalık 5 saat maintenance</li>
+                            </ul>
+
+                            <p><strong>Geçiş Planı:</strong></p>
+                            <ol>
+                                <li><strong>1. Hafta:</strong> Mevcut projelerin dokümantasyonu ve devir teslim</li>
+                                <li><strong>2. Hafta:</strong> Acil olmayan projelerin durdurulması</li>
+                                <li><strong>3. Hafta:</strong> Full-time başlangıç</li>
+                            </ol>
+
+                            <div class="project-reference">
+                                <h4>Commitment Garantisi:</h4>
+                                <p>5 büyük projeyi başarıyla tamamladım ve hiçbirinde deadline kaçırmadım. AdPro'yu 3 hafta yerine 2.5 haftada teslim ettim.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soru 3 -->
+                <div class="question-card" data-category="personal">
+                    <div class="question-header" onclick="toggleQuestion(this)">
+                        <h3 class="question-title">3. Sağlığınız ile ilgili bilmemiz gereken durumlar ve sigara kullanımınız nedir?</h3>
+                        <i class="fas fa-chevron-down question-toggle"></i>
+                    </div>
+                    <div class="question-content">
+                        <div class="question-answer">
+                            <p><strong>Genel Sağlık Durumu:</strong> Mükemmel. Herhangi bir kronik hastalığım yok.</p>
+                            
+                            <p><strong>Sigara Kullanımı:</strong> Hiç sigara içmiyorum ve tütün ürünleri kullanmıyorum.</p>
+                            
+                            <p><strong>Çalışma Performansı:</strong></p>
+                            <ul>
+                                <li><strong>Fiziksel Durum:</strong> Uzun süreli kod yazma için uygun ergonomik setup</li>
+                                <li><strong>Mental Performans:</strong> AI Algo Trade'de 10+ saat kesintisiz coding sessions</li>
+                                <li><strong>Stres Yönetimi:</strong> Meditation ve düzenli egzersiz</li>
+                            </ul>
+
+                            <div class="project-reference">
+                                <h4>Çalışma Disiplini:</h4>
+                                <p>AdPro projesinde 3 haftalık yoğun çalışma döneminde günde 12+ saat çalıştım, sağlık problemi yaşamadım. Düzenli beslenme ve egzersiz rutinlerim var.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soru 4 -->
+                <div class="question-card" data-category="personal">
+                    <div class="question-header" onclick="toggleQuestion(this)">
+                        <h3 class="question-title">4. 5-10 yıllık hedefleriniz ve gurur duyduğunuz özellikleriniz nelerdir?</h3>
+                        <i class="fas fa-chevron-down question-toggle"></i>
+                    </div>
+                    <div class="question-content">
+                        <div class="question-answer">
+                            <p><strong>5 Yıllık Hedefler:</strong></p>
+                            <ul>
+                                <li><strong>Teknik Leadership:</strong> 10+ kişilik development team lead'i</li>
+                                <li><strong>AI Expertise:</strong> Custom LLM training ve fine-tuning uzmanı</li>
+                                <li><strong>Product Innovation:</strong> Kendi AI-powered SaaS ürünümü geliştirmek</li>
+                                <li><strong>Industry Recognition:</strong> Tech conference'larda konuşmacı</li>
+                            </ul>
+
+                            <p><strong>10 Yıllık Hedefler:</strong></p>
+                            <ul>
+                                <li><strong>Entrepreneurship:</strong> AI-focused tech startup kurucusu</li>
+                                <li><strong>Mentorship:</strong> 100+ developer'ı mentor etmek</li>
+                                <li><strong>Open Source:</strong> Widely-used open source library geliştirmek</li>
+                            </ul>
+
+                            <p><strong>100 Yıl Sonra Miras:</strong></p>
+                            <ul>
+                                <li><strong>Teknoloji:</strong> AI democratization'a katkı sağlamış olmak</li>
+                                <li><strong>Eğitim:</strong> Türkiye'de AI eğitim sistemine katkı</li>
+                                <li><strong>Sosyal Etki:</strong> Technology for good projeleri</li>
+                            </ul>
+
+                            <p><strong>Gurur Duyduğum Özellikler:</strong></p>
+                            <ul>
+                                <li><strong>Problem Solving:</strong> AI Algo Trade'de 10s latency'yi 2s'ye düşürdüm</li>
+                                <li><strong>Innovation:</strong> AdPro'da %40 response rate (industry average %5)</li>
+                                <li><strong>Reliability:</strong> 5 projede de deadline'ları tutturdum</li>
+                                <li><strong>Learning Agility:</strong> Her projede yeni teknoloji öğrenip uyguladım</li>
+                            </ul>
+
+                            <div class="project-reference">
+                                <h4>Concrete Actions:</h4>
+                                <p>Hedeflerim için haftada 10+ saat learning, 3 open source contribution, 1 technical blog post yazıyorum. Meta-Ajanlar projesi ile AI agent space'inde recognition kazandım.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soru 5 -->
+                <div class="question-card" data-category="personal">
+                    <div class="question-header" onclick="toggleQuestion(this)">
+                        <h3 class="question-title">5. Kendinizde gördüğünüz eksiklikler nelerdir?</h3>
+                        <i class="fas fa-chevron-down question-toggle"></i>
+                    </div>
+                    <div class="question-content">
+                        <div class="question-answer">
+                            <p><strong>Teknik Eksiklikler:</strong></p>
+                            <ul>
+                                <li><strong>DevOps:</strong> Kubernetes, advanced AWS services konusunda gelişmem gerekiyor</li>
+                                <li><strong>Mobile Native:</strong> Swift/Kotlin native development deneyimim sınırlı</li>
+                                <li><strong>System Design:</strong> Large-scale distributed systems architecture</li>
+                            </ul>
+
+                            <p><strong>Soft Skills Eksiklikleri:</strong></p>
+                            <ul>
+                                <li><strong>Delegation:</strong> Her şeyi kendim yapmaya çalışma eğilimi</li>
+                                <li><strong>Perfectionism:</strong> Bazen over-engineering yapabiliyorum</li>
+                                <li><strong>Public Speaking:</strong> Büyük kitleler önünde sunum deneyimim az</li>
+                            </ul>
+
+                            <p><strong>İyileştirme Planım:</strong></p>
+                            <ul>
+                                <li><strong>AWS Certification:</strong> Solutions Architect sertifikası alacağım</li>
+                                <li><strong>Team Leadership:</strong> Management courses ve mentorship</li>
+                                <li><strong>Communication:</strong> Toastmasters katılımı</li>
+                            </ul>
+
+                            <div class="project-reference">
+                                <h4>Öğrenme Örnekleri:</h4>
+                                <p>ThermalX projesinde computer vision konusunda sıfırdan öğrendim. AI Algo Trade'de financial domain knowledge eksikliğimi 2 ayda kapattım. Sürekli öğrenme mindset'im var.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">İletişim</h2>
+                <p class="section-subtitle">
+                    Projeleriniz için benimle iletişime geçin
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <h3 class="contact-title">E-posta</h3>
+                    <p class="contact-info">turhanhamza@gmail.com</p>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fab fa-github contact-icon"></i>
+                    <h3 class="contact-title">GitHub</h3>
+                    <p class="contact-info">github.com/elkekoitan</p>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                    <h3 class="contact-title">Konum</h3>
+                    <p class="contact-info">İstanbul, Türkiye</p>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fab fa-linkedin contact-icon"></i>
+                    <h3 class="contact-title">LinkedIn</h3>
+                    <p class="contact-info">linkedin.com/in/hamza-turhan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Question toggle functionality
+        function toggleQuestion(header) {
+            const content = header.nextElementSibling;
+            const toggle = header.querySelector('.question-toggle');
+            
+            // Close all other questions
+            document.querySelectorAll('.question-content').forEach(item => {
+                if (item !== content) {
+                    item.classList.remove('active');
+                    item.previousElementSibling.querySelector('.question-toggle').style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current question
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                toggle.style.transform = 'rotate(180deg)';
+            } else {
+                toggle.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(15, 15, 35, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(15, 15, 35, 0.95)';
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.project-card, .skill-category, .question-card, .contact-card, .quantum-cell').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Quantum layout animation
+        function animateQuantumCells() {
+            const cells = document.querySelectorAll('.quantum-cell');
+            cells.forEach((cell, index) => {
+                setTimeout(() => {
+                    cell.style.transform = 'translateY(-5px)';
+                    setTimeout(() => {
+                        cell.style.transform = 'translateY(0)';
+                    }, 200);
+                }, index * 100);
+            });
+        }
+
+        // Animate quantum cells every 5 seconds
+        setInterval(animateQuantumCells, 5000);
+    </script>
+
+</body>
+</html>
