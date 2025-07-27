@@ -31,7 +31,7 @@ import {
 import { projects } from '@/data/projects';
 import { skills } from '@/data/skills';
 import { interviewAnswers } from '@/data/interview-answers';
-import QuantumDashboard from '@/components/quantum/QuantumDashboard';
+
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -59,7 +59,7 @@ export default function Home() {
         </div>
       </div>
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 glass">
+      <nav className="fixed top-0 w-full z-50 glass-card backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <motion.div
@@ -70,7 +70,7 @@ export default function Home() {
               Hamza Turhan
             </motion.div>
             <div className="hidden md:flex space-x-8">
-              {['hero', 'about', 'projects', 'skills', 'quantum', 'answers', 'contact'].map((section) => (
+              {['hero', 'about', 'projects', 'skills', 'answers', 'contact'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -107,15 +107,7 @@ export default function Home() {
               Creating innovative solutions that drive business growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection('quantum')}
-                className="px-8 py-3 bg-gradient-to-r from-accent-cyan to-accent-teal text-white rounded-lg font-semibold hover:shadow-lg transition-all"
-              >
-                <Atom className="w-5 h-5 mr-2" />
-                Quantum Dashboard
-              </motion.button>
+
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -489,24 +481,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quantum Dashboard Section */}
-      <section id="quantum" className="py-20 bg-gradient-to-br from-black via-purple-900/20 to-black">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold mb-4 gradient-text">Quantum AI Trading Dashboard</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Advanced AI-powered pattern recognition and real-time market analysis system
-            </p>
-          </motion.div>
-          
-          <QuantumDashboard />
-        </div>
-      </section>
+
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-dark-800">
@@ -532,7 +507,7 @@ export default function Home() {
             >
               <Mail className="w-8 h-8 text-accent-cyan mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2 text-white">Email</h3>
-              <p className="text-gray-300">hamza.turhan@example.com</p>
+              <p className="text-gray-300">turhanhamza@gmail.com</p>
             </motion.div>
 
             <motion.div
@@ -543,7 +518,7 @@ export default function Home() {
             >
               <Phone className="w-8 h-8 text-accent-teal mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2 text-white">Phone</h3>
-              <p className="text-gray-300">+90 555 123 4567</p>
+              <p className="text-gray-300">+90 554 541 7561</p>
             </motion.div>
 
             <motion.div

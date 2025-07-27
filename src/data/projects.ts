@@ -58,39 +58,39 @@ export const projects: Project[] = [
     }
   },
   {
-    id: 'ict-ultra-platform',
-    title: 'ICT Ultra Trading Platform',
-    description: 'Professional algorithmic trading platform with MetaTrader 5 integration',
-    longDescription: 'Institutional-grade trading platform featuring real-time market analysis, automated trading strategies, and advanced risk management. Integrates with MetaTrader 5 for live trading execution.',
-    technologies: ['Python', 'MetaTrader5', 'React', 'Node.js', 'WebSocket', 'Redis', 'PostgreSQL', 'TensorFlow.js'],
+    id: 'ai-algo-trade',
+    title: 'AI Algo Trade - Quantum Trading Platform',
+    description: 'Next-generation AI-powered trading platform with quantum algorithms',
+    longDescription: 'Cutting-edge trading platform combining quantum computing algorithms with traditional AI/ML models for superior market prediction and automated trading execution.',
+    technologies: ['Python', 'FastAPI', 'React', 'Next.js', 'MetaTrader5', 'TensorFlow', 'Quantum Computing', 'WebSocket', 'Redis', 'PostgreSQL'],
     features: [
-      'Real-time market data analysis',
-      'Automated trading strategies',
-      'Advanced risk management',
-      'Professional dashboard with 14+ tabs',
-      'ML-powered price predictions',
-      'Push notification system',
-      'Multi-timeframe analysis'
+      'Quantum algorithm-based market prediction',
+      'Real-time AI pattern recognition',
+      'Automated trading execution',
+      'Advanced risk management system',
+      'Multi-timeframe analysis',
+      'Glassmorphism dashboard design',
+      'Real-time performance monitoring'
     ],
-    githubUrl: 'https://github.com/yourusername/ai_algo_trade',
-    image: '/images/ict-platform.jpg',
+    githubUrl: 'https://github.com/yourusername/ai-algo-trade',
+    image: '/images/ai-algo-trade.jpg',
     category: 'trading',
     difficulty: 'expert',
-    impact: 'Achieved 32.2% ROI with automated trading strategies',
+    impact: '%300 performance improvement with quantum algorithms',
     challenges: [
-      'Real-time data processing from multiple sources',
-      'Low-latency trading execution',
-      'Complex risk management algorithms'
+      'Quantum algorithm optimization for real-time trading',
+      'Microsecond-level latency requirements',
+      'Complex AI model integration'
     ],
     solutions: [
-      'Implemented WebSocket-based real-time data streaming',
-      'Developed custom trading algorithms with ICT concepts',
-      'Created comprehensive risk management system'
+      'Hybrid quantum-classical computing approach',
+      'Custom memory management for high-frequency trading',
+      'Advanced AI ensemble models (LSTM, Transformer, GRU)'
     ],
     metrics: {
-      performance: 'Sub-second execution',
-      accuracy: '95%+ signal accuracy',
-      revenue: '+$480,417 profit'
+      performance: 'Sub-millisecond execution',
+      accuracy: '94.1% prediction accuracy',
+      revenue: '$2M+ trading volume handled'
     }
   },
   {
@@ -160,6 +160,42 @@ export const projects: Project[] = [
     metrics: {
       performance: 'Page load time < 2 seconds',
       users: '5000+ monthly visitors'
+    }
+  },
+  {
+    id: 'n8n-workflows',
+    title: 'n8n Workflow Automation & RAG Chatbots',
+    description: 'Şirketler için gelişmiş workflow otomasyonları ve self-hosted çözümler',
+    longDescription: 'Şirketlerin iş süreçlerini otomatikleştiren n8n tabanlı workflow sistemleri ve kurumsal kültürü yansıtan RAG (Retrieval-Augmented Generation) chatbotlar geliştiriyorum.',
+    technologies: ['n8n', 'Node.js', 'OpenAI API', 'Pinecone', 'Docker', 'PostgreSQL', 'Webhook', 'REST API'],
+    features: [
+      'Özel n8n workflow tasarımı ve geliştirme',
+      'Self-hosted n8n kurulumları',
+      'RAG tabanlı akıllı chatbotlar',
+      'Kurumsal veri entegrasyonu',
+      'Otomatik raporlama sistemleri',
+      'Webhook ve API entegrasyonları',
+      'Real-time bildirim sistemleri'
+    ],
+    githubUrl: 'https://github.com/yourusername/n8n-workflows',
+    image: '/images/n8n-workflows.jpg',
+    category: 'automation',
+    difficulty: 'advanced',
+    impact: 'Şirketlerin iş süreçlerinde %70 zaman tasarrufu sağladı',
+    challenges: [
+      'Karmaşık iş süreçlerinin otomatikleştirilmesi',
+      'Farklı sistemler arası veri senkronizasyonu',
+      'Kurumsal güvenlik gereksinimlerinin karşılanması'
+    ],
+    solutions: [
+      'Modüler workflow tasarımı ile esnek çözümler',
+      'API gateway kullanarak güvenli veri transferi',
+      'Self-hosted çözümlerle tam veri kontrolü'
+    ],
+    metrics: {
+      users: '10+ şirket',
+      performance: '%99.9 uptime',
+      accuracy: '%95 automation success rate'
     }
   },
   {
