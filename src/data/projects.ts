@@ -200,36 +200,141 @@ export const projects: Project[] = [
   },
   {
     id: 'slack-integration',
-    title: 'Slack Customer Service Automation',
-    description: 'AI-powered customer service automation platform',
-    longDescription: 'Intelligent customer service automation system that integrates with Slack, featuring AI chatbots, ticket management, and analytics. Streamlines customer support operations.',
+    title: 'Slack Müşteri Hizmetleri Otomasyonu',
+    description: 'Yapay zeka destekli müşteri hizmetleri otomasyon platformu',
+    longDescription: 'Slack ile entegre çalışan akıllı müşteri hizmetleri sistemi. AI chatbotlar, bilet yönetimi ve analitik özellikleri ile müşteri destek süreçlerini otomatikleştiriyor.',
     technologies: ['Node.js', 'Slack API', 'OpenAI', 'PostgreSQL', 'Redis', 'React', 'WebSocket'],
     features: [
-      'AI-powered chatbot integration',
-      'Automatic ticket routing',
-      'Real-time analytics',
-      'Multi-channel support',
-      'Custom workflow automation',
-      'Performance monitoring'
+      'Yapay zeka destekli chatbot entegrasyonu',
+      'Otomatik bilet yönlendirme',
+      'Gerçek zamanlı analitik',
+      'Çoklu kanal desteği',
+      'Özel iş akışı otomasyonu',
+      'Performans izleme'
     ],
     githubUrl: 'https://github.com/yourusername/slack-integration',
     image: '/images/slack-integration.jpg',
     category: 'automation',
     difficulty: 'advanced',
-    impact: 'Reduced response time by 70% and improved customer satisfaction',
+    impact: 'Yanıt süresini %70 azalttı ve müşteri memnuniyetini artırdı',
     challenges: [
-      'Complex workflow automation',
-      'AI response accuracy',
-      'Multi-platform integration'
+      'Karmaşık iş akışı otomasyonu',
+      'AI yanıt doğruluğu',
+      'Çoklu platform entegrasyonu'
     ],
     solutions: [
-      'Developed custom workflow engine',
-      'Implemented context-aware AI responses',
-      'Created unified API for multiple platforms'
+      'Özel iş akışı motoru geliştirdim',
+      'Bağlam farkında AI yanıtları uyguladım',
+      'Birden fazla platform için birleşik API oluşturdum'
     ],
     metrics: {
-      performance: 'Response time < 30 seconds',
-      accuracy: '92% customer satisfaction'
+      performance: 'Yanıt süresi < 30 saniye',
+      accuracy: '%92 müşteri memnuniyeti'
+    }
+  },
+  {
+    id: 'crypto-trading-bot',
+    title: 'Kripto Para Trading Botu',
+    description: 'Otomatik kripto para alım-satım sistemi',
+    longDescription: 'Binance ve diğer borsalar için geliştirilmiş akıllı trading bot. Teknik analiz, risk yönetimi ve otomatik alım-satım stratejileri ile 7/24 çalışıyor.',
+    technologies: ['Python', 'Binance API', 'TensorFlow', 'Pandas', 'NumPy', 'Redis', 'Docker'],
+    features: [
+      'Otomatik teknik analiz',
+      'Risk yönetimi sistemi',
+      'Çoklu strateji desteği',
+      'Gerçek zamanlı piyasa takibi',
+      'Kar/zarar raporlama',
+      'Telegram bildirimleri'
+    ],
+    githubUrl: 'https://github.com/yourusername/crypto-bot',
+    image: '/images/crypto-bot.jpg',
+    category: 'trading',
+    difficulty: 'expert',
+    impact: '6 ayda %45 getiri sağladı, günlük ortalama 50+ işlem',
+    challenges: [
+      'Volatil piyasa koşullarına uyum',
+      'Hızlı karar verme algoritmaları',
+      'Risk yönetimi optimizasyonu'
+    ],
+    solutions: [
+      'Makine öğrenmesi ile piyasa tahmini',
+      'Dinamik stop-loss stratejileri',
+      'Portföy çeşitlendirme algoritmaları'
+    ],
+    metrics: {
+      performance: 'Milisaniye seviyesinde işlem',
+      accuracy: '%78 başarılı işlem oranı',
+      revenue: '%45 yıllık getiri'
+    }
+  },
+  {
+    id: 'restaurant-management',
+    title: 'Restoran Yönetim Sistemi',
+    description: 'Kapsamlı restoran işletme yönetim platformu',
+    longDescription: 'Restoran işletmeleri için geliştirilmiş tam entegre yönetim sistemi. Sipariş yönetimi, stok takibi, personel yönetimi ve müşteri ilişkileri modülleri içeriyor.',
+    technologies: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Stripe', 'Tailwind CSS'],
+    features: [
+      'Sipariş ve masa yönetimi',
+      'Stok ve tedarik takibi',
+      'Personel vardiya yönetimi',
+      'Müşteri sadakat programı',
+      'Mali raporlama sistemi',
+      'QR menü ve online sipariş'
+    ],
+    githubUrl: 'https://github.com/yourusername/restaurant-management',
+    image: '/images/restaurant-system.jpg',
+    category: 'web',
+    difficulty: 'advanced',
+    impact: '3 restoran zincirinde kullanılıyor, %30 operasyonel verimlilik artışı',
+    challenges: [
+      'Gerçek zamanlı sipariş senkronizasyonu',
+      'Karmaşık stok yönetimi',
+      'Çoklu lokasyon desteği'
+    ],
+    solutions: [
+      'WebSocket ile gerçek zamanlı güncellemeler',
+      'Akıllı stok tahmin algoritmaları',
+      'Merkezi yönetim paneli'
+    ],
+    metrics: {
+      users: '150+ günlük aktif kullanıcı',
+      performance: '99.8% uptime',
+      revenue: '%25 ciro artışı'
+    }
+  },
+  {
+    id: 'smart-home-iot',
+    title: 'Akıllı Ev IoT Sistemi',
+    description: 'IoT tabanlı akıllı ev otomasyon platformu',
+    longDescription: 'Ev otomasyonu için geliştirilmiş IoT sistemi. Aydınlatma, ısıtma, güvenlik ve enerji yönetimi modülleri ile akıllı ev deneyimi sunuyor.',
+    technologies: ['React Native', 'Node.js', 'MQTT', 'Arduino', 'Raspberry Pi', 'MongoDB'],
+    features: [
+      'Akıllı aydınlatma kontrolü',
+      'Isı ve klima yönetimi',
+      'Güvenlik kamera sistemi',
+      'Enerji tüketim takibi',
+      'Sesli komut desteği',
+      'Uzaktan erişim'
+    ],
+    githubUrl: 'https://github.com/yourusername/smart-home',
+    image: '/images/smart-home.jpg',
+    category: 'mobile',
+    difficulty: 'expert',
+    impact: '%40 enerji tasarrufu, 5 evde aktif kullanımda',
+    challenges: [
+      'Farklı IoT cihazları entegrasyonu',
+      'Güvenli veri iletimi',
+      'Düşük güç tüketimi'
+    ],
+    solutions: [
+      'Standart MQTT protokolü kullanımı',
+      'End-to-end şifreleme',
+      'Optimize edilmiş veri paketleri'
+    ],
+    metrics: {
+      performance: '< 100ms yanıt süresi',
+      users: '25+ aktif cihaz',
+      accuracy: '%40 enerji tasarrufu'
     }
   }
 ];

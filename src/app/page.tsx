@@ -97,9 +97,9 @@ export default function Home() {
             className="glass-card p-8 rounded-3xl"
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="gradient-text">Full-Stack Developer</span>
+              <span className="gradient-text">Fullstack Developer</span>
               <br />
-              <span className="text-white">AI/ML Engineer</span>
+              <span className="text-white">AI Sistem Mimarı</span>
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-accent-cyan to-accent-purple mx-auto mb-6 rounded-full"></div>
             <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -147,8 +147,8 @@ export default function Home() {
           >
             <h2 className="text-4xl font-bold mb-4 gradient-text">About Me</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Experienced Full-Stack Developer with expertise in AI/ML, trading platforms, and modern web technologies.
-              Passionate about creating innovative solutions that solve real-world problems.
+              Deneyimli Fullstack Developer ve AI Sistem Mimarı. Ticaret platformları, modern web teknolojileri ve yapay zeka sistemleri konusunda uzmanım.
+              Gerçek dünya problemlerine yenilikçi çözümler üretmeyi seviyorum.
             </p>
           </motion.div>
 

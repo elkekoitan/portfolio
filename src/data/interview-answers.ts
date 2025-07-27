@@ -12,7 +12,7 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 1,
     question: "Hali hazırda veya son yapmış olduğunuz iş nedir? Bu işin sevdiğiniz ve sevmediğiniz yanları nelerdir?",
-    answer: "Şu anda serbest çalışan Full-Stack Developer ve Yapay Zeka/Makine Öğrenmesi Uzmanı olarak çalışıyorum. Son projelerim arasında AI Algo Trade (kuantum ticaret platformu), AdPro (yapay zeka destekli pazarlama otomasyonu), Oto Mansuroğlu (e-ticaret platformu), ThermalX (güneş paneli analiz sistemi) ve n8n tabanlı iş akışı otomasyonları bulunuyor. Sevdiğim yanları: En son teknolojilerle çalışmak, yapay zeka algoritmalarını gerçek dünya problemlerine uygulamak, kuantum bilişim ve blokzincir teknolojilerini keşfetmek. Sevmediğim yanları: Bazen müşterilerin teknik gereksinimleri tam anlamaması ve gerçekçi olmayan son teslim tarihi beklentileri. Ancak bu durumları etkili iletişim ve proje yönetimi ile çözüyorum.",
+    answer: "Şu anda serbest çalışan Fullstack Developer ve AI Sistem Mimarı olarak çalışıyorum. Soratrontech.com gibi firmaların projelerine destek veriyorum. Son projelerim arasında AI Algo Trade (akıllı ticaret platformu), AdPro (yapay zeka destekli pazarlama sistemi), Oto Mansuroğlu (e-ticaret sitesi), güneş paneli analiz sistemi ve şirketler için n8n tabanlı iş akışı otomasyonları var. Sevdiğim yanları: Yeni teknolojilerle çalışmak, yapay zeka ile gerçek problemleri çözmek, sürekli yeni şeyler öğrenmek. Zorlandığım yanları: Bazen müşteriler teknik detayları tam anlamıyor ve gerçekçi olmayan süreler istiyorlar. Ama bu durumları sabırla anlatarak ve iyi planlama yaparak çözüyorum.",
     projects: ["ai-algo-trade", "adpro", "oto-mansuroglu", "thermalx", "qtscrcpy"],
     technologies: ["AI/ML", "Quantum Computing", "React", "Python", "Next.js", "TypeScript"],
     confidence: 98,
@@ -129,7 +129,7 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 14,
     question: "Referans olarak kimleri verebilirsiniz ve sizi nasıl değerlendirecekler?",
-    answer: "Referanslarım: 1) Servet Zengin (Proje Yöneticisi / Loodos) - Tel: 0536 956 31 00, Email: servet.zengin@icloud.com - 'Teknik uzmanlık, güvenilir teslimat ve problem çözme yetenekleri mükemmel' 2) Mehmet Ali Karataş (Bilgi İşlem Teknolojileri Müdürü / Türk Loydu) - Tel: 0505 413 25 53, Email: mehmetali.karatas@gmail.com - 'AI/ML konularında derin bilgi, kod kalitesi yüksek, takım çalışmasında başarılı'. Artılarım: Teknik mükemmellik, hızlı öğrenme, güvenilir teslimat, yaratıcı problem çözme. Eksilerim: Mükemmeliyetçi eğilimler (bazen aşırı mühendislik), sunum becerilerinde gelişim gerekli. İletişim bilgileri: Profesyonel referanslar talep üzerine sağlanabilir.",
+    answer: "Referanslarım: 1) Şenol (Freelance Proje Koordinatörü / Soratrontech.com) - 'Hamza ile birlikte çalıştığımız projelerde teknik yetkinliği ve problem çözme becerisi gerçekten etkileyici. Özellikle AI sistemleri konusunda çok başarılı.' 2) Servet Zengin (Proje Yöneticisi / Loodos) - Tel: 0536 956 31 00 - 'Güvenilir, kaliteli iş çıkarıyor ve her zaman zamanında teslim ediyor' 3) Mehmet Ali Karataş (Bilgi İşlem Müdürü / Türk Loydu) - Tel: 0505 413 25 53 - 'Yapay zeka konularında gerçekten bilgili, kod kalitesi çok iyi'. Güçlü yanlarım: Teknik konularda hızlı öğrenme, güvenilir çalışma, yaratıcı çözümler bulma. Gelişim alanlarım: Sunum yaparken biraz heyecanlanıyorum, bazen işi mükemmel yapmaya çalışırken fazla detaya takılabiliyorum.",
     projects: ["ai-algo-trade", "adpro", "thermalx"],
     technologies: ["Professional References", "Networking"],
     confidence: 92,
@@ -138,7 +138,7 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 15,
     question: "E-ticaret sistemi yazmayı yapabilir misiniz?",
-    answer: "Evet, comprehensive e-ticaret sistemleri geliştirebilirim. Oto Mansuroğlu projesinde Next.js 14, TypeScript, Tailwind CSS ve Supabase kullanarak full-featured e-ticaret platformu geliştirdim. Özellikler: AI destekli ürün önerileri, gerçek zamanlı stok takibi, güvenli ödeme entegrasyonları (Stripe, Iyzico), advanced search & filtering, inventory management, order tracking, customer analytics. Quantum AI Trading Dashboard'da kullandığım glassmorphism tasarım tekniklerini e-ticaret arayüzüne de uyguladım. PCI DSS uyumlu ödeme sistemleri, SEO optimization, performance monitoring ve A/B testing ile conversion rate'i %40 artırdık. Microservices architecture ile scalable sistem tasarladım.",
+    answer: "Tabii ki, kapsamlı e-ticaret siteleri yapabiliyorum. Oto Mansuroğlu projesinde Next.js, TypeScript ve Supabase kullanarak tam özellikli bir e-ticaret platformu geliştirdim. Neler var: Yapay zeka destekli ürün önerileri, anlık stok takibi, güvenli ödeme sistemleri (Stripe, Iyzico), gelişmiş arama ve filtreleme, stok yönetimi, sipariş takibi, müşteri analitiği. Portfolio'da kullandığım cam efekti tasarım tekniklerini e-ticaret arayüzüne de uyguladım. Güvenli ödeme sistemleri, arama motoru optimizasyonu ve performans izleme ile satış oranını %40 artırdık. Büyüyebilir sistem mimarisi ile tasarladım.",
     projects: ["oto-mansuroglu", "ai-algo-trade"],
     technologies: ["Next.js", "TypeScript", "Supabase", "Stripe", "Tailwind CSS", "AI/ML"],
     confidence: 95,
@@ -147,7 +147,7 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 16,
     question: "Öğretim Yönetim Sistemi (LMS) yazabilir misiniz, ne kadar sürede tamamlayabilirsiniz?",
-    answer: "Evet, modern LMS sistemleri geliştirebilirim. AdPro projesinde React Native ile AI destekli bir LMS sistemi geliştirdim. Google Gemini AI entegrasyonu ile kişiselleştirilmiş öğrenme deneyimi sağladık. Özellikler: Adaptive learning paths, AI-powered content recommendations, real-time progress tracking, gamification elements, social learning features, video streaming, quiz systems, certificate generation. Quantum dashboard'daki pattern recognition algoritmalarını eğitim içerik analizi için uyarladım. Engagement rate'i %60 artırdık. Süre: Basic LMS (4-6 hafta), Advanced AI-powered LMS (8-12 hafta), Enterprise-level LMS (12-16 hafta). Complexity ve requirements'a göre değişir.",
+    answer: "Evet, modern öğretim yönetim sistemleri yapabiliyorum. AdPro projesinde React Native ile yapay zeka destekli bir eğitim sistemi geliştirdim. Google Gemini AI ile kişiselleştirilmiş öğrenme deneyimi sağladık. Neler var: Uyarlanabilir öğrenme yolları, yapay zeka destekli içerik önerileri, anlık ilerleme takibi, oyunlaştırma öğeleri, sosyal öğrenme özellikleri, video akışı, sınav sistemleri, sertifika oluşturma. Portfolio'daki desen tanıma algoritmalarını eğitim içerik analizi için uyarladım. Kullanıcı etkileşimini %60 artırdık. Süre: Temel sistem (4-6 hafta), Gelişmiş yapay zeka destekli sistem (8-12 hafta), Kurumsal seviye sistem (12-16 hafta). Karmaşıklık ve ihtiyaçlara göre değişir.",
     projects: ["adpro", "ai-algo-trade"],
     technologies: ["React Native", "Google Gemini AI", "TensorFlow", "Real-time Analytics"],
     confidence: 92,
@@ -156,7 +156,7 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 17,
     question: "Bugüne kadar yer aldığınız projeler arasında en çok gurur duyduğunuz hangisiydi?",
-    answer: "En çok gurur duyduğum proje AI Algo Trade - Quantum Trading Platform. Bu projede: 1) Quantum computing algorithms ile traditional trading strategies'i combine ettim, 2) Real-time market data processing ile microsecond-level decision making sağladım, 3) LSTM, Transformer ve GRU models ile %85 accuracy prediction rate achieve ettim, 4) MetaTrader 5 entegrasyonu ile automated trading system kurduk, 5) Glassmorphism design ile intuitive user experience oluşturduk. Technical challenges: High-frequency data processing, complex AI model optimization, real-time WebSocket connections, secure financial transactions. Impact: %300 performance improvement, $2M+ trading volume handled, 95% uptime achieved. Bu proje AI/ML expertise'imi financial domain'e successfully apply ettiğimi gösterdi.",
+    answer: "En çok gurur duyduğum proje AI Algo Trade - Akıllı Ticaret Platformu. Bu projede: 1) Kuantum bilişim algoritmalarını geleneksel ticaret stratejileriyle birleştirdim, 2) Gerçek zamanlı piyasa verisi işleme ile mikrosaniye seviyesinde karar verme sağladım, 3) LSTM, Transformer ve GRU modelleri ile %85 doğruluk oranında tahmin başardım, 4) MetaTrader 5 entegrasyonu ile otomatik ticaret sistemi kurduk, 5) Cam efekti tasarımı ile sezgisel kullanıcı deneyimi oluşturduk. Teknik zorluklar: Yüksek frekanslı veri işleme, karmaşık yapay zeka modeli optimizasyonu, gerçek zamanlı bağlantılar, güvenli finansal işlemler. Etki: %300 performans artışı, 2 milyon dolar+ ticaret hacmi, %95 çalışma süresi. Bu proje yapay zeka uzmanlığımı finans alanına başarıyla uyguladığımı gösterdi.",
     projects: ["ai-algo-trade"],
     technologies: ["Quantum Computing", "AI/ML", "Real-time Processing", "Financial Systems"],
     confidence: 98,
