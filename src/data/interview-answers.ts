@@ -21,7 +21,7 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 2,
     question: "Görüşmemizin olumlu geçmesi durumunda bizimle ne zaman çalışmaya başlayabilirsiniz?",
-    answer: "Mevcut projelerimi tamamladıktan sonra 2 hafta içinde başlayabilirim. AI Algo Trade projesinde son optimizasyonları yapıyorum ve ThermalX projesinde deployment sürecindeyim. Ancak acil durumlar için part-time olarak hemen başlayabilirim. Transition sürecinde mevcut projelerimde knowledge transfer yapacağım ve yeni pozisyonda %100 odaklanacağım. Flexible working arrangements konusunda açığım ve remote/hybrid çalışma modellerine uyum sağlayabilirim.",
+    answer: "Mevcut projelerimi tamamladıktan sonra 2 hafta içinde başlayabilirim. AI Algo Trade projesinde son iyileştirmeleri yapıyorum ve ThermalX projesinde yayınlama sürecindeyim. Ancak acil durumlar için yarı zamanlı olarak hemen başlayabilirim. Geçiş sürecinde mevcut projelerimde bilgi aktarımı yapacağım ve yeni pozisyonda tam odaklanacağım. Esnek çalışma düzenlemeleri konusunda açığım ve uzaktan/hibrit çalışma modellerine uyum sağlayabilirim.",
     projects: ["ai-algo-trade", "thermalx"],
     technologies: ["Project Management", "Transition Planning"],
     confidence: 95,
@@ -30,7 +30,7 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 3,
     question: "İşinizi olumsuz etkileyebilecek veya işyerinde ayarlama yapmamızı gerektirecek sağlığınız ile ilgili bilmemiz gereken ne gibi durumlar söz konusudur?",
-    answer: "Herhangi bir kronik sağlık problemim bulunmuyor. Düzenli spor yapıyorum ve healthy lifestyle sürdürüyorum. Ergonomik çalışma ortamı tercih ediyorum ve long coding sessions için proper setup kullanıyorum. Eye strain'i önlemek için blue light filters ve regular breaks alıyorum. Mental health için meditation ve work-life balance'a önem veriyorum. Özel bir ayarlama gerektiren durumum yok, standart office environment'ta rahatça çalışabilirim.",
+    answer: "Herhangi bir kronik sağlık problemim bulunmuyor. Düzenli spor yapıyorum ve sağlıklı yaşam tarzı sürdürüyorum. Ergonomik çalışma ortamı tercih ediyorum ve uzun kodlama seansları için uygun düzenek kullanıyorum. Göz yorgunluğunu önlemek için mavi ışık filtreleri ve düzenli molalar alıyorum. Ruh sağlığı için meditasyon ve iş-yaşam dengesine önem veriyorum. Özel bir ayarlama gerektiren durumum yok, standart ofis ortamında rahatça çalışabilirim.",
     projects: [],
     technologies: ["Health Management", "Ergonomics", "Work-Life Balance"],
     confidence: 100,
@@ -39,7 +39,7 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 4,
     question: "Günde kaç paket sigara veya tütün ürünleri tüketiyorsunuz?",
-    answer: "Hiç sigara içmiyorum ve tütün ürünleri kullanmıyorum. Healthy lifestyle'ı benimsiyor, düzenli egzersiz yapıyor ve balanced nutrition'a dikkat ediyorum. Coding performance'ımı optimize etmek için caffeine intake'imi kontrol ediyorum ve hydration'a önem veriyorum. Clean air environment'ta çalışmayı tercih ediyorum ve second-hand smoke'tan kaçınıyorum.",
+    answer: "Hiç sigara içmiyorum ve tütün ürünleri kullanmıyorum. Sağlıklı yaşam tarzını benimsiyor, düzenli egzersiz yapıyor ve dengeli beslenmeye dikkat ediyorum. Kodlama performansımı artırmak için kafein alımımı kontrol ediyorum ve su içmeye önem veriyorum. Temiz hava ortamında çalışmayı tercih ediyorum ve pasif içicilikten kaçınıyorum.",
     projects: [],
     technologies: ["Health", "Lifestyle"],
     confidence: 100,
@@ -48,7 +48,7 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 5,
     question: "Önümüzdeki 5 yıl ve 10 yıllık hedefleriniz nedir? 100 yıl sonra sizden kişi olarak geriye kalanın ne olmasını isterdiniz?",
-    answer: "5 yıllık hedeflerim: AI/ML alanında deep expertise kazanmak, quantum computing ve blockchain teknolojilerinde specialization, kendi AI startup'ımı kurmak, open-source projelere major contributions yapmak. 10 yıllık hedeflerim: Global tech company kurmak, AI ethics ve responsible AI development'ta thought leader olmak, next-generation developers'ı mentor etmek. 100 yıl sonra: Humanity'ye faydalı AI solutions geliştirmiş, technology democratization'a katkıda bulunmuş, ethical AI development'ın pioneer'ı olarak hatırlanmak istiyorum. Legacy'im: Open-source contributions, mentored developers ve positive impact on society.",
+    answer: "5 yıllık hedeflerim: Yapay zeka alanında derin uzmanlık kazanmak, kuantum bilişim ve blokzincir teknolojilerinde uzmanlaşmak, kendi yapay zeka girişimimi kurmak, açık kaynak projelere büyük katkılar yapmak. 10 yıllık hedeflerim: Küresel teknoloji şirketi kurmak, yapay zeka etiği ve sorumlu yapay zeka geliştirmede düşünce lideri olmak, yeni nesil geliştiricilere rehberlik etmek. 100 yıl sonra: İnsanlığa faydalı yapay zeka çözümleri geliştirmiş, teknoloji demokratikleşmesine katkıda bulunmuş, etik yapay zeka geliştirmenin öncüsü olarak hatırlanmak istiyorum. Mirasım: Açık kaynak katkıları, yetiştirdiğim geliştiriciler ve topluma olumlu etkiler.",
     projects: ["ai-algo-trade", "open-source-contributions"],
     technologies: ["AI/ML", "Quantum Computing", "Blockchain", "Leadership"],
     confidence: 97,
@@ -57,7 +57,7 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 6,
     question: "Kendinizle en çok gurur duyduğunuz özellikleriniz nelerdir?",
-    answer: "En çok gurur duyduğum özelliklerim: 1) Problem-solving ability - Complex technical challenges'ı creative solutions ile çözme yeteneğim, 2) Continuous learning mindset - Yeni teknolojileri hızla öğrenip adapt etme kapasitem, 3) Code quality obsession - Clean, maintainable ve scalable code yazma disiplinim, 4) Team collaboration - Cross-functional teams'te effective communication ve leadership skills'im, 5) Innovation drive - Cutting-edge technologies ile breakthrough solutions geliştirme passion'ım. AI Algo Trade projesinde quantum algorithms ile %300 performance improvement sağlamam bu özelliklerin sonucu.",
+    answer: "En çok gurur duyduğum özelliklerim: 1) Problem çözme yeteneği - Karmaşık teknik zorlukları yaratıcı çözümlerle aşma becerim, 2) Sürekli öğrenme zihniyeti - Yeni teknolojileri hızla öğrenip uyum sağlama kapasitem, 3) Kod kalitesi tutkusu - Temiz, sürdürülebilir ve ölçeklenebilir kod yazma disiplinim, 4) Takım çalışması - Farklı departmanlardan ekiplerde etkili iletişim ve liderlik becerilerim, 5) Yenilik tutkusu - En son teknolojilerle çığır açan çözümler geliştirme heyecanım. AI Algo Trade projesinde kuantum algoritmaları ile %300 performans artışı sağlamam bu özelliklerin sonucu.",
     projects: ["ai-algo-trade", "all-projects"],
     technologies: ["Problem Solving", "Leadership", "Innovation", "Code Quality"],
     confidence: 96,
@@ -66,7 +66,7 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 7,
     question: "Kendinizde gördüğünüz eksiklikler nelerdir?",
-    answer: "Sürekli gelişim alanlarım: 1) Public speaking - Technical presentations'da daha confident olmaya çalışıyorum, 2) Business development - Commercial aspects'te daha strong olmak istiyorum, 3) Time management - Multiple projects'te priority balancing'i optimize ediyorum, 4) Design skills - UI/UX design'da daha creative olmaya çalışıyorum. Bu eksiklikleri gidermek için: Online courses alıyorum, mentorship programlarına katılıyorum, design communities'te active oluyorum. Quantum dashboard'daki glassmorphism design'ı bu improvement'ın sonucu.",
+    answer: "Sürekli gelişim alanlarım: 1) Topluluk önünde konuşma - Teknik sunumlarda daha özgüvenli olmaya çalışıyorum, 2) İş geliştirme - Ticari konularda daha güçlü olmak istiyorum, 3) Zaman yönetimi - Birden fazla projede öncelik dengelemeyi iyileştiriyorum, 4) Tasarım becerileri - Kullanıcı arayüzü tasarımında daha yaratıcı olmaya çalışıyorum. Bu eksiklikleri gidermek için: Çevrimiçi kurslar alıyorum, mentorluk programlarına katılıyorum, tasarım topluluklarında aktif oluyorum. Portfolio'daki cam efekti tasarımı bu gelişimin sonucu.",
     projects: ["quantum-dashboard", "design-improvements"],
     technologies: ["Public Speaking", "Business Development", "Design", "Time Management"],
     confidence: 88,
@@ -93,7 +93,7 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 10,
     question: "Bir ekip arkadaşımız olarak çalışma saatleriniz ve tercihlerin nelerdir?",
-    answer: "Flexible working hours tercih ediyorum, peak productivity hours'ım 09:00-13:00 ve 15:00-19:00 arası. Remote/hybrid working'e fully adapted'im, office'te haftada 2-3 gün bulunmayı optimal buluyorum. Deep work için quiet environment, collaboration için open spaces tercih ediyorum. Time zone flexibility'im var, global teams ile çalışabilirim. Communication için Slack, project management için Jira/Linear, code collaboration için GitHub kullanıyorum. Work-life balance maintain ederek sustainable productivity sağlıyorum. Weekend'lerde emergency support verebilirim ama regular work tercih etmiyorum.",
+    answer: "Esnek çalışma saatleri tercih ediyorum, en verimli olduğum saatler 09:00-13:00 ve 15:00-19:00 arası. Uzaktan/hibrit çalışmaya tamamen uyum sağladım, ofiste haftada 2-3 gün bulunmayı en uygun buluyorum. Derin odaklanma için sessiz ortam, işbirliği için açık alanlar tercih ediyorum. Saat dilimi esnekliğim var, küresel ekiplerle çalışabilirim. İletişim için Slack, proje yönetimi için Jira/Linear, kod işbirliği için GitHub kullanıyorum. İş-yaşam dengesini koruyarak sürdürülebilir verimlilik sağlıyorum. Hafta sonları acil durum desteği verebilirim ama düzenli çalışmayı tercih etmiyorum.",
     projects: ["remote-collaboration"],
     technologies: ["Remote Work", "Collaboration Tools", "Time Management"],
     confidence: 95,
@@ -165,7 +165,7 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 18,
     question: "Frontend framework'lerinden hangilerinde tecrübeniz var?",
-    answer: "Kapsamlı frontend experience'ım var: React (5+ years), Next.js (3+ years), Vue.js (2+ years), Angular (1+ year). React ecosystem'de expert level: Hooks, Context API, Redux, React Query, Framer Motion. Next.js 14 ile SSR/SSG optimizasyonları, App Router, Server Components. Quantum dashboard'da Framer Motion ile advanced animations, glassmorphism efektleri ve 3D transforms kullandım. TypeScript ile type safety, Tailwind CSS ile utility-first approach. Challenge example: AI Algo Trade'de real-time data visualization, complex state management ve WebSocket entegrasyonu. Performance optimization: Code splitting, lazy loading, bundle analysis. Modern patterns: Compound components, render props, custom hooks.",
+    answer: "Kapsamlı ön yüz geliştirme deneyimim var: React (5+ yıl), Next.js (3+ yıl), Vue.js (2+ yıl), Angular (1+ yıl). React ekosisteminde uzman seviyede: Hooks, Context API, Redux, React Query, Framer Motion. Next.js 14 ile sunucu tarafı/statik site oluşturma iyileştirmeleri, App Router, Server Components. Portfolio'da Framer Motion ile gelişmiş animasyonlar, cam efekti tasarımı ve 3D dönüşümler kullandım. TypeScript ile tip güvenliği, Tailwind CSS ile yardımcı sınıf yaklaşımı. Zorluk örneği: AI Algo Trade'de gerçek zamanlı veri görselleştirme, karmaşık durum yönetimi ve WebSocket entegrasyonu. Performans iyileştirme: Kod bölme, tembel yükleme, paket analizi. Modern desenler: Bileşik bileşenler, render props, özel hooks.",
     projects: ["ai-algo-trade", "adpro", "oto-mansuroglu"],
     technologies: ["React", "Next.js", "Vue.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     confidence: 98,
