@@ -70,15 +70,22 @@ export default function Home() {
               Hamza Turhan
             </motion.div>
             <div className="hidden md:flex space-x-8">
-              {['hero', 'about', 'projects', 'skills', 'answers', 'contact'].map((section) => (
+              {[
+                { key: 'hero', label: 'Ana Sayfa' },
+                { key: 'about', label: 'Hakkımda' },
+                { key: 'projects', label: 'Projeler' },
+                { key: 'skills', label: 'Yetenekler' },
+                { key: 'answers', label: 'Mülakat Cevapları' },
+                { key: 'contact', label: 'İletişim' }
+              ].map((section) => (
                 <button
-                  key={section}
-                  onClick={() => scrollToSection(section)}
+                  key={section.key}
+                  onClick={() => scrollToSection(section.key)}
                   className={`text-sm font-medium transition-colors ${
-                    activeSection === section ? 'text-accent-cyan' : 'text-gray-300 hover:text-white'
+                    activeSection === section.key ? 'text-accent-cyan' : 'text-gray-300 hover:text-white'
                   }`}
                 >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                  {section.label}
                 </button>
               ))}
             </div>
@@ -89,7 +96,7 @@ export default function Home() {
       {/* Hero Section */}
       <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-accent-cyan/20 via-accent-teal/20 to-accent-purple/20 animate-pulse"></div>
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
+        <div className="relative z-10 text-center max-w-5xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -102,19 +109,91 @@ export default function Home() {
               <span className="text-white">AI Sistem Mimarı</span>
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-accent-cyan to-accent-purple mx-auto mb-6 rounded-full"></div>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Specializing in modern web technologies, AI/ML solutions, and algorithmic trading platforms.
-              Creating innovative solutions that drive business growth.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            
+            {/* AI Expertise Card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="glass p-6 rounded-2xl mb-8 border border-accent-cyan/30"
+            >
+              <div className="flex items-center justify-center mb-4">
+                <Brain className="w-8 h-8 text-accent-cyan mr-3" />
+                <h2 className="text-2xl font-bold text-accent-cyan">AI Verimlilik Uzmanı</h2>
+              </div>
+              <p className="text-lg text-gray-300 mb-4">
+                Yapay zeka entegrasyonları ile mevcut ekiplerin verimliliğini <span className="text-accent-cyan font-bold">10 kata kadar artırıyorum</span>
+              </p>
+              <div className="grid md:grid-cols-3 gap-4 text-sm">
+                <div className="flex items-center text-gray-300">
+                  <Zap className="w-4 h-4 text-accent-teal mr-2" />
+                  <span>AI Tool Entegrasyonu</span>
+                </div>
+                <div className="flex items-center text-gray-300">
+                  <Cpu className="w-4 h-4 text-accent-purple mr-2" />
+                  <span>Otomasyon Sistemleri</span>
+                </div>
+                <div className="flex items-center text-gray-300">
+                  <TrendingUp className="w-4 h-4 text-accent-coral mr-2" />
+                  <span>Süreç Optimizasyonu</span>
+                </div>
+              </div>
+            </motion.div>
 
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              Modern web teknolojileri, AI/ML çözümleri ve algoritmik ticaret platformları konusunda uzmanım.
+              Uzun zamandır yapay zekaların şirketlere entegrasyonu üzerinde çalışıyorum.
+            </p>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="glass p-4 rounded-xl"
+              >
+                <div className="text-2xl font-bold text-accent-cyan">10x</div>
+                <div className="text-sm text-gray-400">Verimlilik Artışı</div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="glass p-4 rounded-xl"
+              >
+                <div className="text-2xl font-bold text-accent-teal">15+</div>
+                <div className="text-sm text-gray-400">AI Projesi</div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                className="glass p-4 rounded-xl"
+              >
+                <div className="text-2xl font-bold text-accent-purple">4+</div>
+                <div className="text-sm text-gray-400">Yıl Deneyim</div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="glass p-4 rounded-xl"
+              >
+                <div className="text-2xl font-bold text-accent-coral">20+</div>
+                <div className="text-sm text-gray-400">AI Tool</div>
+              </motion.div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection('projects')}
-                className="px-8 py-3 border border-accent-cyan text-accent-cyan rounded-lg font-semibold hover:bg-accent-cyan hover:text-white transition-all"
+                className="px-8 py-3 bg-gradient-to-r from-accent-cyan to-accent-teal text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-accent-cyan/25 transition-all"
               >
-                Projelerimi Gör
+                <Rocket className="w-4 h-4 mr-2 inline" />
+                AI Projelerimi Gör
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -122,7 +201,8 @@ export default function Home() {
                 onClick={() => scrollToSection('answers')}
                 className="px-8 py-3 border border-accent-purple text-accent-purple rounded-lg font-semibold hover:bg-accent-purple hover:text-white transition-all"
               >
-                Interview Responses
+                <Brain className="w-4 h-4 mr-2 inline" />
+                Mülakat Cevapları
               </motion.button>
             </div>
           </motion.div>
@@ -158,23 +238,23 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h3 className="text-2xl font-bold mb-6 text-white">Technical Expertise</h3>
+              <h3 className="text-2xl font-bold mb-6 text-white">Teknik Uzmanlık</h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Code className="w-6 h-6 text-accent-cyan" />
-                  <span className="text-gray-300">Full-Stack Development (React, Python, Node.js)</span>
+                  <span className="text-gray-300">Full-Stack Geliştirme (React, Python, Node.js)</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Brain className="w-6 h-6 text-accent-teal" />
-                  <span className="text-gray-300">AI/ML & Computer Vision</span>
+                  <span className="text-gray-300">AI/ML ve Bilgisayarlı Görü</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <TrendingUp className="w-6 h-6 text-accent-purple" />
-                  <span className="text-gray-300">Algorithmic Trading Platforms</span>
+                  <span className="text-gray-300">Algoritmik Ticaret Platformları</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Smartphone className="w-6 h-6 text-accent-coral" />
-                  <span className="text-gray-300">Cross-Platform Mobile Development</span>
+                  <span className="text-gray-300">Çapraz Platform Mobil Geliştirme</span>
                 </div>
               </div>
             </motion.div>
@@ -185,22 +265,22 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="glass p-8 rounded-2xl"
             >
-              <h3 className="text-2xl font-bold mb-6 text-white">Key Achievements</h3>
+              <h3 className="text-2xl font-bold mb-6 text-white">Önemli Başarılar</h3>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-300">Projects Completed</span>
+                  <span className="text-gray-300">Tamamlanan Projeler</span>
                   <span className="text-accent-cyan font-bold">15+</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-300">Years Experience</span>
+                  <span className="text-gray-300">Yıllık Deneyim</span>
                   <span className="text-accent-teal font-bold">4+</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-300">Technologies</span>
+                  <span className="text-gray-300">Teknolojiler</span>
                   <span className="text-accent-purple font-bold">20+</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-300">Success Rate</span>
+                  <span className="text-gray-300">Başarı Oranı</span>
                   <span className="text-accent-coral font-bold">95%</span>
                 </div>
               </div>
@@ -321,32 +401,32 @@ export default function Home() {
           >
             <div className="inline-block mb-4">
               <span className="px-4 py-2 bg-gradient-to-r from-accent-cyan/20 to-accent-purple/20 rounded-full text-sm font-medium text-accent-cyan border border-accent-cyan/30">
-                ✨ 34 Comprehensive Answers
+                ✨ 34 Kapsamlı Cevap
               </span>
             </div>
             <h2 className="text-5xl md:text-6xl font-bold mb-6 gradient-text">
-              Interview Responses
+              Mülakat Cevapları
             </h2>
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Detailed technical answers with real project examples, demonstrating expertise across 
+              Gerçek proje örnekleriyle desteklenmiş detaylı teknik cevaplar. 
               <span className="text-accent-cyan font-semibold"> AI/ML</span>, 
-              <span className="text-accent-teal font-semibold"> Full-Stack Development</span>, and 
-              <span className="text-accent-purple font-semibold"> System Architecture</span>
+              <span className="text-accent-teal font-semibold"> Full-Stack Geliştirme</span> ve 
+              <span className="text-accent-purple font-semibold"> Sistem Mimarisi</span> alanlarındaki uzmanlığımı sergiliyor.
             </p>
             
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-8 mt-12">
               <div className="glass-card p-6 text-center">
                 <div className="text-3xl font-bold gradient-text-cyan mb-2">34</div>
-                <div className="text-sm text-gray-400">Questions Answered</div>
+                <div className="text-sm text-gray-400">Cevaplanan Sorular</div>
               </div>
               <div className="glass-card p-6 text-center">
                 <div className="text-3xl font-bold gradient-text-purple mb-2">15+</div>
-                <div className="text-sm text-gray-400">Projects Referenced</div>
+                <div className="text-sm text-gray-400">Referans Projeler</div>
               </div>
               <div className="glass-card p-6 text-center">
                 <div className="text-3xl font-bold text-accent-coral mb-2">95%</div>
-                <div className="text-sm text-gray-400">Avg Confidence</div>
+                <div className="text-sm text-gray-400">Ortalama Güven</div>
               </div>
             </div>
           </motion.div>
@@ -358,12 +438,20 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="flex flex-wrap justify-center gap-4 mb-12"
           >
-            {['All', 'Technical', 'Career', 'Projects', 'AI/ML', 'Frontend', 'Backend'].map((filter) => (
+            {[
+              { key: 'All', label: 'Tümü' },
+              { key: 'Technical', label: 'Teknik' },
+              { key: 'Career', label: 'Kariyer' },
+              { key: 'Projects', label: 'Projeler' },
+              { key: 'AI/ML', label: 'AI/ML' },
+              { key: 'Frontend', label: 'Frontend' },
+              { key: 'Backend', label: 'Backend' }
+            ].map((filter) => (
               <button
-                key={filter}
+                key={filter.key}
                 className="btn-glass px-6 py-3 text-sm font-medium hover:scale-105 transition-all"
               >
-                {filter}
+                {filter.label}
               </button>
             ))}
           </motion.div>
@@ -412,7 +500,7 @@ export default function Home() {
                 <div className="mb-6">
                   <h4 className="text-sm font-semibold text-accent-coral mb-3 flex items-center">
                     <Rocket className="w-4 h-4 mr-2" />
-                    Related Projects
+                    İlgili Projeler
                   </h4>
                   <div className="flex flex-wrap gap-3">
                     {answer.projects?.map((project, idx) => (
@@ -427,7 +515,7 @@ export default function Home() {
                 <div className="border-t border-white/10 pt-6">
                   <h4 className="text-sm font-semibold text-accent-teal mb-3 flex items-center">
                     <Code className="w-4 h-4 mr-2" />
-                    Technologies & Skills
+                    Teknolojiler ve Yetenekler
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {answer.technologies?.map((tech, idx) => (
@@ -455,10 +543,10 @@ export default function Home() {
           >
             <div className="glass-card p-8 max-w-2xl mx-auto">
               <h3 className="text-2xl font-bold mb-4 gradient-text">
-                Ready to Discuss Your Project?
+                Projenizi Konuşmaya Hazır mısınız?
               </h3>
               <p className="text-gray-300 mb-6">
-                Let's explore how my expertise can contribute to your team's success
+                Uzmanlığımın ekibinizin başarısına nasıl katkıda bulunabileceğini keşfedelim
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
@@ -466,14 +554,14 @@ export default function Home() {
                   className="btn-glass px-8 py-3 bg-gradient-to-r from-accent-cyan/20 to-accent-teal/20 border-accent-cyan/30 text-accent-cyan hover:from-accent-cyan/30 hover:to-accent-teal/30"
                 >
                   <Mail className="w-4 h-4 mr-2 inline" />
-                  Get In Touch
+                  İletişime Geç
                 </button>
                 <button
                   onClick={() => scrollToSection('projects')}
                   className="btn-glass px-8 py-3 bg-gradient-to-r from-accent-purple/20 to-accent-coral/20 border-accent-purple/30 text-accent-purple hover:from-accent-purple/30 hover:to-accent-coral/30"
                 >
                   <Eye className="w-4 h-4 mr-2 inline" />
-                  View Projects
+                  Projeleri Görüntüle
                 </button>
               </div>
             </div>
@@ -492,9 +580,9 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4 gradient-text">Get In Touch</h2>
+            <h2 className="text-4xl font-bold mb-4 gradient-text">İletişime Geçin</h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Ready to discuss your next project or opportunity
+              Bir sonraki projenizi veya fırsatınızı konuşmaya hazırım
             </p>
           </motion.div>
 
@@ -506,7 +594,7 @@ export default function Home() {
               className="glass rounded-2xl p-6"
             >
               <Mail className="w-8 h-8 text-accent-cyan mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2 text-white">Email</h3>
+              <h3 className="text-lg font-semibold mb-2 text-white">E-posta</h3>
               <p className="text-gray-300">turhanhamza@gmail.com</p>
             </motion.div>
 
@@ -517,7 +605,7 @@ export default function Home() {
               className="glass rounded-2xl p-6"
             >
               <Phone className="w-8 h-8 text-accent-teal mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2 text-white">Phone</h3>
+              <h3 className="text-lg font-semibold mb-2 text-white">Telefon</h3>
               <p className="text-gray-300">+90 554 541 7561</p>
             </motion.div>
 
@@ -528,8 +616,8 @@ export default function Home() {
               className="glass rounded-2xl p-6"
             >
               <MapPin className="w-8 h-8 text-accent-purple mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2 text-white">Location</h3>
-              <p className="text-gray-300">Istanbul, Turkey</p>
+              <h3 className="text-lg font-semibold mb-2 text-white">Konum</h3>
+              <p className="text-gray-300">İstanbul, Türkiye</p>
             </motion.div>
           </div>
 
@@ -565,7 +653,7 @@ export default function Home() {
       <footer className="py-8 bg-dark-900 border-t border-gray-800">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <p className="text-gray-400">
-            © 2024 Hamza Turhan. All rights reserved. Built with Next.js and Tailwind CSS.
+            © 2024 Hamza Turhan. Tüm hakları saklıdır. Next.js ve Tailwind CSS ile geliştirilmiştir.
           </p>
         </div>
       </footer>

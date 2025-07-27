@@ -13,21 +13,21 @@ export const skills: Skill[] = [
     level: 95,
     category: 'frontend',
     experience: '4+ years',
-    projects: ['AdPro', 'Oto Mansuroğlu', 'ICT Ultra Platform']
+    projects: ['AdPro', 'Oto Mansuroğlu', 'ai-algo-trade']
   },
   {
     name: 'Next.js',
     level: 90,
     category: 'frontend',
     experience: '3+ years',
-    projects: ['Oto Mansuroğlu', 'ICT Ultra Platform']
+    projects: ['Oto Mansuroğlu', 'ai-algo-trade']
   },
   {
     name: 'TypeScript',
     level: 88,
     category: 'frontend',
     experience: '3+ years',
-    projects: ['AdPro', 'Oto Mansuroğlu', 'ICT Ultra Platform']
+    projects: ['AdPro', 'Oto Mansuroğlu', 'ai-algo-trade']
   },
   {
     name: 'React Native',
@@ -41,7 +41,7 @@ export const skills: Skill[] = [
     level: 92,
     category: 'frontend',
     experience: '3+ years',
-    projects: ['Oto Mansuroğlu', 'ICT Ultra Platform']
+    projects: ['Oto Mansuroğlu', 'ai-algo-trade']
   },
 
   // Backend Skills
@@ -50,14 +50,14 @@ export const skills: Skill[] = [
     level: 90,
     category: 'backend',
     experience: '4+ years',
-    projects: ['Solar Analysis', 'ICT Ultra Platform']
+    projects: ['Solar Analysis', 'ai-algo-trade']
   },
   {
     name: 'Node.js',
     level: 85,
     category: 'backend',
     experience: '3+ years',
-    projects: ['ICT Ultra Platform', 'Slack Integration']
+    projects: ['ai-algo-trade', 'Slack Integration']
   },
   {
     name: 'FastAPI',
@@ -80,7 +80,7 @@ export const skills: Skill[] = [
     level: 85,
     category: 'ai-ml',
     experience: '3+ years',
-    projects: ['Solar Analysis', 'ICT Ultra Platform']
+    projects: ['Solar Analysis', 'Ai Algo Trade']
   },
   {
     name: 'OpenCV',
@@ -94,7 +94,7 @@ export const skills: Skill[] = [
     level: 88,
     category: 'ai-ml',
     experience: '3+ years',
-    projects: ['Solar Analysis', 'ICT Ultra Platform']
+    projects: ['Solar Analysis', 'Ai Algo Trade']
   },
   {
     name: 'Computer Vision',
@@ -110,14 +110,14 @@ export const skills: Skill[] = [
     level: 85,
     category: 'database',
     experience: '3+ years',
-    projects: ['Solar Analysis', 'ICT Ultra Platform', 'Slack Integration']
+    projects: ['Solar Analysis', 'Ai Algo Trade', 'Slack Integration']
   },
   {
     name: 'Redis',
     level: 80,
     category: 'database',
     experience: '2+ years',
-    projects: ['ICT Ultra Platform', 'Slack Integration']
+    projects: ['ai-algo-trade', 'Slack Integration']
   },
   {
     name: 'Supabase',
@@ -133,7 +133,7 @@ export const skills: Skill[] = [
     level: 82,
     category: 'devops',
     experience: '2+ years',
-    projects: ['Solar Analysis', 'ICT Ultra Platform']
+    projects: ['Solar Analysis', 'ai-algo-trade']
   },
   {
     name: 'Git',
@@ -147,14 +147,14 @@ export const skills: Skill[] = [
     level: 85,
     category: 'devops',
     experience: '2+ years',
-    projects: ['Oto Mansuroğlu', 'ICT Ultra Platform']
+    projects: ['Oto Mansuroğlu', 'ai-algo-trade']
   },
   {
     name: 'MetaTrader 5',
     level: 88,
     category: 'tools',
     experience: '2+ years',
-    projects: ['ICT Ultra Platform']
+    projects: ['ai-algo-trade']
   }
 ];
 
