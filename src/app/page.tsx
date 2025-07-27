@@ -114,7 +114,7 @@ export default function Home() {
                 onClick={() => scrollToSection('projects')}
                 className="px-8 py-3 border border-accent-cyan text-accent-cyan rounded-lg font-semibold hover:bg-accent-cyan hover:text-white transition-all"
               >
-                View Projects
+                Projelerimi Gör
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -145,7 +145,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4 gradient-text">About Me</h2>
+            <h2 className="text-4xl font-bold mb-4 gradient-text">Hakkımda</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Deneyimli Fullstack Developer ve AI Sistem Mimarı. Ticaret platformları, modern web teknolojileri ve yapay zeka sistemleri konusunda uzmanım.
               Gerçek dünya problemlerine yenilikçi çözümler üretmeyi seviyorum.
@@ -218,9 +218,9 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4 gradient-text">Featured Projects</h2>
+            <h2 className="text-4xl font-bold mb-4 gradient-text">Öne Çıkan Projeler</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Showcasing my expertise across different domains with real-world applications
+              Farklı alanlardaki uzmanlığımı gerçek dünya uygulamalarıyla sergiliyorum
             </p>
           </motion.div>
 
@@ -264,9 +264,9 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4 gradient-text">Technical Skills</h2>
+            <h2 className="text-4xl font-bold mb-4 gradient-text">Teknik Yetenekler</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Comprehensive expertise across modern development technologies
+              Modern geliştirme teknolojilerinde kapsamlı uzmanlık
             </p>
           </motion.div>
 

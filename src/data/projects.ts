@@ -95,35 +95,35 @@ export const projects: Project[] = [
   },
   {
     id: 'adpro-mobile',
-    title: 'AdPro - AI-Powered Mobile App',
-    description: 'React Native mobile application with advanced AI features',
-    longDescription: 'Cross-platform mobile application built with React Native, featuring AI-powered content generation, user engagement analytics, and seamless social media integration.',
+    title: 'AdPro - Yapay Zeka Destekli Mobil Uygulama',
+    description: 'React Native ile geliştirilmiş gelişmiş yapay zeka özellikli mobil uygulama',
+    longDescription: 'React Native ile geliştirilmiş çapraz platform mobil uygulama. Yapay zeka destekli içerik üretimi, kullanıcı etkileşim analitiği ve sosyal medya entegrasyonu içeriyor.',
     technologies: ['React Native', 'TypeScript', 'Supabase', 'Google Gemini AI', 'Expo', 'Redux', 'React Navigation'],
     features: [
-      'AI-powered content generation',
-      'Real-time user analytics',
-      'Social media integration',
-      'Advanced authentication system',
-      'Push notifications',
-      'Offline-first architecture'
+      'Yapay zeka destekli içerik üretimi',
+      'Gerçek zamanlı kullanıcı analitiği',
+      'Sosyal medya entegrasyonu',
+      'Gelişmiş kimlik doğrulama sistemi',
+      'Anlık bildirimler',
+      'Çevrimdışı öncelikli mimari'
     ],
     githubUrl: 'https://github.com/yourusername/AdPro',
     image: '/images/adpro-mobile.jpg',
     category: 'mobile',
     difficulty: 'advanced',
-    impact: 'Increased user engagement by 60% with AI features',
+    impact: 'Yapay zeka özellikleri ile kullanıcı etkileşimini %60 artırdı',
     challenges: [
-      'Cross-platform compatibility',
-      'AI integration in mobile environment',
-      'Real-time data synchronization'
+      'Çapraz platform uyumluluğu',
+      'Mobil ortamda yapay zeka entegrasyonu',
+      'Gerçek zamanlı veri senkronizasyonu'
     ],
     solutions: [
-      'Implemented platform-specific optimizations',
-      'Created efficient AI service architecture',
-      'Developed robust offline-first data strategy'
+      'Platform özel optimizasyonlar uyguladım',
+      'Verimli yapay zeka servis mimarisi oluşturdum',
+      'Sağlam çevrimdışı öncelikli veri stratejisi geliştirdim'
     ],
     metrics: {
-      users: '1000+ active users',
+      users: '1000+ aktif kullanıcı',
       performance: 'App store rating: 4.8/5'
     }
   },
@@ -230,111 +230,6 @@ export const projects: Project[] = [
     metrics: {
       performance: 'Yanıt süresi < 30 saniye',
       accuracy: '%92 müşteri memnuniyeti'
-    }
-  },
-  {
-    id: 'crypto-trading-bot',
-    title: 'Kripto Para Trading Botu',
-    description: 'Otomatik kripto para alım-satım sistemi',
-    longDescription: 'Binance ve diğer borsalar için geliştirilmiş akıllı trading bot. Teknik analiz, risk yönetimi ve otomatik alım-satım stratejileri ile 7/24 çalışıyor.',
-    technologies: ['Python', 'Binance API', 'TensorFlow', 'Pandas', 'NumPy', 'Redis', 'Docker'],
-    features: [
-      'Otomatik teknik analiz',
-      'Risk yönetimi sistemi',
-      'Çoklu strateji desteği',
-      'Gerçek zamanlı piyasa takibi',
-      'Kar/zarar raporlama',
-      'Telegram bildirimleri'
-    ],
-    githubUrl: 'https://github.com/yourusername/crypto-bot',
-    image: '/images/crypto-bot.jpg',
-    category: 'trading',
-    difficulty: 'expert',
-    impact: '6 ayda %45 getiri sağladı, günlük ortalama 50+ işlem',
-    challenges: [
-      'Volatil piyasa koşullarına uyum',
-      'Hızlı karar verme algoritmaları',
-      'Risk yönetimi optimizasyonu'
-    ],
-    solutions: [
-      'Makine öğrenmesi ile piyasa tahmini',
-      'Dinamik stop-loss stratejileri',
-      'Portföy çeşitlendirme algoritmaları'
-    ],
-    metrics: {
-      performance: 'Milisaniye seviyesinde işlem',
-      accuracy: '%78 başarılı işlem oranı',
-      revenue: '%45 yıllık getiri'
-    }
-  },
-  {
-    id: 'restaurant-management',
-    title: 'Restoran Yönetim Sistemi',
-    description: 'Kapsamlı restoran işletme yönetim platformu',
-    longDescription: 'Restoran işletmeleri için geliştirilmiş tam entegre yönetim sistemi. Sipariş yönetimi, stok takibi, personel yönetimi ve müşteri ilişkileri modülleri içeriyor.',
-    technologies: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Stripe', 'Tailwind CSS'],
-    features: [
-      'Sipariş ve masa yönetimi',
-      'Stok ve tedarik takibi',
-      'Personel vardiya yönetimi',
-      'Müşteri sadakat programı',
-      'Mali raporlama sistemi',
-      'QR menü ve online sipariş'
-    ],
-    githubUrl: 'https://github.com/yourusername/restaurant-management',
-    image: '/images/restaurant-system.jpg',
-    category: 'web',
-    difficulty: 'advanced',
-    impact: '3 restoran zincirinde kullanılıyor, %30 operasyonel verimlilik artışı',
-    challenges: [
-      'Gerçek zamanlı sipariş senkronizasyonu',
-      'Karmaşık stok yönetimi',
-      'Çoklu lokasyon desteği'
-    ],
-    solutions: [
-      'WebSocket ile gerçek zamanlı güncellemeler',
-      'Akıllı stok tahmin algoritmaları',
-      'Merkezi yönetim paneli'
-    ],
-    metrics: {
-      users: '150+ günlük aktif kullanıcı',
-      performance: '99.8% uptime',
-      revenue: '%25 ciro artışı'
-    }
-  },
-  {
-    id: 'smart-home-iot',
-    title: 'Akıllı Ev IoT Sistemi',
-    description: 'IoT tabanlı akıllı ev otomasyon platformu',
-    longDescription: 'Ev otomasyonu için geliştirilmiş IoT sistemi. Aydınlatma, ısıtma, güvenlik ve enerji yönetimi modülleri ile akıllı ev deneyimi sunuyor.',
-    technologies: ['React Native', 'Node.js', 'MQTT', 'Arduino', 'Raspberry Pi', 'MongoDB'],
-    features: [
-      'Akıllı aydınlatma kontrolü',
-      'Isı ve klima yönetimi',
-      'Güvenlik kamera sistemi',
-      'Enerji tüketim takibi',
-      'Sesli komut desteği',
-      'Uzaktan erişim'
-    ],
-    githubUrl: 'https://github.com/yourusername/smart-home',
-    image: '/images/smart-home.jpg',
-    category: 'mobile',
-    difficulty: 'expert',
-    impact: '%40 enerji tasarrufu, 5 evde aktif kullanımda',
-    challenges: [
-      'Farklı IoT cihazları entegrasyonu',
-      'Güvenli veri iletimi',
-      'Düşük güç tüketimi'
-    ],
-    solutions: [
-      'Standart MQTT protokolü kullanımı',
-      'End-to-end şifreleme',
-      'Optimize edilmiş veri paketleri'
-    ],
-    metrics: {
-      performance: '< 100ms yanıt süresi',
-      users: '25+ aktif cihaz',
-      accuracy: '%40 enerji tasarrufu'
     }
   }
 ];
