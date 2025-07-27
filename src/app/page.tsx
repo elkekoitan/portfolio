@@ -541,7 +541,7 @@ export default function Home() {
           >
             <div className="flex justify-center space-x-6">
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/elkekoitan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-accent-cyan/20 text-accent-cyan rounded-lg hover:bg-accent-cyan hover:text-white transition-all"
@@ -549,7 +549,7 @@ export default function Home() {
                 <Github className="w-6 h-6" />
               </a>
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/hmztrhn/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-accent-teal/20 text-accent-teal rounded-lg hover:bg-accent-teal hover:text-white transition-all"

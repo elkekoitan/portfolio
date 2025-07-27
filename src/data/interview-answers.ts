@@ -102,7 +102,7 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 11,
     question: "Son üç işyerinden aldığınız maaş ve beklentileriniz nedir?",
-    answer: "Freelance developer olarak project-based çalışıyorum. Son projelerimden: AI Algo Trade ($15K), AdPro ($12K), Oto Mansuroğlu ($10K), ThermalX ($8K). Hourly rate: $50-80 (complexity'ye göre). Full-time position için: $80K-100K annual salary bekliyorum, performance-based bonus ve equity options tercih ederim. Benefits: Health insurance, professional development budget, conference attendance, flexible PTO. Minimum acceptable: $70K (exceptional opportunity için). Location ve company stage'e göre negotiate edebilirim. Value-based pricing approach'ı benimsiyor, quality deliverables'a focus ediyorum.",
+    answer: "Serbest çalışan geliştirici olarak proje bazlı çalışıyorum. Son projelerimde AI Algo Trade, AdPro, Oto Mansuroğlu ve güneş paneli analiz sistemi gibi çeşitli projeler geliştirdim. Maaş beklentim konusunda, aynı pozisyondaki eşdeğer deneyime sahip kişilerle aynı seviyede bir beklentim var. Performansa dayalı prim ve hisse senedi opsiyonları tercih ederim. Yan haklar: Sağlık sigortası, mesleki gelişim bütçesi, konferans katılımı, esnek izin. Lokasyon ve şirketin durumuna göre görüşebiliriz. Kaliteli iş çıkarmaya odaklanıyorum ve değer odaklı fiyatlandırma yaklaşımı benimsiyorum.",
     projects: ["ai-algo-trade", "adpro", "oto-mansuroglu", "thermalx"],
     technologies: ["Freelancing", "Project Management", "Value Pricing"],
     confidence: 90,
@@ -111,7 +111,7 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 12,
     question: "Seçenek verilmesi durumunda iş yerimizde mi yoksa evden mi çalışmayı tercih edersiniz?",
-    answer: "Hybrid model'i optimal buluyorum: Haftada 2-3 gün office, 2-3 gün remote. Office benefits: Face-to-face collaboration, brainstorming sessions, team bonding, immediate feedback. Remote benefits: Deep focus work, no commute time, comfortable environment, better work-life balance. AI Algo Trade projesini %70 remote geliştirdim, team meetings ve code reviews için office'e geldim. Quantum dashboard'ı tamamen remote develop ettim ama user testing için office environment kullandım. Flexibility'nin productivity'yi artırdığını gözlemledim. Company culture ve project requirements'a göre adapt olabilirim.",
+    answer: "Hibrit modeli en uygun buluyorum: Haftada 2-3 gün ofis, 2-3 gün uzaktan. Ofis avantajları: Yüz yüze işbirliği, beyin fırtınası oturumları, takım bağlılığı, anında geri bildirim. Uzaktan çalışma avantajları: Derin odaklanma, yolda zaman kaybetmeme, rahat ortam, daha iyi iş-yaşam dengesi. AI Algo Trade projesini %70 uzaktan geliştirdim, takım toplantıları ve kod incelemeleri için ofise geldim. Portfolio'yu tamamen uzaktan geliştirdim ama kullanıcı testleri için ofis ortamını kullandım. Esnekliğin verimliliği artırdığını gözlemledim. Şirket kültürü ve proje gereksinimlerine göre uyum sağlayabilirim. Çalışma yeri tercihleri: İlk tercihim Boston ofisi, sonra İstanbul, Ankara ve son olarak Çankırı.",
     projects: ["ai-algo-trade", "quantum-dashboard"],
     technologies: ["Remote Work", "Hybrid Model", "Collaboration"],
     confidence: 93,
@@ -129,7 +129,7 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 14,
     question: "Referans olarak kimleri verebilirsiniz ve sizi nasıl değerlendirecekler?",
-    answer: "Referanslarım: 1) Şenol (Freelance Proje Koordinatörü / Soratrontech.com) - 'Hamza ile birlikte çalıştığımız projelerde teknik yetkinliği ve problem çözme becerisi gerçekten etkileyici. Özellikle AI sistemleri konusunda çok başarılı.' 2) Servet Zengin (Proje Yöneticisi / Loodos) - Tel: 0536 956 31 00 - 'Güvenilir, kaliteli iş çıkarıyor ve her zaman zamanında teslim ediyor' 3) Mehmet Ali Karataş (Bilgi İşlem Müdürü / Türk Loydu) - Tel: 0505 413 25 53 - 'Yapay zeka konularında gerçekten bilgili, kod kalitesi çok iyi'. Güçlü yanlarım: Teknik konularda hızlı öğrenme, güvenilir çalışma, yaratıcı çözümler bulma. Gelişim alanlarım: Sunum yaparken biraz heyecanlanıyorum, bazen işi mükemmel yapmaya çalışırken fazla detaya takılabiliyorum.",
+    answer: "Referanslarım: 1) Şenol Zengin - Proje Yöneticisi - Email: senol.zengin@icloud.com - 'Hamza ile birlikte çalıştığımız projelerde teknik yetkinliği ve problem çözme becerisi gerçekten etkileyici. Özellikle yapay zeka sistemleri konusunda çok başarılı.' 2) Servet Zengin - Proje Yöneticisi - Email: servet.zengin@icloud.com - 'Güvenilir, kaliteli iş çıkarıyor ve her zaman zamanında teslim ediyor' 3) Mehmet Ali Karataş - Bilgi İşlem Müdürü - 'Yapay zeka konularında gerçekten bilgili, kod kalitesi çok iyi'. Güçlü yanlarım: Teknik konularda hızlı öğrenme, güvenilir çalışma, yaratıcı çözümler bulma. Gelişim alanlarım: Sunum yaparken biraz heyecanlanıyorum, bazen işi mükemmel yapmaya çalışırken fazla detaya takılabiliyorum.",
     projects: ["ai-algo-trade", "adpro", "thermalx"],
     technologies: ["Professional References", "Networking"],
     confidence: 92,
@@ -309,11 +309,20 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 34,
     question: "Sıkı deadline'larda nasıl çalışıyorsunuz?",
-    answer: "Systematic deadline management: AI Algo Trade'de 3 aylık sürede production-ready quantum trading platform deliver ettim. Strategy: 1) Priority matrix - Critical path analysis, MoSCoW prioritization, 2) Time boxing - Sprint planning, daily standups, 3) Risk management - Potential bottlenecks identification, mitigation plans, 4) Team coordination - Clear communication, task delegation, 5) Quality maintenance - Automated testing, code reviews. Tools: Jira, Linear, Git workflow, CI/CD pipeline. Techniques: Agile methodology, pair programming, continuous integration. Result: %100 deadline compliance, quality standards maintained. Quantum dashboard 2 haftada deliver ettik. Key: Realistic estimation, proactive communication, team collaboration, automated processes.",
+    answer: "Sistematik son tarih yönetimi: AI Algo Trade'de 3 aylık sürede üretime hazır kuantum ticaret platformu teslim ettim. Strateji: 1) Öncelik matrisi - Kritik yol analizi, öncelik sıralaması, 2) Zaman kutusu - Sprint planlama, günlük toplantılar, 3) Risk yönetimi - Potansiyel darboğazları belirleme, azaltma planları, 4) Takım koordinasyonu - Net iletişim, görev dağılımı, 5) Kalite sürdürme - Otomatik testler, kod incelemeleri. Araçlar: Jira, Linear, Git iş akışı, sürekli entegrasyon hattı. Teknikler: Çevik metodoloji, çift programlama, sürekli entegrasyon. Sonuç: %100 son tarih uyumu, kalite standartları korundu. Portfolio'yu 2 haftada teslim ettik. Anahtar: Gerçekçi tahmin, proaktif iletişim, takım işbirliği, otomatik süreçler.",
     projects: ["ai-algo-trade", "quantum-dashboard"],
     technologies: ["Agile", "Project Management", "CI/CD", "Time Management", "Team Coordination"],
     confidence: 96,
     category: "Project Management"
+  },
+  {
+    questionNumber: 35,
+    question: "Sosyal medya kullanımınız nasıl? Profesyonel ağlarınız var mı?",
+    answer: "Sosyal medyayı çok aktif kullanmıyorum aslında. LinkedIn profilim var (https://www.linkedin.com/in/hmztrhn/) ve GitHub'da projelerimi paylaşıyorum (https://github.com/elkekoitan). Twitter'da da hesabım var (@weemustang) ama pek aktif değilim. Daha çok teknik topluluklar ve açık kaynak projelerde aktifim. Profesyonel ağım genellikle çalıştığım projeler ve referanslarım üzerinden gelişiyor. Sosyal medyadan ziyade gerçek projeler ve iş ilişkileri üzerinden ağ kurmayı tercih ediyorum.",
+    projects: ["networking", "professional-development"],
+    technologies: ["LinkedIn", "GitHub", "Professional Networking"],
+    confidence: 85,
+    category: "Personal"
   }
 ]
 
