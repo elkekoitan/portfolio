@@ -12,11 +12,11 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 1,
     question: "Hali hazırda veya son yapmış olduğunuz iş nedir? Bu işin sevdiğiniz ve sevmediğiniz yanları nelerdir?",
-    answer: "Şu anda serbest çalışan Fullstack Developer ve AI Sistem Mimarı olarak çalışıyorum. Son projelerim arasında AI Algo Trade (akıllı ticaret platformu), AdPro (yapay zeka destekli mobil uygulama), Oto Mansuroğlu (e-ticaret sitesi), güneş paneli analiz sistemi ve şirketler için n8n tabanlı iş akışı otomasyonları var. Sevdiğim yanları: Yeni teknolojilerle çalışmak, yapay zeka ile gerçek problemleri çözmek, sürekli yeni şeyler öğrenmek. Zorlandığım yanları: Bazen müşteriler teknik detayları tam anlamıyor ve gerçekçi olmayan süreler istiyorlar. Ama bu durumları sabırla anlatarak ve iyi planlama yaparak çözüyorum.",
-    projects: ["ai-algo-trade", "adpro", "oto-mansuroglu", "thermalx", "qtscrcpy"],
-    technologies: ["AI/ML", "Quantum Computing", "React", "Python", "Next.js", "TypeScript"],
-    confidence: 98,
-    category: "Career"
+    answer: "Şu anda kendi hesabıma yazılım geliştirici olarak çalışıyorum. Yapay zeka sistemleri kuruyorum ve şirketlerin dijital dönüşümüne yardım ediyorum. Son projelerimde akıllı ticaret platformu, mobil uygulamalar, e-ticaret siteleri ve güneş paneli analiz sistemi geliştirdim. En çok sevdiğim yanı: Her gün yeni şeyler öğrenmek, karmaşık problemleri çözmek ve teknolojinin insanların hayatını kolaylaştırdığını görmek. Zorlandığım kısımlar: Bazen müşteriler ne istediklerini tam bilmiyorlar, gerçekçi olmayan süreler veriyorlar. Ama sabırla anlatıp doğru planlama yaparak bu sorunları çözüyorum.",
+    projects: ["ai-algo-trade", "adpro", "oto-mansuroglu", "solar-analysis", "n8n-workflows"],
+    technologies: ["Yapay Zeka", "React", "Python", "Next.js", "TypeScript"],
+    confidence: 95,
+    category: "Kariyer"
   },
   {
     questionNumber: 2,
@@ -33,7 +33,7 @@ export const interviewAnswers: InterviewAnswer[] = [
     answer: "Herhangi bir kronik sağlık problemim bulunmuyor. Düzenli spor yapıyorum ve sağlıklı yaşam tarzı sürdürüyorum. Ergonomik çalışma ortamı tercih ediyorum ve uzun kodlama seansları için uygun düzenek kullanıyorum. Göz yorgunluğunu önlemek için mavi ışık filtreleri ve düzenli molalar alıyorum. Ruh sağlığı için meditasyon ve iş-yaşam dengesine önem veriyorum. Özel bir ayarlama gerektiren durumum yok, standart ofis ortamında rahatça çalışabilirim.",
     projects: [],
     technologies: ["Health Management", "Ergonomics", "Work-Life Balance"],
-    confidence: 100,
+    confidence: 93,
     category: "Health"
   },
   {
@@ -42,7 +42,7 @@ export const interviewAnswers: InterviewAnswer[] = [
     answer: "Hiç sigara içmiyorum ve tütün ürünleri kullanmıyorum. Sağlıklı yaşam tarzını benimsiyor, düzenli egzersiz yapıyor ve dengeli beslenmeye dikkat ediyorum. Kodlama performansımı artırmak için kafein alımımı kontrol ediyorum ve su içmeye önem veriyorum. Temiz hava ortamında çalışmayı tercih ediyorum ve pasif içicilikten kaçınıyorum.",
     projects: [],
     technologies: ["Health", "Lifestyle"],
-    confidence: 100,
+    confidence: 95,
     category: "Health"
   },
   {
@@ -147,11 +147,11 @@ export const interviewAnswers: InterviewAnswer[] = [
   {
     questionNumber: 16,
     question: "Öğretim Yönetim Sistemi (LMS) yazabilir misiniz, ne kadar sürede tamamlayabilirsiniz?",
-    answer: "Evet, modern öğretim yönetim sistemleri yapabiliyorum. AdPro projesinde React Native ile yapay zeka destekli bir eğitim sistemi geliştirdim. Google Gemini AI ile kişiselleştirilmiş öğrenme deneyimi sağladık. Neler var: Uyarlanabilir öğrenme yolları, yapay zeka destekli içerik önerileri, anlık ilerleme takibi, oyunlaştırma öğeleri, sosyal öğrenme özellikleri, video akışı, sınav sistemleri, sertifika oluşturma. Portfolio'daki desen tanıma algoritmalarını eğitim içerik analizi için uyarladım. Kullanıcı etkileşimini %60 artırdık. Süre: Temel sistem (4-6 hafta), Gelişmiş yapay zeka destekli sistem (8-12 hafta), Kurumsal seviye sistem (12-16 hafta). Karmaşıklık ve ihtiyaçlara göre değişir.",
-    projects: ["adpro", "ai-algo-trade"],
-    technologies: ["React Native", "Google Gemini AI", "TensorFlow", "Real-time Analytics"],
-    confidence: 92,
-    category: "Education"
+    answer: "LMS projesi yapmadım ama yapabileceğimi düşünüyorum. Kullanıcı yönetimi, içerik paylaşımı, ilerleme takibi gibi sistemleri daha önce yaptım. Oto Mansuroğlu'nda e-ticaret sistemi, Slack entegrasyonunda mesajlaşma sistemi geliştirdim. LMS de benzer mantıkla çalışır: öğrenci kayıtları, ders içerikleri, ödev sistemi, not takibi, öğretmen-öğrenci iletişimi. Temel LMS'i 2-3 ayda teslim ederim. Gelişmiş özellikler (video oynatıcı, sınav sistemi, sertifika) için 4-6 ay gerekir. Moodle gibi sistemleri inceledim, yapısını biliyorum.",
+    projects: ["oto-mansuroglu", "slack-integration"],
+    technologies: ["React", "Next.js", "Veritabanı Tasarımı", "Kullanıcı Yönetimi"],
+    confidence: 85,
+    category: "Eğitim"
   },
   {
     questionNumber: 17,
