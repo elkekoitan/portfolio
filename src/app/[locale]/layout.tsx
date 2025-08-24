@@ -13,7 +13,14 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
     description: t.meta.description,
     keywords: t.meta.keywords,
     authors: [{ name: 'Hamza Turhan' }],
-    alternates: { canonical: `/${params.locale}` },
+    alternates: {
+      canonical: `/${params.locale}`,
+      languages: {
+        'tr-TR': '/tr',
+        en: '/en',
+        ru: '/ru',
+      },
+    },
     icons: { icon: '/favicon.svg' },
     themeColor: '#0f0f23',
     openGraph: {
