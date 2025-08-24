@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Code, 
@@ -41,15 +41,36 @@ export default function Home() {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    const ids = ['hero', 'about', 'projects', 'skills', 'answers', 'contact'];
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-45% 0px -50% 0px', threshold: 0.1 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-dark-900 to-dark-800 relative overflow-hidden">
+    <main id="main-content" className="min-h-screen bg-gradient-to-b from-dark-900 to-dark-800 relative overflow-hidden">
       {/* Subtle Background Accents (toned down) */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-24 -left-24 w-[28rem] h-[28rem] bg-cyan-500/10 rounded-full blur-2xl" />
         <div className="absolute -bottom-24 -right-24 w-[28rem] h-[28rem] bg-purple-500/10 rounded-full blur-2xl" />
       </div>
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur supports-[backdrop-filter]:bg-dark-900/70 bg-dark-900/60 border-b border-white/10">
+      <nav className="fixed top-0 w-full z-50 backdrop-blur supports-[backdrop-filter]:bg-dark-900/70 bg-dark-900/60 border-b border-white/10" aria-label="Birincil">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <motion.div
@@ -68,10 +89,11 @@ export default function Home() {
                 { key: 'answers', label: 'Mülakat Cevapları' },
                 { key: 'contact', label: 'İletişim' }
               ].map((section) => (
-                <button
+                <a
                   key={section.key}
+                  href={`#${section.key}`}
                   onClick={() => scrollToSection(section.key)}
-                  className={`group relative text-sm font-medium transition-colors ${
+                  className={`group relative text-sm font-medium transition-colors focus:outline-none ${
                     activeSection === section.key ? 'text-accent-cyan' : 'text-gray-300 hover:text-white'
                   }`}
                 >
@@ -81,7 +103,7 @@ export default function Home() {
                       activeSection === section.key ? 'w-full' : 'group-hover:w-6'
                     }`}
                   />
-                </button>
+                </a>
               ))}
             </div>
           </div>
@@ -651,6 +673,6 @@ export default function Home() {
           </p>
         </div>
       </footer>
-    </div>
+    </main>
   );
 }
