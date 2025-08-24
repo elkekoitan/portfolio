@@ -21,6 +21,7 @@ type Dict = {
     tech: string
     achievements: string
     ach: { completed: string; years: string; techs: string; success: string }
+    bullets: [string, string, string, string]
   }
   projects: { title: string; subtitle: string }
   skills: { title: string; subtitle: string; categories: Record<string, string> }
@@ -30,9 +31,11 @@ type Dict = {
     stats: { answered: string; refs: string; avgConf: string }
     filters: { all: string; technical: string; career: string; projects: string; aiml: string; frontend: string; backend: string }
     ctaViewProjects: string
+    originalNote?: string
   }
   contact: { title: string; subtitle: string; email: string; phone: string; location: string; locationValue: string }
   footer: { text: string }
+  projectCategories: Record<'ai-ml' | 'trading' | 'mobile' | 'web' | 'automation', string>
 }
 
 export const dictionaries: Record<Locale, Dict> = {
@@ -64,6 +67,12 @@ export const dictionaries: Record<Locale, Dict> = {
       tech: 'Teknik Uzmanlık',
       achievements: 'Önemli Başarılar',
       ach: { completed: 'Tamamlanan Projeler', years: 'Yıllık Deneyim', techs: 'Teknolojiler', success: 'Başarı Oranı' },
+      bullets: [
+        'Full-Stack Geliştirme (React, Python, Node.js)',
+        'AI/ML ve Bilgisayarlı Görü',
+        'Algoritmik Ticaret Platformları',
+        'Çapraz Platform Mobil Geliştirme',
+      ],
     },
     projects: { title: 'Öne Çıkan Projeler', subtitle: 'Farklı alanlardaki uzmanlığımı gerçek dünya uygulamalarıyla sergiliyorum' },
     skills: {
@@ -94,6 +103,13 @@ export const dictionaries: Record<Locale, Dict> = {
       locationValue: 'İstanbul, Türkiye',
     },
     footer: { text: '© 2024 Hamza Turhan. Tüm hakları saklıdır. Next.js ve Tailwind CSS ile geliştirilmiştir.' },
+    projectCategories: {
+      'ai-ml': 'AI/ML',
+      trading: 'Ticaret',
+      mobile: 'Mobil',
+      web: 'Web',
+      automation: 'Otomasyon',
+    },
   },
   en: {
     meta: {
@@ -123,6 +139,12 @@ export const dictionaries: Record<Locale, Dict> = {
       tech: 'Technical Expertise',
       achievements: 'Key Achievements',
       ach: { completed: 'Completed Projects', years: 'Years of Experience', techs: 'Technologies', success: 'Success Rate' },
+      bullets: [
+        'Full-Stack Development (React, Python, Node.js)',
+        'AI/ML and Computer Vision',
+        'Algorithmic Trading Platforms',
+        'Cross-platform Mobile Development',
+      ],
     },
     projects: { title: 'Featured Projects', subtitle: 'Showcasing expertise through real-world applications' },
     skills: {
@@ -143,6 +165,7 @@ export const dictionaries: Record<Locale, Dict> = {
       stats: { answered: 'Answered Questions', refs: 'Reference Projects', avgConf: 'Average Confidence' },
       filters: { all: 'All', technical: 'Technical', career: 'Career', projects: 'Projects', aiml: 'AI/ML', frontend: 'Frontend', backend: 'Backend' },
       ctaViewProjects: 'View Projects',
+      originalNote: 'Note: Detailed answers are currently in Turkish.',
     },
     contact: {
       title: 'Get in Touch',
@@ -153,6 +176,13 @@ export const dictionaries: Record<Locale, Dict> = {
       locationValue: 'Istanbul, Turkey',
     },
     footer: { text: '© 2024 Hamza Turhan. All rights reserved. Built with Next.js and Tailwind CSS.' },
+    projectCategories: {
+      'ai-ml': 'AI/ML',
+      trading: 'Trading',
+      mobile: 'Mobile',
+      web: 'Web',
+      automation: 'Automation',
+    },
   },
   ru: {
     meta: {
@@ -182,6 +212,12 @@ export const dictionaries: Record<Locale, Dict> = {
       tech: 'Техническая экспертиза',
       achievements: 'Ключевые достижения',
       ach: { completed: 'Завершённые проекты', years: 'Годы опыта', techs: 'Технологии', success: 'Успех' },
+      bullets: [
+        'Full-Stack разработка (React, Python, Node.js)',
+        'AI/ML и компьютерное зрение',
+        'Алгоритмические торговые платформы',
+        'Кроссплатформенная мобильная разработка',
+      ],
     },
     projects: { title: 'Избранные проекты', subtitle: 'Экспертиза в реальных приложениях' },
     skills: {
@@ -202,6 +238,7 @@ export const dictionaries: Record<Locale, Dict> = {
       stats: { answered: 'Отвеченные вопросы', refs: 'Референс‑проекты', avgConf: 'Средняя уверенность' },
       filters: { all: 'Все', technical: 'Технические', career: 'Карьера', projects: 'Проекты', aiml: 'AI/ML', frontend: 'Фронтенд', backend: 'Бэкенд' },
       ctaViewProjects: 'Смотреть проекты',
+      originalNote: 'Примечание: подробные ответы пока на турецком языке.',
     },
     contact: {
       title: 'Связаться',
@@ -212,10 +249,16 @@ export const dictionaries: Record<Locale, Dict> = {
       locationValue: 'Стамбул, Турция',
     },
     footer: { text: '© 2024 Hamza Turhan. Все права защищены. Создано на Next.js и Tailwind CSS.' },
+    projectCategories: {
+      'ai-ml': 'AI/ML',
+      trading: 'Трейдинг',
+      mobile: 'Мобильная',
+      web: 'Web',
+      automation: 'Автоматизация',
+    },
   },
 }
 
 export function getDict(locale: Locale) {
   return dictionaries[locale]
 }
-

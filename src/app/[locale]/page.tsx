@@ -24,6 +24,7 @@ import { projects } from '@/data/projects';
 import { skills } from '@/data/skills';
 import { interviewAnswers } from '@/data/interview-answers';
 import { getDict, type Locale } from '@/i18n/dictionaries';
+import { tProject } from '@/i18n/projects';
 
 export default function Home() {
   const params = useParams();
@@ -214,22 +215,12 @@ export default function Home() {
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
               <h3 className="text-2xl font-bold mb-6 text-white">{t.about.tech}</h3>
               <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <Code className="w-6 h-6 text-accent-cyan" />
-                  <span className="text-gray-300">Full-Stack (React, Python, Node.js)</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Brain className="w-6 h-6 text-accent-teal" />
-                  <span className="text-gray-300">AI/ML & Computer Vision</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <TrendingUp className="w-6 h-6 text-accent-purple" />
-                  <span className="text-gray-300">Algorithmic Trading Platforms</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Smartphone className="w-6 h-6 text-accent-coral" />
-                  <span className="text-gray-300">Cross‑platform Mobile Development</span>
-                </div>
+                {t.about.bullets.map((txt, i) => (
+                  <div key={i} className="flex items-center space-x-3">
+                    {[Code, Brain, TrendingUp, Smartphone][i]({ className: 'w-6 h-6 text-accent-cyan' })}
+                    <span className="text-gray-300">{txt}</span>
+                  </div>
+                ))}
               </div>
             </motion.div>
 
@@ -272,8 +263,8 @@ export default function Home() {
                 <div className="h-48 bg-gradient-to-br from-accent-cyan/20 to-accent-purple/20 rounded-lg mb-4 flex items-center justify-center">
                   <Globe className="w-16 h-16 text-accent-cyan" />
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-white">{project.title}</h3>
-                <p className="text-gray-300 mb-4">{project.description}</p>
+                <h3 className="text-xl font-bold mb-2 text-white">{tProject(project.id, locale, 'title', project.title)}</h3>
+                <p className="text-gray-300 mb-4">{tProject(project.id, locale, 'description', project.description)}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.slice(0, 3).map((tech) => (
                     <span key={tech} className="px-2 py-1 bg-accent-cyan/20 text-accent-cyan text-xs rounded">
@@ -282,7 +273,7 @@ export default function Home() {
                   ))}
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-400 capitalize">{project.category}</span>
+                  <span className="text-sm text-gray-400 capitalize">{t.projectCategories[project.category]}</span>
                   <span className="text-sm text-accent-teal font-semibold">{project.difficulty}</span>
                 </div>
               </motion.div>
@@ -339,6 +330,9 @@ export default function Home() {
               </span>
             </div>
             <h2 className="text-5xl md:text-6xl font-bold mb-6 gradient-text">{t.answers.title}</h2>
+            {locale !== 'tr' && t.answers.originalNote && (
+              <p className="text-sm text-gray-400 mb-4">{t.answers.originalNote}</p>
+            )}
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">{t.answers.subtitle}</p>
 
             <div className="flex flex-wrap justify-center gap-8 mt-12">
@@ -449,4 +443,3 @@ export default function Home() {
     </main>
   );
 }
-
