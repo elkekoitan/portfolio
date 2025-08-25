@@ -14,6 +14,13 @@ Next.js 14 + TypeScript + Tailwind CSS ile hazırlanmış portföy ve mülakat c
 - `app/robots.ts` ve `app/sitemap.ts` ile dinamik robots/sitemap servis edilir.
 - Canonical sayfa: `/` (tek sayfa uygulaması). Bölüm anchor’ları (`#projects`, vb.) sitemap’e eklenmez.
 
+## Çok Dillilik (i18n)
+
+- Rotalar: `/tr`, `/en`, `/ru` (kök `/` → `/tr` yönlendirir)
+- UI metinleri `src/i18n/dictionaries.ts` ile yönetilir.
+- Proje başlık/açıklamaları `src/i18n/projects.ts` ile çevrilir (fallback mevcuttur).
+- Mülakat cevapları şu an TR içeriklidir; diğer dillerde not düşülür. İstenirse tüm 34 cevabın EN/RU çevirileri eklenebilir.
+
 ## Dağıtım (Vercel)
 
 - Vercel otomatik olarak `npm run build` çalıştırır.
@@ -24,4 +31,3 @@ Next.js 14 + TypeScript + Tailwind CSS ile hazırlanmış portföy ve mülakat c
 - `index_fixed.html` ve `temp_index.html` önceki statik prototiplerdir; üretimde kullanılmaz.
 - `robots.txt` ve `sitemap.xml` kökte bulunuyor fakat Next.js tarafından dağıtılmaz; yerlerine `app/robots.ts` ve `app/sitemap.ts` kullanılır.
 - Veriler `src/data/*` altında, bileşenler `src/components/*` altındadır.
-
