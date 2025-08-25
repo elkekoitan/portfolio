@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import {
@@ -22,7 +22,7 @@ import {
 } from 'lucide-react';
 import { projects } from '@/data/projects';
 import { skills } from '@/data/skills';
-import { interviewAnswers } from '@/data/interview-answers';
+import { getInterviewAnswers } from '@/data/interview-answers.i18n';
 import { getDict, type Locale } from '@/i18n/dictionaries';
 import { tProject } from '@/i18n/projects';
 
@@ -32,6 +32,8 @@ export default function Home() {
   const t = getDict(locale);
 
   const [activeSection, setActiveSection] = useState('hero');
+  type FilterKey = 'All' | 'Technical' | 'Career' | 'Projects' | 'AI/ML' | 'Frontend' | 'Backend';
+  const [activeFilter, setActiveFilter] = useState<FilterKey>('All');
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -69,6 +71,85 @@ export default function Home() {
   ];
 
   const langList: Locale[] = ['tr', 'en', 'ru'];
+
+  const answers = getInterviewAnswers(locale)
+
+  // Localized filter groups per locale to match translated categories
+  const filterGroups = useMemo(() => {
+    const common = {
+      frontend: ['Frontend', 'JavaScript'],
+      backend: ['Backend', 'Database', 'DevOps', 'Security', 'Performance', 'Testing'],
+      aiml: ['AI/ML'],
+      mobile: ['Mobile'],
+      realtime: ['Real-time'],
+      techMisc: ['Problem Solving', 'Team Collaboration', 'Project Management'],
+      proj: ['E-commerce', 'Practical Skills', 'References', 'Achievement'],
+      career: ['Kariyer', 'Availability', 'Health', 'Vision', 'Personal', 'Development', 'Professional', 'Process Improvement', 'Work Style', 'Compensation', 'Work Preference', 'Eğitim'],
+    } as const;
+
+    if (locale === 'ru') {
+      return {
+        frontend: ['Фронтенд', 'JavaScript'],
+        backend: ['Backend', 'Database', 'DevOps', 'Безопасность', 'Производительность', 'Тестирование'],
+        aiml: ['AI/ML'],
+        mobile: ['Мобильная разработка'],
+        realtime: ['Реальное время'],
+        techMisc: ['Решение проблем', 'Командная работа', 'Управление проектами'],
+        proj: ['E-commerce', 'Практические навыки', 'Рекомендации', 'Достижения'],
+        career: ['Карьера', 'Доступность', 'Здоровье', 'Видение', 'Личные качества', 'Развитие', 'Профессионально', 'Улучшение процессов', 'Стиль работы', 'Компенсация', 'Предпочтения в работе', 'Образование'],
+      };
+    }
+    if (locale === 'en') {
+      return common;
+    }
+    // tr (original categories include mixed TR/EN labels already used in dataset)
+    return {
+      frontend: ['Frontend', 'JavaScript'],
+      backend: ['Backend', 'Database', 'DevOps', 'Security', 'Performance', 'Testing'],
+      aiml: ['AI/ML'],
+      mobile: ['Mobile'],
+      realtime: ['Real-time'],
+      techMisc: ['Problem Solving', 'Team Collaboration', 'Project Management'],
+      proj: ['E-commerce', 'Practical Skills', 'References', 'Achievement'],
+      career: ['Kariyer', 'Availability', 'Health', 'Vision', 'Personal', 'Development', 'Professional', 'Process Improvement', 'Work Style', 'Compensation', 'Work Preference', 'Eğitim'],
+    };
+  }, [locale]);
+
+  const filteredAnswers = useMemo(() => {
+    if (activeFilter === 'All') return answers;
+    if (activeFilter === 'Frontend') {
+      const set = new Set([...filterGroups.frontend]);
+      return answers.filter(a => set.has(a.category));
+    }
+    if (activeFilter === 'Backend') {
+      const set = new Set([...filterGroups.backend]);
+      return answers.filter(a => set.has(a.category));
+    }
+    if (activeFilter === 'AI/ML') {
+      const set = new Set([...filterGroups.aiml]);
+      return answers.filter(a => set.has(a.category));
+    }
+    if (activeFilter === 'Projects') {
+      const set = new Set([...filterGroups.proj, ...filterGroups.realtime, ...filterGroups.mobile]);
+      return answers.filter(a => set.has(a.category));
+    }
+    if (activeFilter === 'Technical') {
+      const set = new Set([
+        ...filterGroups.frontend,
+        ...filterGroups.backend,
+        ...filterGroups.aiml,
+        ...filterGroups.mobile,
+        ...filterGroups.realtime,
+        ...filterGroups.techMisc,
+      ]);
+      return answers.filter(a => set.has(a.category));
+    }
+    if (activeFilter === 'Career') {
+      const set = new Set([...filterGroups.career]);
+      return answers.filter(a => set.has(a.category));
+    }
+    return answers;
+  }, [activeFilter, answers, filterGroups]);
 
   return (
     <main id="main-content" className="min-h-screen bg-gradient-to-b from-dark-900 to-dark-800 relative overflow-hidden">
@@ -126,6 +207,26 @@ export default function Home() {
           </div>
         </div>
       </nav>
+
+      {/* Mobile language switcher */}
+      <div className="md:hidden fixed top-[64px] right-3 z-40">
+        <div className="glass rounded-lg p-1 border border-white/10 flex gap-1">
+          {langList.map((lng) => (
+            <a
+              key={lng}
+              href={`/${lng}#${activeSection}`}
+              aria-current={lng === locale ? 'page' : undefined}
+              className={`px-2 py-1 rounded text-xs font-semibold border transition-colors ${
+                lng === locale
+                  ? 'border-accent-cyan text-accent-cyan'
+                  : 'border-white/10 text-gray-300 hover:text-white hover:border-white/30'
+              }`}
+            >
+              {lng.toUpperCase()}
+            </a>
+          ))}
+        </div>
+      </div>
 
       {/* Hero Section */}
       <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -215,12 +316,15 @@ export default function Home() {
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
               <h3 className="text-2xl font-bold mb-6 text-white">{t.about.tech}</h3>
               <div className="space-y-4">
-                {t.about.bullets.map((txt, i) => (
-                  <div key={i} className="flex items-center space-x-3">
-                    {[Code, Brain, TrendingUp, Smartphone][i]({ className: 'w-6 h-6 text-accent-cyan' })}
-                    <span className="text-gray-300">{txt}</span>
-                  </div>
-                ))}
+                {t.about.bullets.map((txt, i) => {
+                  const Icon = [Code, Brain, TrendingUp, Smartphone][i] ?? Code
+                  return (
+                    <div key={i} className="flex items-center space-x-3">
+                      <Icon className="w-6 h-6 text-accent-cyan" />
+                      <span className="text-gray-300">{txt}</span>
+                    </div>
+                  )
+                })}
               </div>
             </motion.div>
 
@@ -274,7 +378,7 @@ export default function Home() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-400 capitalize">{t.projectCategories[project.category]}</span>
-                  <span className="text-sm text-accent-teal font-semibold">{project.difficulty}</span>
+                  <span className="text-sm text-accent-teal font-semibold">{t.projectDifficulty[project.difficulty] ?? project.difficulty}</span>
                 </div>
               </motion.div>
             ))}
@@ -353,16 +457,27 @@ export default function Home() {
 
           {/* Filter Tabs */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex flex-wrap justify-center gap-3 md:gap-4 mb-12">
-            {[
-              { key: 'All', label: t.answers.filters.all },
-              { key: 'Technical', label: t.answers.filters.technical },
-              { key: 'Career', label: t.answers.filters.career },
-              { key: 'Projects', label: t.answers.filters.projects },
-              { key: 'AI/ML', label: t.answers.filters.aiml },
-              { key: 'Frontend', label: t.answers.filters.frontend },
-              { key: 'Backend', label: t.answers.filters.backend },
-            ].map((filter) => (
-              <button key={filter.key} className="btn-glass px-5 py-2.5 text-sm font-medium hover:scale-[1.02] transition-all border border-white/10">
+            {(
+              [
+                { key: 'All', label: t.answers.filters.all },
+                { key: 'Technical', label: t.answers.filters.technical },
+                { key: 'Career', label: t.answers.filters.career },
+                { key: 'Projects', label: t.answers.filters.projects },
+                { key: 'AI/ML', label: t.answers.filters.aiml },
+                { key: 'Frontend', label: t.answers.filters.frontend },
+                { key: 'Backend', label: t.answers.filters.backend },
+              ] as { key: FilterKey; label: string }[]
+            ).map((filter) => (
+              <button
+                key={filter.key}
+                onClick={() => setActiveFilter(filter.key)}
+                aria-pressed={activeFilter === filter.key}
+                className={`btn-glass px-5 py-2.5 text-sm font-medium hover:scale-[1.02] transition-all border ${
+                  activeFilter === filter.key
+                    ? 'border-accent-cyan/60 text-accent-cyan'
+                    : 'border-white/10 text-white/80 hover:border-white/30'
+                }`}
+              >
                 {filter.label}
               </button>
             ))}
@@ -370,7 +485,7 @@ export default function Home() {
 
           {/* Interview Cards Grid */}
           <div className="grid gap-8 lg:gap-12">
-            {interviewAnswers.slice(0, 6).map((item) => (
+            {filteredAnswers.slice(0, 6).map((item) => (
               <div key={item.questionNumber} className="interview-card">
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
                   <span className="confidence-badge">{item.confidence}%</span>

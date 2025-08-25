@@ -1,9 +1,5 @@
-import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
-import '../globals.css'
+import type { Metadata } from 'next'
 import { getDict, type Locale } from '@/i18n/dictionaries'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export async function generateMetadata({ params }: { params: { locale: Locale } }): Promise<Metadata> {
   const t = getDict(params.locale)
@@ -22,7 +18,6 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
       },
     },
     icons: { icon: '/favicon.svg' },
-    themeColor: '#0f0f23',
     openGraph: {
       title: t.meta.title,
       description: t.meta.description,
@@ -41,10 +36,6 @@ export function generateStaticParams() {
   return [{ locale: 'tr' }, { locale: 'en' }, { locale: 'ru' }]
 }
 
-export const viewport: Viewport = {
-  themeColor: '#0f0f23',
-}
-
 export default function RootLayout({
   children,
   params,
@@ -54,11 +45,9 @@ export default function RootLayout({
 }) {
   const t = getDict(params.locale)
   return (
-    <html lang={params.locale} className="scroll-smooth">
-      <body className={`${inter.className} bg-dark-900 text-white antialiased`}>
-        <a href="#main-content" className="skip-link">{t.skipLink}</a>
-        {children}
-      </body>
-    </html>
+    <>
+      <a href="#main-content" className="skip-link">{t.skipLink}</a>
+      {children}
+    </>
   )
 }

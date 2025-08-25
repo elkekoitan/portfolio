@@ -36,6 +36,7 @@ type Dict = {
   contact: { title: string; subtitle: string; email: string; phone: string; location: string; locationValue: string }
   footer: { text: string }
   projectCategories: Record<'ai-ml' | 'trading' | 'mobile' | 'web' | 'automation', string>
+  projectDifficulty: Record<'beginner' | 'intermediate' | 'advanced' | 'expert', string>
 }
 
 export const dictionaries: Record<Locale, Dict> = {
@@ -110,6 +111,12 @@ export const dictionaries: Record<Locale, Dict> = {
       web: 'Web',
       automation: 'Otomasyon',
     },
+    projectDifficulty: {
+      beginner: 'Başlangıç',
+      intermediate: 'Orta',
+      advanced: 'İleri',
+      expert: 'Uzman',
+    },
   },
   en: {
     meta: {
@@ -183,6 +190,12 @@ export const dictionaries: Record<Locale, Dict> = {
       web: 'Web',
       automation: 'Automation',
     },
+    projectDifficulty: {
+      beginner: 'Beginner',
+      intermediate: 'Intermediate',
+      advanced: 'Advanced',
+      expert: 'Expert',
+    },
   },
   ru: {
     meta: {
@@ -255,6 +268,12 @@ export const dictionaries: Record<Locale, Dict> = {
       mobile: 'Мобильная',
       web: 'Web',
       automation: 'Автоматизация',
+    },
+    projectDifficulty: {
+      beginner: 'Начальный',
+      intermediate: 'Средний',
+      advanced: 'Продвинутый',
+      expert: 'Эксперт',
     },
   },
 }
