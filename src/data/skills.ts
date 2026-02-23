@@ -155,6 +155,106 @@ export const skills: Skill[] = [
     category: 'tools',
     experience: '2+ years',
     projects: ['ai-algo-trade']
+  },
+
+  // New Skills
+  {
+    name: 'Flutter',
+    level: 82,
+    category: 'mobile',
+    experience: '2+ years',
+    projects: ['Barter Qween', 'PosPro', 'AdPro']
+  },
+  {
+    name: 'Dart',
+    level: 80,
+    category: 'mobile',
+    experience: '2+ years',
+    projects: ['Barter Qween', 'PosPro', 'AdPro']
+  },
+  {
+    name: 'Go (Golang)',
+    level: 75,
+    category: 'backend',
+    experience: '1+ year',
+    projects: ['Hayalet', 'Go-Trade']
+  },
+  {
+    name: 'Fastify',
+    level: 78,
+    category: 'backend',
+    experience: '1+ year',
+    projects: ['OmniSell']
+  },
+  {
+    name: 'Firebase',
+    level: 85,
+    category: 'database',
+    experience: '3+ years',
+    projects: ['Mandira Claude', 'Barter Qween', 'PosPro']
+  },
+  {
+    name: 'Prisma',
+    level: 80,
+    category: 'database',
+    experience: '2+ years',
+    projects: ['Indirim Kanallari', 'OmniSell']
+  },
+  {
+    name: 'LangChain',
+    level: 78,
+    category: 'ai-ml',
+    experience: '1+ year',
+    projects: ['Airchitecture', 'n8n Workflows']
+  },
+  {
+    name: 'Google Gemini',
+    level: 80,
+    category: 'ai-ml',
+    experience: '1+ year',
+    projects: ['Sinav Analiz', 'Video Factory', 'AdPro']
+  },
+  {
+    name: 'PyTorch',
+    level: 76,
+    category: 'ai-ml',
+    experience: '1+ year',
+    projects: ['Diagnostic']
+  },
+  {
+    name: 'n8n',
+    level: 90,
+    category: 'tools',
+    experience: '2+ years',
+    projects: ['n8n Workflows']
+  },
+  {
+    name: 'NestJS',
+    level: 78,
+    category: 'backend',
+    experience: '1+ year',
+    projects: ['FireAlert']
+  },
+  {
+    name: 'MQL4/MQL5',
+    level: 85,
+    category: 'tools',
+    experience: '2+ years',
+    projects: ['Hayalet', 'Go-Trade']
+  },
+  {
+    name: 'Kubernetes',
+    level: 70,
+    category: 'devops',
+    experience: '1+ year',
+    projects: ['AdPro CLI', 'OmniSell']
+  },
+  {
+    name: 'Coolify',
+    level: 72,
+    category: 'devops',
+    experience: '1+ year',
+    projects: ['AdPro CLI']
   }
 ];
 

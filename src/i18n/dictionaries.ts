@@ -5,7 +5,7 @@ type Dict = {
   meta: { title: string; description: string; keywords: string }
   skipLink: string
   brand: string
-  nav: { home: string; about: string; projects: string; skills: string; answers: string; contact: string }
+  nav: { home: string; about: string; projects: string; skills: string; pmInsights: string; contact: string }
   hero: {
     title1: string
     title2: string
@@ -29,14 +29,15 @@ type Dict = {
     title: string
     subtitle: string
     stats: { answered: string; refs: string; avgConf: string }
-    filters: { all: string; technical: string; career: string; projects: string; aiml: string; frontend: string; backend: string }
+    filters: { all: string; planning: string; technical: string; team: string; client: string; risk: string; process: string; product: string }
     ctaViewProjects: string
     originalNote?: string
   }
   contact: { title: string; subtitle: string; email: string; phone: string; location: string; locationValue: string }
   footer: { text: string }
-  projectCategories: Record<'ai-ml' | 'trading' | 'mobile' | 'web' | 'automation', string>
+  projectCategories: Record<'ai-ml' | 'trading' | 'mobile' | 'web' | 'automation' | 'tools', string>
   projectDifficulty: Record<'beginner' | 'intermediate' | 'advanced' | 'expert', string>
+  projectDetail?: { back: string; features: string; challenges: string; solutions: string; metrics: string; impact: string; viewCode: string; liveDemo: string; status: string }
 }
 
 export const dictionaries: Record<Locale, Dict> = {
@@ -50,7 +51,7 @@ export const dictionaries: Record<Locale, Dict> = {
     },
     skipLink: 'İçeriğe atla',
     brand: 'Hamza Turhan',
-    nav: { home: 'Ana Sayfa', about: 'Hakkımda', projects: 'Projeler', skills: 'Yetenekler', answers: 'Mülakat Cevapları', contact: 'İletişim' },
+    nav: { home: 'Ana Sayfa', about: 'Hakkımda', projects: 'Projeler', skills: 'Yetenekler', pmInsights: 'PM Deneyimleri', contact: 'İletişim' },
     hero: {
       title1: 'Fullstack Developer',
       title2: 'AI Sistem Mimarı',
@@ -89,10 +90,10 @@ export const dictionaries: Record<Locale, Dict> = {
       },
     },
     answers: {
-      title: 'Mülakat Cevapları',
-      subtitle: 'Gerçek proje örnekleriyle desteklenmiş detaylı teknik cevaplar',
+      title: 'PM Deneyimlerim',
+      subtitle: 'Gerçek projelerde karşılaştığım zorluklar ve çözümlerim',
       stats: { answered: 'Cevaplanan Sorular', refs: 'Referans Projeler', avgConf: 'Ortalama Güven' },
-      filters: { all: 'Tümü', technical: 'Teknik', career: 'Kariyer', projects: 'Projeler', aiml: 'AI/ML', frontend: 'Frontend', backend: 'Backend' },
+      filters: { all: 'Tümü', planning: 'Planlama', technical: 'Teknik Karar', team: 'Takım', client: 'Müşteri', risk: 'Risk', process: 'Süreç', product: 'Ürün' },
       ctaViewProjects: 'Projeleri Görüntüle',
     },
     contact: {
@@ -110,12 +111,24 @@ export const dictionaries: Record<Locale, Dict> = {
       mobile: 'Mobil',
       web: 'Web',
       automation: 'Otomasyon',
+      tools: 'Araçlar',
     },
     projectDifficulty: {
       beginner: 'Başlangıç',
       intermediate: 'Orta',
       advanced: 'İleri',
       expert: 'Uzman',
+    },
+    projectDetail: {
+      back: 'Geri Dön',
+      features: 'Özellikler',
+      challenges: 'Zorluklar',
+      solutions: 'Çözümler',
+      metrics: 'Metrikler',
+      impact: 'Etki',
+      viewCode: 'Kodu Görüntüle',
+      liveDemo: 'Canlı Demo',
+      status: 'Durum',
     },
   },
   en: {
@@ -128,7 +141,7 @@ export const dictionaries: Record<Locale, Dict> = {
     },
     skipLink: 'Skip to content',
     brand: 'Hamza Turhan',
-    nav: { home: 'Home', about: 'About', projects: 'Projects', skills: 'Skills', answers: 'Interview Answers', contact: 'Contact' },
+    nav: { home: 'Home', about: 'About', projects: 'Projects', skills: 'Skills', pmInsights: 'PM Insights', contact: 'Contact' },
     hero: {
       title1: 'Fullstack Developer',
       title2: 'AI Systems Architect',
@@ -167,10 +180,10 @@ export const dictionaries: Record<Locale, Dict> = {
       },
     },
     answers: {
-      title: 'Interview Answers',
-      subtitle: 'Detailed technical answers backed by real project examples',
+      title: 'PM Insights',
+      subtitle: 'Real challenges and solutions from my project management experience',
       stats: { answered: 'Answered Questions', refs: 'Reference Projects', avgConf: 'Average Confidence' },
-      filters: { all: 'All', technical: 'Technical', career: 'Career', projects: 'Projects', aiml: 'AI/ML', frontend: 'Frontend', backend: 'Backend' },
+      filters: { all: 'All', planning: 'Planning', technical: 'Technical', team: 'Team', client: 'Client', risk: 'Risk', process: 'Process', product: 'Product' },
       ctaViewProjects: 'View Projects',
       originalNote: 'Note: Detailed answers are currently in Turkish.',
     },
@@ -189,12 +202,24 @@ export const dictionaries: Record<Locale, Dict> = {
       mobile: 'Mobile',
       web: 'Web',
       automation: 'Automation',
+      tools: 'Tools',
     },
     projectDifficulty: {
       beginner: 'Beginner',
       intermediate: 'Intermediate',
       advanced: 'Advanced',
       expert: 'Expert',
+    },
+    projectDetail: {
+      back: 'Go Back',
+      features: 'Features',
+      challenges: 'Challenges',
+      solutions: 'Solutions',
+      metrics: 'Metrics',
+      impact: 'Impact',
+      viewCode: 'View Code',
+      liveDemo: 'Live Demo',
+      status: 'Status',
     },
   },
   ru: {
@@ -207,7 +232,7 @@ export const dictionaries: Record<Locale, Dict> = {
     },
     skipLink: 'Перейти к содержимому',
     brand: 'Hamza Turhan',
-    nav: { home: 'Главная', about: 'Обо мне', projects: 'Проекты', skills: 'Навыки', answers: 'Ответы на собеседование', contact: 'Контакты' },
+    nav: { home: 'Главная', about: 'Обо мне', projects: 'Проекты', skills: 'Навыки', pmInsights: 'Опыт PM', contact: 'Контакты' },
     hero: {
       title1: 'Fullstack разработчик',
       title2: 'Архитектор систем ИИ',
@@ -246,10 +271,10 @@ export const dictionaries: Record<Locale, Dict> = {
       },
     },
     answers: {
-      title: 'Ответы на собеседование',
-      subtitle: 'Подробные технические ответы с примерами реальных проектов',
+      title: 'Опыт PM',
+      subtitle: 'Реальные задачи и решения из моего опыта управления проектами',
       stats: { answered: 'Отвеченные вопросы', refs: 'Референс‑проекты', avgConf: 'Средняя уверенность' },
-      filters: { all: 'Все', technical: 'Технические', career: 'Карьера', projects: 'Проекты', aiml: 'AI/ML', frontend: 'Фронтенд', backend: 'Бэкенд' },
+      filters: { all: 'Все', planning: 'Планирование', technical: 'Техническое', team: 'Команда', client: 'Клиент', risk: 'Риск', process: 'Процесс', product: 'Продукт' },
       ctaViewProjects: 'Смотреть проекты',
       originalNote: 'Примечание: подробные ответы пока на турецком языке.',
     },
@@ -268,12 +293,24 @@ export const dictionaries: Record<Locale, Dict> = {
       mobile: 'Мобильная',
       web: 'Web',
       automation: 'Автоматизация',
+      tools: 'Инструменты',
     },
     projectDifficulty: {
       beginner: 'Начальный',
       intermediate: 'Средний',
       advanced: 'Продвинутый',
       expert: 'Эксперт',
+    },
+    projectDetail: {
+      back: 'Назад',
+      features: 'Возможности',
+      challenges: 'Сложности',
+      solutions: 'Решения',
+      metrics: 'Метрики',
+      impact: 'Влияние',
+      viewCode: 'Смотреть код',
+      liveDemo: 'Демо',
+      status: 'Статус',
     },
   },
 }

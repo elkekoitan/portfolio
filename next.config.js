@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['github.com', 'vercel.com'],
-  },
-  env: {
-    CUSTOM_KEY: process.env.CUSTOM_KEY,
+    remotePatterns: [
+      { protocol: 'https', hostname: 'github.com' },
+      { protocol: 'https', hostname: 'vercel.com' },
+    ],
   },
 }
 
-module.exports = nextConfig 
+module.exports = nextConfig

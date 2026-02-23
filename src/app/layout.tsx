@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Cinzel } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const cinzel = Cinzel({ subsets: ['latin'], variable: '--font-cinzel', weight: ['400', '600', '700'] })
 
 export const viewport: Viewport = {
-  themeColor: '#0f0f23',
+  themeColor: '#1a1008',
 }
 
 export const metadata: Metadata = {
@@ -15,8 +16,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="tr" className="scroll-smooth">
-      <body className={`${inter.className} bg-dark-900 text-white antialiased`}>{children}</body>
+      <body className={`${inter.variable} ${cinzel.variable} font-sans bg-dune-body text-dune-bone antialiased`}>{children}</body>
     </html>
   )
 }
-
