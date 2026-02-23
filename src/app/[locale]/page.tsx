@@ -19,12 +19,53 @@ import {
   Rocket,
   Cpu,
   Eye,
+  Users,
+  Shield,
 } from 'lucide-react';
+import Link from 'next/link';
 import { projects } from '@/data/projects';
 import { skills } from '@/data/skills';
 import { getInterviewAnswers } from '@/data/interview-answers.i18n';
 import { getDict, type Locale } from '@/i18n/dictionaries';
 import { tProject } from '@/i18n/projects';
+
+// GSAP enhancements
+import HeroParticles from '@/components/gsap/HeroParticles';
+import TextScramble from '@/components/gsap/TextScramble';
+import MagneticButton from '@/components/gsap/MagneticButton';
+import ScrollReveal from '@/components/gsap/ScrollReveal';
+
+type FilterKey = 'all' | 'planning' | 'technical' | 'team' | 'client' | 'risk' | 'process' | 'product';
+
+const filterCategoryMap: Record<string, Record<Exclude<FilterKey, 'all'>, string[]>> = {
+  tr: {
+    planning: ['Planlama'],
+    technical: ['Teknik'],
+    team: ['Takım'],
+    client: ['Müşteri'],
+    risk: ['Risk'],
+    process: ['Süreç'],
+    product: ['Ürün'],
+  },
+  en: {
+    planning: ['Planning'],
+    technical: ['Technical'],
+    team: ['Team'],
+    client: ['Client'],
+    risk: ['Risk'],
+    process: ['Process'],
+    product: ['Product'],
+  },
+  ru: {
+    planning: ['Планирование'],
+    technical: ['Техническое'],
+    team: ['Команда'],
+    client: ['Клиент'],
+    risk: ['Риск'],
+    process: ['Процесс'],
+    product: ['Продукт'],
+  },
+};
 
 export default function Home() {
   const params = useParams();
@@ -32,8 +73,7 @@ export default function Home() {
   const t = getDict(locale);
 
   const [activeSection, setActiveSection] = useState('hero');
-  type FilterKey = 'All' | 'Technical' | 'Career' | 'Projects' | 'AI/ML' | 'Frontend' | 'Backend';
-  const [activeFilter, setActiveFilter] = useState<FilterKey>('All');
+  const [activeFilter, setActiveFilter] = useState<FilterKey>('all');
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -66,104 +106,33 @@ export default function Home() {
     { key: 'about', label: t.nav.about },
     { key: 'projects', label: t.nav.projects },
     { key: 'skills', label: t.nav.skills },
-    { key: 'answers', label: t.nav.answers },
+    { key: 'answers', label: t.nav.pmInsights },
     { key: 'contact', label: t.nav.contact },
   ];
 
   const langList: Locale[] = ['tr', 'en', 'ru'];
 
-  const answers = getInterviewAnswers(locale)
-
-  // Localized filter groups per locale to match translated categories
-  const filterGroups = useMemo(() => {
-    const common = {
-      frontend: ['Frontend', 'JavaScript'],
-      backend: ['Backend', 'Database', 'DevOps', 'Security', 'Performance', 'Testing'],
-      aiml: ['AI/ML'],
-      mobile: ['Mobile'],
-      realtime: ['Real-time'],
-      techMisc: ['Problem Solving', 'Team Collaboration', 'Project Management'],
-      proj: ['E-commerce', 'Practical Skills', 'References', 'Achievement'],
-      career: ['Kariyer', 'Availability', 'Health', 'Vision', 'Personal', 'Development', 'Professional', 'Process Improvement', 'Work Style', 'Compensation', 'Work Preference', 'Eğitim'],
-    } as const;
-
-    if (locale === 'ru') {
-      return {
-        frontend: ['Фронтенд', 'JavaScript'],
-        backend: ['Backend', 'Database', 'DevOps', 'Безопасность', 'Производительность', 'Тестирование'],
-        aiml: ['AI/ML'],
-        mobile: ['Мобильная разработка'],
-        realtime: ['Реальное время'],
-        techMisc: ['Решение проблем', 'Командная работа', 'Управление проектами'],
-        proj: ['E-commerce', 'Практические навыки', 'Рекомендации', 'Достижения'],
-        career: ['Карьера', 'Доступность', 'Здоровье', 'Видение', 'Личные качества', 'Развитие', 'Профессионально', 'Улучшение процессов', 'Стиль работы', 'Компенсация', 'Предпочтения в работе', 'Образование'],
-      };
-    }
-    if (locale === 'en') {
-      return common;
-    }
-    // tr (original categories include mixed TR/EN labels already used in dataset)
-    return {
-      frontend: ['Frontend', 'JavaScript'],
-      backend: ['Backend', 'Database', 'DevOps', 'Security', 'Performance', 'Testing'],
-      aiml: ['AI/ML'],
-      mobile: ['Mobile'],
-      realtime: ['Real-time'],
-      techMisc: ['Problem Solving', 'Team Collaboration', 'Project Management'],
-      proj: ['E-commerce', 'Practical Skills', 'References', 'Achievement'],
-      career: ['Kariyer', 'Availability', 'Health', 'Vision', 'Personal', 'Development', 'Professional', 'Process Improvement', 'Work Style', 'Compensation', 'Work Preference', 'Eğitim'],
-    };
-  }, [locale]);
+  const answers = getInterviewAnswers(locale);
 
   const filteredAnswers = useMemo(() => {
-    if (activeFilter === 'All') return answers;
-    if (activeFilter === 'Frontend') {
-      const set = new Set([...filterGroups.frontend]);
-      return answers.filter(a => set.has(a.category));
-    }
-    if (activeFilter === 'Backend') {
-      const set = new Set([...filterGroups.backend]);
-      return answers.filter(a => set.has(a.category));
-    }
-    if (activeFilter === 'AI/ML') {
-      const set = new Set([...filterGroups.aiml]);
-      return answers.filter(a => set.has(a.category));
-    }
-    if (activeFilter === 'Projects') {
-      const set = new Set([...filterGroups.proj, ...filterGroups.realtime, ...filterGroups.mobile]);
-      return answers.filter(a => set.has(a.category));
-    }
-    if (activeFilter === 'Technical') {
-      const set = new Set([
-        ...filterGroups.frontend,
-        ...filterGroups.backend,
-        ...filterGroups.aiml,
-        ...filterGroups.mobile,
-        ...filterGroups.realtime,
-        ...filterGroups.techMisc,
-      ]);
-      return answers.filter(a => set.has(a.category));
-    }
-    if (activeFilter === 'Career') {
-      const set = new Set([...filterGroups.career]);
-      return answers.filter(a => set.has(a.category));
-    }
-    return answers;
-  }, [activeFilter, answers, filterGroups]);
+    if (activeFilter === 'all') return answers;
+    const cats = filterCategoryMap[locale]?.[activeFilter] ?? [];
+    return answers.filter((a) => cats.includes(a.category));
+  }, [activeFilter, answers, locale]);
 
   return (
-    <main id="main-content" className="min-h-screen bg-gradient-to-b from-dark-900 to-dark-800 relative overflow-hidden">
+    <main id="main-content" className="min-h-screen bg-dune-body relative overflow-hidden">
       {/* Subtle Background Accents */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-24 -left-24 w-[28rem] h-[28rem] bg-cyan-500/10 rounded-full blur-2xl" />
-        <div className="absolute -bottom-24 -right-24 w-[28rem] h-[28rem] bg-purple-500/10 rounded-full blur-2xl" />
+        <div className="absolute -top-24 -left-24 w-[28rem] h-[28rem] bg-dune-amber/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 w-[28rem] h-[28rem] bg-dune-turquoise/5 rounded-full blur-3xl" />
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur supports-[backdrop-filter]:bg-dark-900/70 bg-dark-900/60 border-b border-white/10" aria-label="Primary">
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-dune-body/70 border-b border-dune-amber/10" aria-label="Primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="text-xl font-bold gradient-text">
+            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="text-xl font-serif font-bold gradient-text">
               {t.brand}
             </motion.div>
             <div className="hidden md:flex items-center space-x-6">
@@ -174,19 +143,19 @@ export default function Home() {
                     href={`#${section.key}`}
                     onClick={() => scrollToSection(section.key)}
                     className={`group relative text-sm font-medium transition-colors focus:outline-none ${
-                      activeSection === section.key ? 'text-accent-cyan' : 'text-gray-300 hover:text-white'
+                      activeSection === section.key ? 'text-dune-amber' : 'text-dune-sand/70 hover:text-dune-bone'
                     }`}
                   >
                     {section.label}
                     <span
-                      className={`absolute -bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-gradient-to-r from-accent-cyan to-accent-purple transition-all duration-300 ${
+                      className={`absolute -bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-gradient-to-r from-dune-amber to-dune-turquoise transition-all duration-300 ${
                         activeSection === section.key ? 'w-full' : 'group-hover:w-6'
                       }`}
                     />
                   </a>
                 ))}
               </div>
-              <div className="h-5 w-px bg-white/20" />
+              <div className="h-5 w-px bg-dune-amber/20" />
               <div className="flex gap-2" aria-label="Language">
                 {langList.map((lng) => (
                   <a
@@ -195,8 +164,8 @@ export default function Home() {
                     aria-current={lng === locale ? 'page' : undefined}
                     className={`px-2 py-1 rounded text-xs font-semibold border transition-colors ${
                       lng === locale
-                        ? 'border-accent-cyan text-accent-cyan'
-                        : 'border-white/10 text-gray-300 hover:text-white hover:border-white/30'
+                        ? 'border-dune-amber text-dune-amber'
+                        : 'border-dune-amber/20 text-dune-sand/60 hover:text-dune-bone hover:border-dune-amber/40'
                     }`}
                   >
                     {lng.toUpperCase()}
@@ -210,7 +179,7 @@ export default function Home() {
 
       {/* Mobile language switcher */}
       <div className="md:hidden fixed top-[64px] right-3 z-40">
-        <div className="glass rounded-lg p-1 border border-white/10 flex gap-1">
+        <div className="glass rounded-lg p-1 border border-dune-amber/10 flex gap-1">
           {langList.map((lng) => (
             <a
               key={lng}
@@ -218,8 +187,8 @@ export default function Home() {
               aria-current={lng === locale ? 'page' : undefined}
               className={`px-2 py-1 rounded text-xs font-semibold border transition-colors ${
                 lng === locale
-                  ? 'border-accent-cyan text-accent-cyan'
-                  : 'border-white/10 text-gray-300 hover:text-white hover:border-white/30'
+                  ? 'border-dune-amber text-dune-amber'
+                  : 'border-dune-amber/20 text-dune-sand/60 hover:text-dune-bone hover:border-dune-amber/40'
               }`}
             >
               {lng.toUpperCase()}
@@ -230,329 +199,375 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <HeroParticles />
+
         <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="glass-card p-8 md:p-10 rounded-3xl border border-white/10">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-              <span className="gradient-text">{t.hero.title1}</span>
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="neomorphic p-8 md:p-10 rounded-3xl">
+            <h1 className="text-4xl md:text-6xl font-serif font-bold tracking-tight mb-6">
+              <TextScramble text={t.hero.title1} className="gradient-text" tag="span" delay={0.3} />
               <br />
-              <span className="text-white">{t.hero.title2}</span>
+              <TextScramble text={t.hero.title2} className="text-dune-bone" tag="span" delay={0.8} />
             </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-accent-cyan to-accent-purple mx-auto mb-6 rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-dune-amber to-dune-turquoise mx-auto mb-6 rounded-full" />
 
             {/* AI Expertise Card */}
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }} className="glass p-6 rounded-2xl mb-8 border border-accent-cyan/20">
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }} className="neomorphic-inset p-6 rounded-2xl mb-8">
               <div className="flex items-center justify-center mb-4">
-                <Brain className="w-8 h-8 text-accent-cyan mr-3" />
-                <h2 className="text-2xl font-bold text-accent-cyan">{t.hero.aiCardTitle}</h2>
+                <Brain className="w-8 h-8 text-dune-turquoise mr-3" />
+                <h2 className="text-2xl font-serif font-bold text-dune-turquoise">{t.hero.aiCardTitle}</h2>
               </div>
-              <p className="text-lg text-gray-300 mb-4">
+              <p className="text-lg text-dune-sand mb-4">
                 {locale === 'tr' ? 'Yapay zeka entegrasyonları ile mevcut ekiplerin verimliliğini ' : locale === 'ru' ? 'С помощью интеграции ИИ повышаю продуктивность команд ' : 'With AI integrations I help teams improve productivity '}
-                <span className="text-accent-cyan font-bold">10x</span>
+                <span className="text-dune-amber font-bold">10x</span>
               </p>
               <div className="grid md:grid-cols-3 gap-4 text-sm">
-                <div className="flex items-center text-gray-300">
-                  <Zap className="w-4 h-4 text-accent-teal mr-2" />
+                <div className="flex items-center text-dune-sand">
+                  <Zap className="w-4 h-4 text-dune-amber mr-2" />
                   <span>{t.hero.aiFeatures[0]}</span>
                 </div>
-                <div className="flex items-center text-gray-300">
-                  <Cpu className="w-4 h-4 text-accent-purple mr-2" />
+                <div className="flex items-center text-dune-sand">
+                  <Cpu className="w-4 h-4 text-dune-lavender mr-2" />
                   <span>{t.hero.aiFeatures[1]}</span>
                 </div>
-                <div className="flex items-center text-gray-300">
-                  <TrendingUp className="w-4 h-4 text-accent-coral mr-2" />
+                <div className="flex items-center text-dune-sand">
+                  <TrendingUp className="w-4 h-4 text-dune-spice mr-2" />
                   <span>{t.hero.aiFeatures[2]}</span>
                 </div>
               </div>
             </motion.div>
 
-            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">{t.hero.desc}</p>
+            <p className="text-lg md:text-xl text-dune-sand mb-8 max-w-3xl mx-auto">{t.hero.desc}</p>
 
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} className="glass p-4 rounded-xl">
-                <div className="text-2xl font-bold text-accent-cyan">10x</div>
-                <div className="text-sm text-gray-400">{t.hero.stats.prod}</div>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="glass p-4 rounded-xl">
-                <div className="text-2xl font-bold text-accent-teal">15+</div>
-                <div className="text-sm text-gray-400">{t.hero.stats.ai}</div>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="glass p-4 rounded-xl">
-                <div className="text-2xl font-bold text-accent-purple">4+</div>
-                <div className="text-sm text-gray-400">{t.hero.stats.years}</div>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} className="glass p-4 rounded-xl">
-                <div className="text-2xl font-bold text-accent-coral">20+</div>
-                <div className="text-sm text-gray-400">{t.hero.stats.tools}</div>
-              </motion.div>
+              {[
+                { value: '10x', label: t.hero.stats.prod, color: 'text-dune-amber', delay: 0.5 },
+                { value: '30+', label: t.hero.stats.ai, color: 'text-dune-turquoise', delay: 0.6 },
+                { value: '5+', label: t.hero.stats.years, color: 'text-dune-lavender', delay: 0.7 },
+                { value: '40+', label: t.hero.stats.tools, color: 'text-dune-spice', delay: 0.8 },
+              ].map((stat) => (
+                <motion.div key={stat.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: stat.delay }} className="neomorphic-inset p-4 rounded-xl">
+                  <div className={`text-2xl font-bold ${stat.color}`}>{stat.value}</div>
+                  <div className="text-sm text-dune-sand/60">{stat.label}</div>
+                </motion.div>
+              ))}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => scrollToSection('projects')} className="px-8 py-3 bg-gradient-to-r from-accent-cyan to-accent-teal text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-accent-cyan/25 transition-all">
-                <Rocket className="w-4 h-4 mr-2 inline" />
-                {t.hero.buttons.viewProjects}
-              </motion.button>
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => scrollToSection('answers')} className="px-8 py-3 border border-accent-purple/50 text-accent-purple rounded-lg font-semibold hover:bg-accent-purple/20 transition-all">
-                <Brain className="w-4 h-4 mr-2 inline" />
-                {t.hero.buttons.interview}
-              </motion.button>
+              <MagneticButton>
+                <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => scrollToSection('projects')} className="px-8 py-3 bg-gradient-to-r from-dune-amber to-dune-rust text-dune-body rounded-lg font-semibold hover:shadow-lg hover:shadow-dune-amber/25 transition-all">
+                  <Rocket className="w-4 h-4 mr-2 inline" />
+                  {t.hero.buttons.viewProjects}
+                </motion.button>
+              </MagneticButton>
+              <MagneticButton>
+                <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => scrollToSection('answers')} className="px-8 py-3 border border-dune-turquoise/50 text-dune-turquoise rounded-lg font-semibold hover:bg-dune-turquoise/10 transition-all">
+                  <Brain className="w-4 h-4 mr-2 inline" />
+                  {t.hero.buttons.interview}
+                </motion.button>
+              </MagneticButton>
             </div>
           </motion.div>
         </div>
         <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 2, repeat: Infinity }} className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <ChevronDown className="w-6 h-6 text-gray-400" />
+          <ChevronDown className="w-6 h-6 text-dune-sand/40" />
         </motion.div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-dark-800">
+      <section id="about" className="py-20 bg-dune-surface">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 gradient-text">{t.about.title}</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">{t.about.desc}</p>
-          </motion.div>
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-serif font-bold mb-4 gradient-text">{t.about.title}</h2>
+              <p className="text-xl text-dune-sand max-w-3xl mx-auto">{t.about.desc}</p>
+            </div>
+          </ScrollReveal>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-              <h3 className="text-2xl font-bold mb-6 text-white">{t.about.tech}</h3>
-              <div className="space-y-4">
-                {t.about.bullets.map((txt, i) => {
-                  const Icon = [Code, Brain, TrendingUp, Smartphone][i] ?? Code
-                  return (
-                    <div key={i} className="flex items-center space-x-3">
-                      <Icon className="w-6 h-6 text-accent-cyan" />
-                      <span className="text-gray-300">{txt}</span>
-                    </div>
-                  )
-                })}
+            <ScrollReveal direction="left">
+              <div>
+                <h3 className="text-2xl font-serif font-bold mb-6 text-dune-bone">{t.about.tech}</h3>
+                <div className="space-y-4">
+                  {t.about.bullets.map((txt, i) => {
+                    const Icon = [Code, Brain, TrendingUp, Smartphone][i] ?? Code;
+                    const iconColor = ['text-dune-amber', 'text-dune-turquoise', 'text-dune-spice', 'text-dune-lavender'][i];
+                    return (
+                      <div key={i} className="flex items-center space-x-3">
+                        <Icon className={`w-6 h-6 ${iconColor}`} />
+                        <span className="text-dune-sand">{txt}</span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </motion.div>
+            </ScrollReveal>
 
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="glass p-8 rounded-2xl border border-white/10">
-              <h3 className="text-2xl font-bold mb-6 text-white">{t.about.achievements}</h3>
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-300">{t.about.ach.completed}</span>
-                  <span className="text-accent-cyan font-bold">15+</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-300">{t.about.ach.years}</span>
-                  <span className="text-accent-teal font-bold">4+</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-300">{t.about.ach.techs}</span>
-                  <span className="text-accent-purple font-bold">20+</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-300">{t.about.ach.success}</span>
-                  <span className="text-accent-coral font-bold">95%</span>
+            <ScrollReveal direction="right">
+              <div className="neomorphic p-8 rounded-2xl">
+                <h3 className="text-2xl font-serif font-bold mb-6 text-dune-bone">{t.about.achievements}</h3>
+                <div className="space-y-4">
+                  {[
+                    { label: t.about.ach.completed, value: '30+', color: 'text-dune-amber' },
+                    { label: t.about.ach.years, value: '5+', color: 'text-dune-turquoise' },
+                    { label: t.about.ach.techs, value: '40+', color: 'text-dune-lavender' },
+                    { label: t.about.ach.success, value: '98%', color: 'text-dune-spice' },
+                  ].map((item) => (
+                    <div key={item.label} className="flex items-center justify-between">
+                      <span className="text-dune-sand">{item.label}</span>
+                      <span className={`${item.color} font-bold`}>{item.value}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </motion.div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-dark-900">
+      <section id="projects" className="py-20 bg-dune-body">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 gradient-text">{t.projects.title}</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">{t.projects.subtitle}</p>
-          </motion.div>
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-serif font-bold mb-4 gradient-text">{t.projects.title}</h2>
+              <p className="text-xl text-dune-sand max-w-3xl mx-auto">{t.projects.subtitle}</p>
+            </div>
+          </ScrollReveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <motion.div key={project.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: index * 0.1 }} className="glass rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-colors">
-                <div className="h-48 bg-gradient-to-br from-accent-cyan/20 to-accent-purple/20 rounded-lg mb-4 flex items-center justify-center">
-                  <Globe className="w-16 h-16 text-accent-cyan" />
+            {projects.map((project) => (
+              <Link key={project.id} href={`/${locale}/projects/${project.id}`}>
+                <div className="neomorphic rounded-2xl p-6 hover:translate-y-[-4px] transition-all duration-300 cursor-pointer h-full">
+                  <div
+                    className="h-48 rounded-lg mb-4 flex items-center justify-center relative overflow-hidden"
+                    style={{
+                      background: project.colorAccent
+                        ? `linear-gradient(135deg, ${project.colorAccent}15, ${project.colorAccent}05)`
+                        : 'linear-gradient(135deg, rgba(232,192,122,0.1), rgba(110,231,208,0.1))',
+                    }}
+                  >
+                    {project.colorAccent && <div className="absolute top-0 left-0 right-0 h-1" style={{ background: project.colorAccent }} />}
+                    {project.featured && (
+                      <span className="absolute top-3 right-3 text-xs px-2 py-0.5 rounded-full bg-dune-amber/15 border border-dune-amber/40 text-dune-amber">★</span>
+                    )}
+                    <Globe className="w-16 h-16" style={{ color: project.colorAccent ?? '#e8c07a' }} />
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-dune-bone">{tProject(project.id, locale, 'title', project.title)}</h3>
+                  <p className="text-dune-sand/80 mb-4 text-sm line-clamp-2">{tProject(project.id, locale, 'description', project.description)}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.slice(0, 3).map((tech) => (
+                      <span key={tech} className="px-2 py-1 bg-dune-amber/10 text-dune-amber text-xs rounded border border-dune-amber/20">
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 3 && (
+                      <span className="px-2 py-1 bg-dune-bone/5 text-dune-sand/50 text-xs rounded">+{project.technologies.length - 3}</span>
+                    )}
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-dune-sand/60 capitalize">{t.projectCategories[project.category]}</span>
+                    <span className="text-sm text-dune-turquoise font-semibold">{t.projectDifficulty[project.difficulty] ?? project.difficulty}</span>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-white">{tProject(project.id, locale, 'title', project.title)}</h3>
-                <p className="text-gray-300 mb-4">{tProject(project.id, locale, 'description', project.description)}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.slice(0, 3).map((tech) => (
-                    <span key={tech} className="px-2 py-1 bg-accent-cyan/20 text-accent-cyan text-xs rounded">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-400 capitalize">{t.projectCategories[project.category]}</span>
-                  <span className="text-sm text-accent-teal font-semibold">{t.projectDifficulty[project.difficulty] ?? project.difficulty}</span>
-                </div>
-              </motion.div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 bg-dark-800">
+      <section id="skills" className="py-20 bg-dune-surface">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 gradient-text">{t.skills.title}</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">{t.skills.subtitle}</p>
-          </motion.div>
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-serif font-bold mb-4 gradient-text">{t.skills.title}</h2>
+              <p className="text-xl text-dune-sand max-w-3xl mx-auto">{t.skills.subtitle}</p>
+            </div>
+          </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {(['frontend', 'backend', 'ai-ml', 'mobile', 'database', 'devops'] as const).map((category, index) => (
-              <motion.div key={category} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: index * 0.1 }} className="glass rounded-2xl p-6 border border-white/10">
-                <h3 className="text-xl font-bold mb-4 text-white capitalize">{t.skills.categories[category] ?? category}</h3>
-                <div className="space-y-3">
-                  {skills
-                    .filter((skill) => skill.category === category)
-                    .slice(0, 4)
-                    .map((skill) => (
-                      <div key={skill.name} className="space-y-2">
-                        <div className="flex justify-between text-sm">
-                          <span className="text-gray-300">{skill.name}</span>
-                          <span className="text-accent-cyan">{skill.level}%</span>
+          <ScrollReveal stagger={0.12}>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {(['frontend', 'backend', 'ai-ml', 'mobile', 'database', 'devops'] as const).map((category) => (
+                <div key={category} className="neomorphic rounded-2xl p-6">
+                  <h3 className="text-xl font-serif font-bold mb-4 text-dune-amber capitalize">{t.skills.categories[category] ?? category}</h3>
+                  <div className="space-y-3">
+                    {skills
+                      .filter((skill) => skill.category === category)
+                      .slice(0, 4)
+                      .map((skill) => (
+                        <div key={skill.name} className="space-y-2">
+                          <div className="flex justify-between text-sm">
+                            <span className="text-dune-sand">{skill.name}</span>
+                            <span className="text-dune-turquoise">{skill.level}%</span>
+                          </div>
+                          <div className="w-full bg-dune-body rounded-full h-2">
+                            <div
+                              className="bg-gradient-to-r from-dune-amber to-dune-turquoise h-2 rounded-full transition-all duration-1000"
+                              style={{ width: `${skill.level}%` }}
+                            />
+                          </div>
                         </div>
-                        <div className="w-full bg-gray-700 rounded-full h-2">
-                          <div className="bg-gradient-to-r from-accent-cyan to-accent-teal h-2 rounded-full transition-all duration-1000" style={{ width: `${skill.level}%` }}></div>
-                        </div>
-                      </div>
-                    ))}
+                      ))}
+                  </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Interview Answers Section */}
-      <section id="answers" className="py-20 bg-dark-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent-cyan/5 via-transparent to-accent-purple/5" />
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-accent-cyan/10 rounded-full blur-2xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent-purple/10 rounded-full blur-2xl" />
+      {/* PM Insights Section */}
+      <section id="answers" className="py-20 bg-dune-body relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-dune-amber/3 via-transparent to-dune-turquoise/3" />
+        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-dune-amber/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-dune-turquoise/5 rounded-full blur-3xl" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center mb-20">
-            <div className="inline-block mb-4">
-              <span className="px-4 py-2 bg-gradient-to-r from-accent-cyan/20 to-accent-purple/20 rounded-full text-sm font-medium text-accent-cyan border border-accent-cyan/30">
-                ✨ 34 {t.answers.stats.answered}
-              </span>
-            </div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 gradient-text">{t.answers.title}</h2>
-            {locale !== 'tr' && t.answers.originalNote && (
-              <p className="text-sm text-gray-400 mb-4">{t.answers.originalNote}</p>
-            )}
-            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">{t.answers.subtitle}</p>
+          <ScrollReveal>
+            <div className="text-center mb-20">
+              <div className="inline-block mb-4">
+                <span className="px-4 py-2 bg-gradient-to-r from-dune-amber/15 to-dune-turquoise/15 rounded-full text-sm font-medium text-dune-amber border border-dune-amber/30">
+                  25 {t.answers.stats.answered}
+                </span>
+              </div>
+              <h2 className="text-5xl md:text-6xl font-serif font-bold mb-6 gradient-text">{t.answers.title}</h2>
+              {locale !== 'tr' && t.answers.originalNote && (
+                <p className="text-sm text-dune-sand/50 mb-4">{t.answers.originalNote}</p>
+              )}
+              <p className="text-xl md:text-2xl text-dune-sand max-w-4xl mx-auto leading-relaxed">{t.answers.subtitle}</p>
 
-            <div className="flex flex-wrap justify-center gap-8 mt-12">
-              <div className="glass-card p-6 text-center border border-white/10">
-                <div className="text-3xl font-bold gradient-text-cyan mb-2">34</div>
-                <div className="text-sm text-gray-400">{t.answers.stats.answered}</div>
-              </div>
-              <div className="glass-card p-6 text-center border border-white/10">
-                <div className="text-3xl font-bold gradient-text-purple mb-2">15+</div>
-                <div className="text-sm text-gray-400">{t.answers.stats.refs}</div>
-              </div>
-              <div className="glass-card p-6 text-center border border-white/10">
-                <div className="text-3xl font-bold text-accent-coral mb-2">95%</div>
-                <div className="text-sm text-gray-400">{t.answers.stats.avgConf}</div>
+              <div className="flex flex-wrap justify-center gap-8 mt-12">
+                <div className="neomorphic p-6 text-center">
+                  <div className="text-3xl font-bold text-dune-amber mb-2">25</div>
+                  <div className="text-sm text-dune-sand/60">{t.answers.stats.answered}</div>
+                </div>
+                <div className="neomorphic p-6 text-center">
+                  <div className="text-3xl font-bold text-dune-turquoise mb-2">30+</div>
+                  <div className="text-sm text-dune-sand/60">{t.answers.stats.refs}</div>
+                </div>
+                <div className="neomorphic p-6 text-center">
+                  <div className="text-3xl font-bold text-dune-spice mb-2">95%</div>
+                  <div className="text-sm text-dune-sand/60">{t.answers.stats.avgConf}</div>
+                </div>
               </div>
             </div>
-          </motion.div>
+          </ScrollReveal>
 
           {/* Filter Tabs */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex flex-wrap justify-center gap-3 md:gap-4 mb-12">
-            {(
-              [
-                { key: 'All', label: t.answers.filters.all },
-                { key: 'Technical', label: t.answers.filters.technical },
-                { key: 'Career', label: t.answers.filters.career },
-                { key: 'Projects', label: t.answers.filters.projects },
-                { key: 'AI/ML', label: t.answers.filters.aiml },
-                { key: 'Frontend', label: t.answers.filters.frontend },
-                { key: 'Backend', label: t.answers.filters.backend },
-              ] as { key: FilterKey; label: string }[]
-            ).map((filter) => (
-              <button
-                key={filter.key}
-                onClick={() => setActiveFilter(filter.key)}
-                aria-pressed={activeFilter === filter.key}
-                className={`btn-glass px-5 py-2.5 text-sm font-medium hover:scale-[1.02] transition-all border ${
-                  activeFilter === filter.key
-                    ? 'border-accent-cyan/60 text-accent-cyan'
-                    : 'border-white/10 text-white/80 hover:border-white/30'
-                }`}
-              >
-                {filter.label}
-              </button>
-            ))}
-          </motion.div>
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-12">
+            {([
+              { key: 'all' as FilterKey, label: t.answers.filters.all, icon: Eye },
+              { key: 'planning' as FilterKey, label: t.answers.filters.planning, icon: Rocket },
+              { key: 'technical' as FilterKey, label: t.answers.filters.technical, icon: Code },
+              { key: 'team' as FilterKey, label: t.answers.filters.team, icon: Users },
+              { key: 'client' as FilterKey, label: t.answers.filters.client, icon: Globe },
+              { key: 'risk' as FilterKey, label: t.answers.filters.risk, icon: Shield },
+              { key: 'process' as FilterKey, label: t.answers.filters.process, icon: Zap },
+              { key: 'product' as FilterKey, label: t.answers.filters.product, icon: TrendingUp },
+            ]).map((filter) => {
+              const Icon = filter.icon;
+              return (
+                <button
+                  key={filter.key}
+                  onClick={() => setActiveFilter(filter.key)}
+                  aria-pressed={activeFilter === filter.key}
+                  className={`px-5 py-2.5 text-sm font-medium rounded-lg transition-all border ${
+                    activeFilter === filter.key
+                      ? 'border-dune-amber/60 text-dune-amber bg-dune-amber/10'
+                      : 'border-dune-amber/15 text-dune-sand/70 hover:border-dune-amber/30 hover:text-dune-bone'
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5 mr-1.5 inline" />
+                  {filter.label}
+                </button>
+              );
+            })}
+          </div>
 
-          {/* Interview Cards Grid */}
-          <div className="grid gap-8 lg:gap-12">
+          {/* PM Q&A Cards Grid */}
+          <div className="grid gap-8 lg:gap-10">
             {filteredAnswers.slice(0, 6).map((item) => (
-              <div key={item.questionNumber} className="interview-card">
+              <div key={item.questionNumber} className="neomorphic rounded-2xl p-6 md:p-8">
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-                  <span className="confidence-badge">{item.confidence}%</span>
-                  <span className="category-badge">{item.category}</span>
+                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-dune-turquoise/15 text-dune-turquoise border border-dune-turquoise/30">
+                    {item.confidence}%
+                  </span>
+                  <span className="px-3 py-1 rounded-full text-xs font-medium bg-dune-amber/10 text-dune-amber border border-dune-amber/20">
+                    {item.category}
+                  </span>
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-white">{item.question}</h3>
-                <p className="text-gray-300 leading-relaxed">{item.answer}</p>
+                <h3 className="text-xl md:text-2xl font-bold mb-3 text-dune-bone">{item.question}</h3>
+                <p className="text-dune-sand leading-relaxed">{item.answer}</p>
+                {item.projects.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {item.projects.map((p) => (
+                      <span key={p} className="px-2 py-0.5 text-xs bg-dune-spice/10 text-dune-spice rounded border border-dune-spice/20">{p}</span>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
 
             <div className="text-center">
-              <div className="inline-flex items-center gap-2">
-                <button onClick={() => scrollToSection('projects')} className="btn-glass px-8 py-3 bg-gradient-to-r from-accent-purple/20 to-accent-coral/20 border-accent-purple/30 text-accent-purple hover:from-accent-purple/30 hover:to-accent-coral/30">
-                  <Eye className="w-4 h-4 mr-2 inline" />
-                  {t.answers.ctaViewProjects}
-                </button>
-              </div>
+              <button onClick={() => scrollToSection('projects')} className="px-8 py-3 rounded-lg border border-dune-lavender/30 text-dune-lavender bg-dune-lavender/10 hover:bg-dune-lavender/20 transition-all">
+                <Eye className="w-4 h-4 mr-2 inline" />
+                {t.answers.ctaViewProjects}
+              </button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-dark-800">
+      <section id="contact" className="py-20 bg-dune-surface">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="mb-16">
-            <h2 className="text-4xl font-bold mb-4 gradient-text">{t.contact.title}</h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">{t.contact.subtitle}</p>
-          </motion.div>
+          <ScrollReveal>
+            <div className="mb-16">
+              <h2 className="text-4xl font-serif font-bold mb-4 gradient-text">{t.contact.title}</h2>
+              <p className="text-xl text-dune-sand max-w-2xl mx-auto">{t.contact.subtitle}</p>
+            </div>
+          </ScrollReveal>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="glass rounded-2xl p-6 border border-white/10">
-              <Mail className="w-8 h-8 text-accent-cyan mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2 text-white">{t.contact.email}</h3>
-              <p className="text-gray-300">turhanhamza@gmail.com</p>
-            </motion.div>
+          <ScrollReveal stagger={0.15}>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="neomorphic rounded-2xl p-6">
+                <Mail className="w-8 h-8 text-dune-amber mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2 text-dune-bone">{t.contact.email}</h3>
+                <p className="text-dune-sand">turhanhamza@gmail.com</p>
+              </div>
 
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="glass rounded-2xl p-6 border border-white/10">
-              <Phone className="w-8 h-8 text-accent-teal mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2 text-white">{t.contact.phone}</h3>
-              <p className="text-gray-300">+90 554 541 7561</p>
-            </motion.div>
+              <div className="neomorphic rounded-2xl p-6">
+                <Phone className="w-8 h-8 text-dune-turquoise mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2 text-dune-bone">{t.contact.phone}</h3>
+                <p className="text-dune-sand">+90 554 541 7561</p>
+              </div>
 
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="glass rounded-2xl p-6 border border-white/10">
-              <MapPin className="w-8 h-8 text-accent-purple mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2 text-white">{t.contact.location}</h3>
-              <p className="text-gray-300">{t.contact.locationValue}</p>
-            </motion.div>
-          </div>
+              <div className="neomorphic rounded-2xl p-6">
+                <MapPin className="w-8 h-8 text-dune-lavender mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2 text-dune-bone">{t.contact.location}</h3>
+                <p className="text-dune-sand">{t.contact.locationValue}</p>
+              </div>
+            </div>
+          </ScrollReveal>
 
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="mt-12">
+          <div className="mt-12">
             <div className="flex justify-center space-x-4 md:space-x-6">
-              <a href="https://github.com/elkekoitan" target="_blank" rel="noopener noreferrer" className="p-3 bg-accent-cyan/15 text-accent-cyan rounded-lg border border-accent-cyan/30 hover:bg-accent-cyan/25 transition-all">
+              <a href="https://github.com/elkekoitan" target="_blank" rel="noopener noreferrer" className="p-3 bg-dune-amber/10 text-dune-amber rounded-lg border border-dune-amber/30 hover:bg-dune-amber/20 transition-all">
                 <Github className="w-6 h-6" />
               </a>
-              <a href="https://www.linkedin.com/in/hmztrhn/" target="_blank" rel="noopener noreferrer" className="p-3 bg-accent-teal/15 text-accent-teal rounded-lg border border-accent-teal/30 hover:bg-accent-teal/25 transition-all">
+              <a href="https://www.linkedin.com/in/hmztrhn/" target="_blank" rel="noopener noreferrer" className="p-3 bg-dune-turquoise/10 text-dune-turquoise rounded-lg border border-dune-turquoise/30 hover:bg-dune-turquoise/20 transition-all">
                 <ExternalLink className="w-6 h-6" />
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-dark-900 border-t border-white/10">
+      <footer className="py-8 bg-dune-body border-t border-dune-amber/10">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <p className="text-gray-400">{t.footer.text}</p>
+          <p className="text-dune-sand/50">{t.footer.text}</p>
         </div>
       </footer>
     </main>
