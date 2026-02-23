@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import {
@@ -8,8 +8,6 @@ import {
   Brain,
   TrendingUp,
   Smartphone,
-  Globe,
-  Zap,
   ChevronDown,
   ExternalLink,
   Github,
@@ -18,54 +16,20 @@ import {
   MapPin,
   Rocket,
   Cpu,
-  Eye,
-  Users,
-  Shield,
+  Zap,
 } from 'lucide-react';
-import Link from 'next/link';
 import { projects } from '@/data/projects';
 import { skills } from '@/data/skills';
-import { getInterviewAnswers } from '@/data/interview-answers.i18n';
 import { getDict, type Locale } from '@/i18n/dictionaries';
-import { tProject } from '@/i18n/projects';
 
 // GSAP enhancements
 import HeroParticles from '@/components/gsap/HeroParticles';
 import TextScramble from '@/components/gsap/TextScramble';
 import MagneticButton from '@/components/gsap/MagneticButton';
 import ScrollReveal from '@/components/gsap/ScrollReveal';
-
-type FilterKey = 'all' | 'planning' | 'technical' | 'team' | 'client' | 'risk' | 'process' | 'product';
-
-const filterCategoryMap: Record<string, Record<Exclude<FilterKey, 'all'>, string[]>> = {
-  tr: {
-    planning: ['Planlama'],
-    technical: ['Teknik'],
-    team: ['Takım'],
-    client: ['Müşteri'],
-    risk: ['Risk'],
-    process: ['Süreç'],
-    product: ['Ürün'],
-  },
-  en: {
-    planning: ['Planning'],
-    technical: ['Technical'],
-    team: ['Team'],
-    client: ['Client'],
-    risk: ['Risk'],
-    process: ['Process'],
-    product: ['Product'],
-  },
-  ru: {
-    planning: ['Планирование'],
-    technical: ['Техническое'],
-    team: ['Команда'],
-    client: ['Клиент'],
-    risk: ['Риск'],
-    process: ['Процесс'],
-    product: ['Продукт'],
-  },
-};
+import BootSequence from '@/components/gsap/BootSequence';
+import PMPipeline from '@/components/gsap/PMPipeline';
+import ProjectCard3D from '@/components/gsap/ProjectCard3D';
 
 export default function Home() {
   const params = useParams();
@@ -73,7 +37,6 @@ export default function Home() {
   const t = getDict(locale);
 
   const [activeSection, setActiveSection] = useState('hero');
-  const [activeFilter, setActiveFilter] = useState<FilterKey>('all');
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -112,15 +75,8 @@ export default function Home() {
 
   const langList: Locale[] = ['tr', 'en', 'ru'];
 
-  const answers = getInterviewAnswers(locale);
-
-  const filteredAnswers = useMemo(() => {
-    if (activeFilter === 'all') return answers;
-    const cats = filterCategoryMap[locale]?.[activeFilter] ?? [];
-    return answers.filter((a) => cats.includes(a.category));
-  }, [activeFilter, answers, locale]);
-
   return (
+    <BootSequence>
     <main id="main-content" className="min-h-screen bg-dune-body relative overflow-hidden">
       {/* Subtle Background Accents */}
       <div className="pointer-events-none absolute inset-0">
@@ -337,40 +293,13 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
-              <Link key={project.id} href={`/${locale}/projects/${project.id}`}>
-                <div className="neomorphic rounded-2xl p-6 hover:translate-y-[-4px] transition-all duration-300 cursor-pointer h-full">
-                  <div
-                    className="h-48 rounded-lg mb-4 flex items-center justify-center relative overflow-hidden"
-                    style={{
-                      background: project.colorAccent
-                        ? `linear-gradient(135deg, ${project.colorAccent}15, ${project.colorAccent}05)`
-                        : 'linear-gradient(135deg, rgba(232,192,122,0.1), rgba(110,231,208,0.1))',
-                    }}
-                  >
-                    {project.colorAccent && <div className="absolute top-0 left-0 right-0 h-1" style={{ background: project.colorAccent }} />}
-                    {project.featured && (
-                      <span className="absolute top-3 right-3 text-xs px-2 py-0.5 rounded-full bg-dune-amber/15 border border-dune-amber/40 text-dune-amber">★</span>
-                    )}
-                    <Globe className="w-16 h-16" style={{ color: project.colorAccent ?? '#e8c07a' }} />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 text-dune-bone">{tProject(project.id, locale, 'title', project.title)}</h3>
-                  <p className="text-dune-sand/80 mb-4 text-sm line-clamp-2">{tProject(project.id, locale, 'description', project.description)}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.slice(0, 3).map((tech) => (
-                      <span key={tech} className="px-2 py-1 bg-dune-amber/10 text-dune-amber text-xs rounded border border-dune-amber/20">
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <span className="px-2 py-1 bg-dune-bone/5 text-dune-sand/50 text-xs rounded">+{project.technologies.length - 3}</span>
-                    )}
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-dune-sand/60 capitalize">{t.projectCategories[project.category]}</span>
-                    <span className="text-sm text-dune-turquoise font-semibold">{t.projectDifficulty[project.difficulty] ?? project.difficulty}</span>
-                  </div>
-                </div>
-              </Link>
+              <ProjectCard3D
+                key={project.id}
+                project={project}
+                locale={locale}
+                categoryLabel={t.projectCategories[project.category]}
+                difficultyLabel={t.projectDifficulty[project.difficulty] ?? project.difficulty}
+              />
             ))}
           </div>
         </div>
@@ -417,106 +346,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PM Insights Section */}
-      <section id="answers" className="py-20 bg-dune-body relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-dune-amber/3 via-transparent to-dune-turquoise/3" />
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-dune-amber/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-dune-turquoise/5 rounded-full blur-3xl" />
-
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <ScrollReveal>
-            <div className="text-center mb-20">
-              <div className="inline-block mb-4">
-                <span className="px-4 py-2 bg-gradient-to-r from-dune-amber/15 to-dune-turquoise/15 rounded-full text-sm font-medium text-dune-amber border border-dune-amber/30">
-                  25 {t.answers.stats.answered}
-                </span>
-              </div>
-              <h2 className="text-5xl md:text-6xl font-serif font-bold mb-6 gradient-text">{t.answers.title}</h2>
-              {locale !== 'tr' && t.answers.originalNote && (
-                <p className="text-sm text-dune-sand/50 mb-4">{t.answers.originalNote}</p>
-              )}
-              <p className="text-xl md:text-2xl text-dune-sand max-w-4xl mx-auto leading-relaxed">{t.answers.subtitle}</p>
-
-              <div className="flex flex-wrap justify-center gap-8 mt-12">
-                <div className="neomorphic p-6 text-center">
-                  <div className="text-3xl font-bold text-dune-amber mb-2">25</div>
-                  <div className="text-sm text-dune-sand/60">{t.answers.stats.answered}</div>
-                </div>
-                <div className="neomorphic p-6 text-center">
-                  <div className="text-3xl font-bold text-dune-turquoise mb-2">30+</div>
-                  <div className="text-sm text-dune-sand/60">{t.answers.stats.refs}</div>
-                </div>
-                <div className="neomorphic p-6 text-center">
-                  <div className="text-3xl font-bold text-dune-spice mb-2">95%</div>
-                  <div className="text-sm text-dune-sand/60">{t.answers.stats.avgConf}</div>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Filter Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-12">
-            {([
-              { key: 'all' as FilterKey, label: t.answers.filters.all, icon: Eye },
-              { key: 'planning' as FilterKey, label: t.answers.filters.planning, icon: Rocket },
-              { key: 'technical' as FilterKey, label: t.answers.filters.technical, icon: Code },
-              { key: 'team' as FilterKey, label: t.answers.filters.team, icon: Users },
-              { key: 'client' as FilterKey, label: t.answers.filters.client, icon: Globe },
-              { key: 'risk' as FilterKey, label: t.answers.filters.risk, icon: Shield },
-              { key: 'process' as FilterKey, label: t.answers.filters.process, icon: Zap },
-              { key: 'product' as FilterKey, label: t.answers.filters.product, icon: TrendingUp },
-            ]).map((filter) => {
-              const Icon = filter.icon;
-              return (
-                <button
-                  key={filter.key}
-                  onClick={() => setActiveFilter(filter.key)}
-                  aria-pressed={activeFilter === filter.key}
-                  className={`px-5 py-2.5 text-sm font-medium rounded-lg transition-all border ${
-                    activeFilter === filter.key
-                      ? 'border-dune-amber/60 text-dune-amber bg-dune-amber/10'
-                      : 'border-dune-amber/15 text-dune-sand/70 hover:border-dune-amber/30 hover:text-dune-bone'
-                  }`}
-                >
-                  <Icon className="w-3.5 h-3.5 mr-1.5 inline" />
-                  {filter.label}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* PM Q&A Cards Grid */}
-          <div className="grid gap-8 lg:gap-10">
-            {filteredAnswers.slice(0, 6).map((item) => (
-              <div key={item.questionNumber} className="neomorphic rounded-2xl p-6 md:p-8">
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-dune-turquoise/15 text-dune-turquoise border border-dune-turquoise/30">
-                    {item.confidence}%
-                  </span>
-                  <span className="px-3 py-1 rounded-full text-xs font-medium bg-dune-amber/10 text-dune-amber border border-dune-amber/20">
-                    {item.category}
-                  </span>
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold mb-3 text-dune-bone">{item.question}</h3>
-                <p className="text-dune-sand leading-relaxed">{item.answer}</p>
-                {item.projects.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {item.projects.map((p) => (
-                      <span key={p} className="px-2 py-0.5 text-xs bg-dune-spice/10 text-dune-spice rounded border border-dune-spice/20">{p}</span>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-
-            <div className="text-center">
-              <button onClick={() => scrollToSection('projects')} className="px-8 py-3 rounded-lg border border-dune-lavender/30 text-dune-lavender bg-dune-lavender/10 hover:bg-dune-lavender/20 transition-all">
-                <Eye className="w-4 h-4 mr-2 inline" />
-                {t.answers.ctaViewProjects}
-              </button>
-            </div>
-          </div>
-        </div>
+      {/* PM Insights Section — animated pipeline */}
+      <section id="answers" className="bg-dune-body">
+        <PMPipeline locale={locale} />
       </section>
 
       {/* Contact Section */}
@@ -571,5 +403,6 @@ export default function Home() {
         </div>
       </footer>
     </main>
+    </BootSequence>
   );
 }

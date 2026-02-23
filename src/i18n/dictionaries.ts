@@ -60,7 +60,7 @@ export const dictionaries: Record<Locale, Dict> = {
       aiCardTitle: 'AI Verimlilik Uzmanı',
       aiFeatures: ['AI Tool Entegrasyonu', 'Otomasyon Sistemleri', 'Süreç Optimizasyonu'],
       stats: { prod: 'Verimlilik Artışı', ai: 'AI Projesi', years: 'Yıl Deneyim', tools: 'AI Tool' },
-      buttons: { viewProjects: 'AI Projelerimi Gör', interview: 'Mülakat Cevapları' },
+      buttons: { viewProjects: 'AI Projelerimi Gör', interview: 'Çalışma Sistemimiz' },
     },
     about: {
       title: 'Hakkımda',
@@ -150,7 +150,7 @@ export const dictionaries: Record<Locale, Dict> = {
       aiCardTitle: 'AI Productivity Expert',
       aiFeatures: ['AI Tool Integration', 'Automation Systems', 'Process Optimization'],
       stats: { prod: 'Productivity Increase', ai: 'AI Projects', years: 'Years Experience', tools: 'AI Tools' },
-      buttons: { viewProjects: 'View AI Projects', interview: 'Interview Answers' },
+      buttons: { viewProjects: 'View AI Projects', interview: 'Work System' },
     },
     about: {
       title: 'About Me',
@@ -241,7 +241,7 @@ export const dictionaries: Record<Locale, Dict> = {
       aiCardTitle: 'Эксперт по продуктивности с ИИ',
       aiFeatures: ['Интеграция AI‑инструментов', 'Системы автоматизации', 'Оптимизация процессов'],
       stats: { prod: 'Рост продуктивности', ai: 'AI‑проекты', years: 'Годы опыта', tools: 'AI‑инструменты' },
-      buttons: { viewProjects: 'Смотреть AI‑проекты', interview: 'Ответы на собеседование' },
+      buttons: { viewProjects: 'Смотреть AI‑проекты', interview: 'Система работы' },
     },
     about: {
       title: 'Обо мне',

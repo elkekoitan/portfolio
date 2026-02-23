@@ -363,3 +363,272 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ══════════════════════════════════════════════════════════
+   FALLOUT TERMINAL × TURQUOISE NEOMORPHISM
+   Design tokens and CSS utilities for the pipeline UI
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Additional CSS custom properties ─────────────────── */
+:root {
+  /* Turquoise glow intensities */
+  --tq-glow-xs:   rgba(110, 231, 208, 0.06);
+  --tq-glow-sm:   rgba(110, 231, 208, 0.12);
+  --tq-glow-md:   rgba(110, 231, 208, 0.25);
+  --tq-glow-lg:   rgba(110, 231, 208, 0.45);
+  --tq-glow-xl:   rgba(110, 231, 208, 0.70);
+
+  /* Amber terminal tones */
+  --amber-glow-sm: rgba(232, 192, 122, 0.15);
+  --amber-glow-md: rgba(232, 192, 122, 0.35);
+
+  /* Pipeline step node palette */
+  --node-cyan:   #6ee7d0;
+  --node-amber:  #e8c07a;
+  --node-purple: #c4b5e0;
+  --node-coral:  #e07850;
+
+  /* Terminal font stack */
+  --font-terminal: "Courier New", Courier, "Lucida Console", monospace;
+  --font-mono-code: "Fira Code", "Fira Mono", "JetBrains Mono", monospace;
+
+  /* Neomorphic shadow formula for turquoise-dark backgrounds */
+  --neo-dark-shadow:  rgba(0, 0, 0, 0.45);
+  --neo-light-shadow: rgba(52, 40, 24, 0.55);
+}
+
+/* ── Terminal font utility ─────────────────────────────── */
+@layer utilities {
+  .font-terminal {
+    font-family: var(--font-terminal);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── CRT scanline overlay (apply to a full-bleed div) ── */
+  .crt-scanlines {
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.10) 2px,
+      rgba(0, 0, 0, 0.10) 4px
+    );
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  /* ── CRT vignette (heavy dark border) ─────────────────── */
+  .crt-vignette {
+    box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.75);
+  }
+
+  /* ── Phosphor green/turquoise text glow ─────────────────── */
+  .text-glow-tq {
+    text-shadow:
+      0 0 6px var(--node-cyan),
+      0 0 12px rgba(110, 231, 208, 0.5),
+      0 0 24px rgba(110, 231, 208, 0.25);
+  }
+
+  .text-glow-amber {
+    text-shadow:
+      0 0 6px var(--dune-amber),
+      0 0 12px rgba(232, 192, 122, 0.5),
+      0 0 24px rgba(232, 192, 122, 0.25);
+  }
+
+  /* ── Turquoise neomorphic card ─────────────────────────── */
+  /*
+   * The turquoise neomorphism formula:
+   *  - Dark surface base (#342818 dune-card)
+   *  - Outer dark shadow: depth illusion
+   *  - Outer lighter shadow: lift illusion (same hue, lighter)
+   *  - Inner top/left highlight for bevelled look
+   *  - Turquoise ambient glow ring
+   *
+   * For GSAP breathing: animate a child overlay div's opacity 0→0.7→0
+   * with yoyo: true, repeat: -1 using sine.inOut ease.
+   */
+  .neo-tq {
+    background: var(--dune-card);
+    border-radius: 20px;
+    box-shadow:
+       8px  8px 16px var(--neo-dark-shadow),
+      -4px -4px 12px var(--neo-light-shadow),
+       0    0    0 1px rgba(110, 231, 208, 0.14),
+       0    0   20px  rgba(110, 231, 208, 0.07);
+    border: 1px solid rgba(110, 231, 208, 0.18);
+    transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .neo-tq:hover {
+    box-shadow:
+      12px 12px 24px var(--neo-dark-shadow),
+      -6px -6px 18px var(--neo-light-shadow),
+       0    0    0 1px rgba(110, 231, 208, 0.28),
+       0    0   32px  rgba(110, 231, 208, 0.15);
+  }
+
+  /* Inset (pressed) variant */
+  .neo-tq-inset {
+    background: var(--dune-surface);
+    border-radius: 16px;
+    box-shadow:
+      inset  4px  4px  8px rgba(0, 0, 0, 0.35),
+      inset -4px -4px  8px rgba(52, 40, 24, 0.45),
+      inset  0    0   12px rgba(110, 231, 208, 0.05);
+    border: 1px solid rgba(110, 231, 208, 0.08);
+  }
+
+  /* ── Glitch CSS animation (pure CSS, no GSAP required) ── */
+  @keyframes glitch-x {
+    0%   { transform: translateX(0); clip-path: inset(5% 0 80% 0); }
+    20%  { transform: translateX(-4px); }
+    40%  { transform: translateX(4px); clip-path: inset(60% 0 10% 0); }
+    60%  { transform: translateX(-2px); }
+    80%  { transform: translateX(3px); clip-path: inset(30% 0 50% 0); }
+    100% { transform: translateX(0); clip-path: inset(0 0 100% 0); }
+  }
+
+  /* Glitch layer helper — apply to ::before/::after or sibling spans */
+  .glitch-layer-amber {
+    color: var(--dune-amber);
+    mix-blend-mode: screen;
+    animation: glitch-x 0.2s steps(1) forwards;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .glitch-layer-tq {
+    color: var(--node-cyan);
+    mix-blend-mode: screen;
+    animation: glitch-x 0.2s steps(1) 0.05s forwards;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ── Pipeline connector line ────────────────────────────── */
+  /*
+   * Use stroke-dasharray + stroke-dashoffset for a pure-CSS draw animation.
+   * GSAP DrawSVGPlugin is the cleaner approach, but for simple straight lines:
+   *
+   *   stroke-dasharray: 1000;
+   *   stroke-dashoffset: 1000;
+   *   animation: draw-line 1.5s ease-in-out forwards;
+   *
+   * For curves/complex paths always prefer DrawSVGPlugin.
+   */
+  @keyframes draw-line {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .svg-draw-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw-line 1.5s ease-in-out forwards;
+  }
+
+  /* ── Pulsing node ring (CSS-only fallback) ─────────────── */
+  @keyframes node-pulse {
+    0%, 100% {
+      box-shadow:
+        0 0 0 2px rgba(110, 231, 208, 0.3),
+        0 0 8px  rgba(110, 231, 208, 0.2);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow:
+        0 0 0 8px rgba(110, 231, 208, 0.15),
+        0 0 20px rgba(110, 231, 208, 0.3);
+      transform: scale(1.08);
+    }
+  }
+
+  .node-pulse {
+    animation: node-pulse 2s ease-in-out infinite;
+  }
+
+  /* ── Terminal cursor blink ─────────────────────────────── */
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+
+  .cursor-blink {
+    display: inline-block;
+    width: 0.55em;
+    height: 1em;
+    background: var(--node-cyan);
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+  }
+
+  /* ── Boot sequence text lines ──────────────────────────── */
+  .boot-line {
+    font-family: var(--font-terminal);
+    font-size: clamp(0.65rem, 1.4vw, 0.875rem);
+    color: rgba(110, 231, 208, 0.85);
+    text-shadow: 0 0 6px rgba(110, 231, 208, 0.5);
+    line-height: 1.8;
+    opacity: 0; /* revealed by GSAP */
+  }
+
+  .boot-line-ok {
+    color: rgba(110, 231, 208, 0.95);
+  }
+
+  .boot-line-warn {
+    color: rgba(232, 192, 122, 0.9);
+    text-shadow: 0 0 6px rgba(232, 192, 122, 0.5);
+  }
+
+  /* ── Fallout amber ─────────────────────────────────────── */
+  @keyframes amber-flicker {
+    0%, 100% { opacity: 1; }
+    92%       { opacity: 1; }
+    93%       { opacity: 0.85; }
+    94%       { opacity: 1; }
+    96%       { opacity: 0.9; }
+    97%       { opacity: 1; }
+  }
+
+  .amber-flicker {
+    animation: amber-flicker 4s ease-in-out infinite;
+  }
+
+  /* ── Motion path particle ──────────────────────────────── */
+  /*
+   * Used by useMotionPath hook. The element needs:
+   *   position: absolute (or SVG circle with no positioning)
+   *   transform-origin: center (for autoRotate)
+   */
+  .motion-particle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--node-cyan);
+    box-shadow: 0 0 12px var(--node-cyan), 0 0 6px rgba(110,231,208,0.8);
+    pointer-events: none;
+    transform-origin: center;
+  }
+}
+
+/* ── Tailwind-friendly colour tokens reference (for JIT) ── */
+/*
+  Tailwind classes that map to the Fallout × Turquoise palette:
+    bg-[#1a1008]   → dune body
+    bg-[#2a1f12]   → dune surface
+    bg-[#342818]   → dune card
+    text-[#6ee7d0] → turquoise
+    text-[#e8c07a] → amber
+    text-[#e07850] → spice/coral
+    text-[#c4b5e0] → lavender
+    border-[#6ee7d0]/20  → turquoise border at 20% opacity
+    shadow-[0_0_20px_rgba(110,231,208,0.3)]  → turquoise glow shadow
+*/
