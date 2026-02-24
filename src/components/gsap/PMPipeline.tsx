@@ -458,8 +458,8 @@ export default function PMPipeline({ locale }: PMPipelineProps) {
                 <div
                   className="relative flex items-center justify-center transition-all duration-300"
                   style={{
-                    width: isActive ? 48 : 40,
-                    height: isActive ? 48 : 40,
+                    width: isActive ? 40 : 32,
+                    height: isActive ? 40 : 32,
                     borderRadius: '2px',
                     background: isActive ? `${s.color}18` : isPast ? 'var(--vault-surface)' : 'var(--vault-card)',
                     border: `2px solid ${isActive ? s.color : isPast ? s.color + '60' : s.color + '25'}`,
@@ -470,8 +470,8 @@ export default function PMPipeline({ locale }: PMPipelineProps) {
                 >
                   <Ico
                     style={{
-                      width: 16,
-                      height: 16,
+                      width: 14,
+                      height: 14,
                       color: isActive ? s.color : isPast ? `${s.color}90` : `${s.color}40`,
                       transition: 'color 0.3s',
                       filter: isActive ? `drop-shadow(0 0 4px ${s.color})` : 'none',
@@ -576,32 +576,32 @@ export default function PMPipeline({ locale }: PMPipelineProps) {
           </div>
         </div>
 
-        <div className="relative z-10 p-5 md:p-7">
+        <div className="relative z-10 p-4 md:p-7">
           {/* Title row */}
-          <div className="flex items-start gap-4 mb-4">
+          <div className="flex items-start gap-3 mb-4">
             <div
-              className="flex-shrink-0 w-12 h-12 flex items-center justify-center terminal-inset"
+              className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center terminal-inset"
               style={{ border: `1px solid ${stage.color}30` }}
             >
-              <StageIcon style={{ width: 22, height: 22, color: stage.color, filter: `drop-shadow(0 0 6px ${stage.color})` }} />
+              <StageIcon style={{ width: 18, height: 18, color: stage.color, filter: `drop-shadow(0 0 6px ${stage.color})` }} />
             </div>
             <div className="flex-1 min-w-0">
               <h3
-                className="text-lg md:text-xl font-terminal font-bold text-vault-bone tracking-wide mb-1"
+                className="text-base md:text-xl font-terminal font-bold text-vault-bone tracking-wide mb-1"
                 style={{ textShadow: `0 0 15px ${stage.color}20` }}
               >
                 {stage.title[loc] || stage.title.tr}
               </h3>
-              <div className="flex items-center gap-2">
-                <span className="font-terminal text-xs text-vault-sand/50 tracking-widest">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="font-terminal text-[0.6rem] text-vault-sand/50 tracking-widest">
                   {String(stage.num).padStart(2, '0')} / {String(STAGES.length).padStart(2, '0')}
                 </span>
-                <span className="text-vault-sand/20">|</span>
+                <span className="text-vault-sand/20 hidden sm:inline">|</span>
                 <div className="flex flex-wrap gap-1">
                   {stage.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="font-terminal text-[0.5rem] px-1.5 py-0.5 tracking-wider"
+                      className="font-terminal text-[0.45rem] sm:text-[0.5rem] px-1 sm:px-1.5 py-0.5 tracking-wider"
                       style={{
                         color: stage.color,
                         background: `${stage.color}10`,
@@ -617,30 +617,30 @@ export default function PMPipeline({ locale }: PMPipelineProps) {
           </div>
 
           {/* Approach text — concise */}
-          <div className="terminal-inset p-3 mb-4">
-            <p className="text-vault-sand text-sm font-terminal leading-relaxed">
+          <div className="terminal-inset p-2.5 md:p-3 mb-4">
+            <p className="text-vault-sand text-xs md:text-sm font-terminal leading-relaxed">
               <span className="text-vault-turquoise">&gt;</span> {stage.approach[loc] || stage.approach.tr}
             </p>
           </div>
 
           {/* Two-column layout: Commands + Steps */}
-          <div className="grid md:grid-cols-2 gap-4 mb-5">
+          <div className="grid md:grid-cols-2 gap-3 md:gap-4 mb-5">
             {/* CLI Commands */}
-            <div className="terminal-inset p-3">
+            <div className="terminal-inset p-2.5 md:p-3 overflow-hidden">
               <div className="font-terminal text-[0.55rem] uppercase tracking-widest mb-2" style={{ color: `${stage.color}60` }}>
                 TERMINAL
               </div>
-              <div className="space-y-1.5">
+              <div className="space-y-1.5 overflow-x-auto">
                 {stage.commands.map((cmd, i) => {
                   const commentIdx = cmd.indexOf('  #');
                   const cmdText = commentIdx > -1 ? cmd.slice(0, commentIdx) : cmd;
                   const comment = commentIdx > -1 ? cmd.slice(commentIdx) : '';
                   return (
-                    <div key={i} className="pm-cmd-line flex items-start gap-2 font-terminal text-xs">
-                      <span style={{ color: stage.color }}>$</span>
+                    <div key={i} className="pm-cmd-line flex items-start gap-1.5 font-terminal text-[0.65rem] md:text-xs">
+                      <span className="flex-shrink-0" style={{ color: stage.color }}>$</span>
                       <div className="min-w-0">
                         <span className="text-vault-bone break-all">{cmdText}</span>
-                        {comment && <span className="text-vault-sand/30">{comment}</span>}
+                        {comment && <span className="text-vault-sand/30 hidden sm:inline">{comment}</span>}
                       </div>
                     </div>
                   );
@@ -649,28 +649,28 @@ export default function PMPipeline({ locale }: PMPipelineProps) {
             </div>
 
             {/* Steps */}
-            <div className="space-y-2">
+            <div className="space-y-1.5 md:space-y-2">
               {(stage.steps[loc] || stage.steps.tr).map((step, i) => (
-                <div key={i} className="pm-step flex items-start gap-3 terminal-inset p-2.5">
+                <div key={i} className="pm-step flex items-start gap-2 md:gap-3 terminal-inset p-2 md:p-2.5">
                   <span
-                    className="flex-shrink-0 font-terminal text-xs font-bold mt-0.5"
+                    className="flex-shrink-0 font-terminal text-[0.65rem] md:text-xs font-bold mt-0.5"
                     style={{ color: stage.color }}
                   >
                     [{String(i + 1).padStart(2, '0')}]
                   </span>
-                  <span className="text-vault-sand text-xs font-terminal leading-snug">{step}</span>
+                  <span className="text-vault-sand text-[0.65rem] md:text-xs font-terminal leading-snug">{step}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Footer: projects + outcome */}
-          <div className="flex flex-wrap items-center justify-between gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="flex flex-wrap gap-1.5">
               {stage.projects.map((p) => (
                 <span
                   key={p}
-                  className="pm-project-tag tech-tag"
+                  className="pm-project-tag tech-tag text-[0.55rem] md:text-xs"
                   style={{ color: stage.color, borderColor: `${stage.color}30` }}
                 >
                   {p}
@@ -678,14 +678,14 @@ export default function PMPipeline({ locale }: PMPipelineProps) {
               ))}
             </div>
 
-            <div className="terminal-inset px-4 py-2 flex items-center gap-2">
-              <ChevronRight style={{ width: 14, height: 14, color: stage.color }} />
-              <div>
-                <div className="text-[0.55rem] font-terminal uppercase tracking-widest" style={{ color: `${stage.color}60` }}>
+            <div className="terminal-inset px-3 py-2 flex items-center gap-2">
+              <ChevronRight style={{ width: 14, height: 14, color: stage.color }} className="flex-shrink-0" />
+              <div className="min-w-0">
+                <div className="text-[0.5rem] font-terminal uppercase tracking-widest" style={{ color: `${stage.color}60` }}>
                   OUTCOME
                 </div>
                 <div
-                  className="font-terminal font-bold text-xs"
+                  className="font-terminal font-bold text-[0.65rem] md:text-xs"
                   style={{ color: stage.color, textShadow: `0 0 8px ${stage.color}40` }}
                 >
                   {stage.metric[loc] || stage.metric.tr}

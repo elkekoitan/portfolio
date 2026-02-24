@@ -151,7 +151,7 @@ export default function Home() {
       <ScrollProgress sections={scrollProgressSections} />
 
       {/* Background rust/turquoise glows */}
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -top-24 -left-24 w-[28rem] h-[28rem] bg-vault-rust/5 rounded-full blur-3xl" />
         <div className="absolute -bottom-24 -right-24 w-[28rem] h-[28rem] bg-vault-turquoise/5 rounded-full blur-3xl" />
       </div>
@@ -288,17 +288,17 @@ export default function Home() {
               <div className="space-y-2 mb-6">
                 {[
                   { label: 'PRODUCTIVITY', value: 95,  stat: '10x', color: 'text-vault-amber',     delay: 0.6 },
-                  { label: 'AI_PROJECTS ', value: 100, stat: '30+', color: 'text-vault-turquoise', delay: 0.75 },
-                  { label: 'EXPERIENCE  ', value: 55,  stat: '5+',  color: 'text-vault-patina',    delay: 0.9 },
-                  { label: 'AI_TOOLS    ', value: 90,  stat: '40+', color: 'text-vault-rust',      delay: 1.05 },
+                  { label: 'AI_PROJECTS',  value: 100, stat: '30+', color: 'text-vault-turquoise', delay: 0.75 },
+                  { label: 'EXPERIENCE',   value: 55,  stat: '5+',  color: 'text-vault-patina',    delay: 0.9 },
+                  { label: 'AI_TOOLS',     value: 90,  stat: '40+', color: 'text-vault-rust',      delay: 1.05 },
                 ].map((stat) => (
                   <div
                     key={stat.label}
-                    className="flex items-center gap-3 font-terminal text-sm"
+                    className="flex items-center gap-2 sm:gap-3 font-terminal text-sm"
                   >
-                    <span className="text-vault-sand/70 w-28 sm:w-32 text-xs tracking-wider">{stat.label}</span>
-                    <AnimatedAsciiBar value={stat.value} max={20} color={stat.color} delay={stat.delay} duration={0.9} />
-                    <span className={`${stat.color} font-bold text-xs ml-1`}>{stat.stat}</span>
+                    <span className="text-vault-sand/70 w-20 sm:w-28 text-[0.6rem] sm:text-xs tracking-wider flex-shrink-0">{stat.label}</span>
+                    <AnimatedAsciiBar value={stat.value} max={12} color={stat.color} delay={stat.delay} duration={0.9} />
+                    <span className={`${stat.color} font-bold text-xs ml-1 flex-shrink-0`}>{stat.stat}</span>
                   </div>
                 ))}
               </div>
@@ -340,7 +340,7 @@ export default function Home() {
       <CircuitDivider variant="branched" />
 
       {/* ═══ ABOUT — Terminal Readout (3-Card Layout) ═══ */}
-      <section id="about" className="py-20 bg-vault-surface rust-texture relative">
+      <section id="about" className="py-20 bg-vault-surface rust-texture relative overflow-hidden">
         <SectionMarker number="01" />
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <ScrollReveal>
@@ -494,33 +494,27 @@ export default function Home() {
           {/* Mobile: Grid fallback */}
           <div className="md:hidden">
             <ScrollReveal stagger={0.12}>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {(['frontend', 'backend', 'ai-ml', 'mobile', 'database', 'devops', 'tools'] as const).map((category) => (
-                  <div key={category} className="terminal-frame p-4">
-                    <div className="terminal-header mb-3">
+                  <div key={category} className="terminal-frame p-3">
+                    <div className="terminal-header mb-2">
                       <div className="flex items-center gap-2">
                         <span className="status-dot" />
                         <span className="text-[0.6rem]">{(t.skills.categories[category] ?? category).toUpperCase()}</span>
                       </div>
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-1.5">
                       {skills
                         .filter((skill) => skill.category === category)
                         .sort((a, b) => b.level - a.level)
-                        .slice(0, 3)
+                        .slice(0, 4)
                         .map((skill, si) => (
-                          <div key={skill.name} className="space-y-0.5">
-                            <div className="flex justify-between font-terminal text-[0.65rem]">
-                              <span className="text-vault-sand">{skill.name}</span>
-                              <span className="text-vault-turquoise">{skill.level}%</span>
+                          <div key={skill.name} className="flex items-center justify-between gap-2 font-terminal text-[0.65rem]">
+                            <span className="text-vault-sand truncate">{skill.name}</span>
+                            <div className="flex items-center gap-1.5 flex-shrink-0">
+                              <AsciiBar value={skill.level} max={8} color="text-vault-turquoise" />
+                              <span className="text-vault-turquoise w-7 text-right">{skill.level}</span>
                             </div>
-                            <AnimatedAsciiBar
-                              value={skill.level}
-                              max={10}
-                              color="text-vault-turquoise"
-                              delay={si * 0.1}
-                              duration={0.7}
-                            />
                           </div>
                         ))}
                     </div>
@@ -555,7 +549,7 @@ export default function Home() {
       <CircuitDivider variant="branched" />
 
       {/* ═══ CONTACT — 2-Column Terminal Layout ═══ */}
-      <section id="contact" className="py-20 bg-vault-surface rust-texture relative">
+      <section id="contact" className="py-20 bg-vault-surface rust-texture relative overflow-hidden">
         <SectionMarker number="05" />
         <div className="max-w-5xl mx-auto px-6 relative z-10">
           <ScrollReveal>
