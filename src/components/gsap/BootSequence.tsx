@@ -1,18 +1,7 @@
 'use client';
 
 /**
- * BootSequence
- *
- * Technique 10 — Fallout-style terminal boot sequence on page load.
- *
- * Shows a series of terminal log lines that appear one-by-one using a
- * GSAP timeline with stagger, then reveals the real page content with
- * a CRT flicker effect.
- *
- * Core GSAP pattern:
- *   const tl = gsap.timeline({ onComplete: () => setDone(true) });
- *   tl.from(lines, { opacity: 0, x: -20, stagger: 0.12, ease: 'power2.out' });
- *   tl.to(screen, { opacity: 0, duration: 0.15, yoyo: true, repeat: 3 });
+ * BootSequence — Fallout-style terminal boot sequence on page load.
  */
 
 import { useEffect, useRef, useState, ReactNode } from 'react';
@@ -21,13 +10,12 @@ import gsap from 'gsap';
 interface BootLine {
   text: string;
   color?: string;
-  delay?: number; // extra pause before this line appears
+  delay?: number;
 }
 
 interface BootSequenceProps {
   lines?: BootLine[];
   children: ReactNode;
-  /** Duration before boot screen disappears (ms) — override for testing */
   skipAfterMs?: number;
 }
 
@@ -40,8 +28,9 @@ const DEFAULT_LINES: BootLine[] = [
   { text: '> MOUNTING REACT 19 FIBER TREE... [OK]', color: '#6ee7d0' },
   { text: '> SYNCING SCROLL TRIGGERS... [OK]', color: '#6ee7d0' },
   { text: '> REGISTERING MOTION PATH PLUGIN... [OK]', color: '#6ee7d0' },
-  { text: '> CALIBRATING NEOMORPHIC SHADOWS... [OK]', color: '#e8c07a', delay: 0.1 },
-  { text: '> SYSTEM READY.', color: '#e8c07a', delay: 0.3 },
+  { text: '> CALIBRATING TERMINAL DISPLAY... [OK]', color: '#B87333', delay: 0.1 },
+  { text: '> WARNING: CORROSION DETECTED... [PATCHED]', color: '#ffb641', delay: 0.15 },
+  { text: '> SYSTEM READY.', color: '#B87333', delay: 0.3 },
 ];
 
 export default function BootSequence({
@@ -57,7 +46,6 @@ export default function BootSequence({
   useEffect(() => {
     if (done) return;
 
-    // Show only once per browser session
     try {
       if (sessionStorage.getItem('ht_boot')) {
         setDone(true);
@@ -65,7 +53,6 @@ export default function BootSequence({
       }
       sessionStorage.setItem('ht_boot', '1');
     } catch {
-      // SSR / privacy mode — skip boot
       setDone(true);
       return;
     }
@@ -77,7 +64,6 @@ export default function BootSequence({
 
     const tl = gsap.timeline({
       onComplete: () => {
-        // CRT flicker out
         const exitTl = gsap.timeline({ onComplete: () => setDone(true) });
         exitTl
           .to(screen, { opacity: 0, duration: 0.05 })
@@ -88,10 +74,8 @@ export default function BootSequence({
       },
     });
 
-    // Cursor blink setup
     gsap.to(cursor, { opacity: 0, duration: 0.5, repeat: -1, yoyo: true });
 
-    // Build line-by-line reveal
     const lineEls = Array.from(linesEl.children) as HTMLElement[];
     gsap.set(lineEls, { opacity: 0 });
 
@@ -100,10 +84,8 @@ export default function BootSequence({
       tl.to(el, { opacity: 1, duration: 0.01 }, `+=${0.15 + extraDelay}`);
     });
 
-    // Hold on last line briefly
     tl.to({}, { duration: 0.8 });
 
-    // Skip override
     let skipTimeout: ReturnType<typeof setTimeout> | undefined;
     if (skipAfterMs) {
       skipTimeout = setTimeout(() => {
@@ -133,7 +115,6 @@ export default function BootSequence({
         alignItems: 'flex-start',
         padding: '2rem 3rem',
         fontFamily: '"Courier New", Courier, monospace',
-        // CRT vignette
         boxShadow: 'inset 0 0 120px rgba(0,0,0,0.8)',
       }}
     >

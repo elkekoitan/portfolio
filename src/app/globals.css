@@ -2,25 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Dune Universe — Pastel Neomorphic Design System */
+/* Vault-Tec Terminal — Retro-Futuristic Design System */
 @layer base {
   :root {
-    /* Dune Pastel Palette */
-    --dune-body:      #1a1008;
-    --dune-surface:   #2a1f12;
-    --dune-card:      #342818;
-    --dune-amber:     #e8c07a;
-    --dune-spice:     #e07850;
-    --dune-turquoise: #6ee7d0;
-    --dune-sand:      #ddd0b0;
-    --dune-rust:      #c07848;
-    --dune-bone:      #f0e8d8;
-    --dune-lavender:  #c4b5e0;
-    --dune-rose:      #e8a0a0;
+    /* Vault-Tec Palette */
+    --vault-body:       #0a0a08;
+    --vault-surface:    #121210;
+    --vault-card:       #1a1a16;
+    --vault-rust:       #B87333;
+    --vault-rustDark:   #8B4513;
+    --vault-rustLight:  #CD853F;
+    --vault-turquoise:  #6ee7d0;
+    --vault-turquoiseDark: #3db8a0;
+    --vault-amber:      #ffb641;
+    --vault-bone:       #d4cfc0;
+    --vault-sand:       #a09880;
+    --vault-oxide:      #A0522D;
+    --vault-patina:     #2ecfff;
 
-    /* Neomorphic Shadows */
-    --neo-light: rgba(52, 40, 24, 0.6);
-    --neo-dark:  rgba(0, 0, 0, 0.4);
+    /* Compatibility aliases */
+    --wasteland-900: #0a0a08;
+    --wasteland-800: #121210;
+    --wasteland-700: #1a1a16;
+    --wasteland-600: #302820;
+    --wasteland-50:  #d4cfc0;
+    --pipboy:        #6ee7d0;
+    --amber:         #ffb641;
+    --rust:          #B87333;
+    --lavender:      #c4b5e0;
+    --sand:          #a09880;
+    --bone:          #d4cfc0;
+
+    /* Terminal Shadows */
+    --neo-dark:  rgba(0, 0, 0, 0.6);
+    --neo-light: rgba(26, 26, 22, 0.4);
+
+    /* Turquoise glow intensities */
+    --tq-glow-xs:   rgba(110, 231, 208, 0.06);
+    --tq-glow-sm:   rgba(110, 231, 208, 0.12);
+    --tq-glow-md:   rgba(110, 231, 208, 0.25);
+    --tq-glow-lg:   rgba(110, 231, 208, 0.45);
+    --tq-glow-xl:   rgba(110, 231, 208, 0.70);
+
+    /* Rust glow intensities */
+    --rust-glow-sm: rgba(184, 115, 51, 0.15);
+    --rust-glow-md: rgba(184, 115, 51, 0.35);
+    --rust-glow-lg: rgba(184, 115, 51, 0.55);
+
+    /* Amber terminal tones */
+    --amber-glow-sm: rgba(255, 182, 65, 0.15);
+    --amber-glow-md: rgba(255, 182, 65, 0.35);
+
+    /* Pipeline step node palette */
+    --node-cyan:   #6ee7d0;
+    --node-rust:   #B87333;
+    --node-amber:  #ffb641;
+    --node-patina: #2ecfff;
+
+    /* Terminal font stack */
+    --font-terminal: "Courier New", Courier, "Lucida Console", monospace;
+    --font-mono-code: "Fira Code", "Fira Mono", "JetBrains Mono", monospace;
+    --font-heading: var(--font-terminal);
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-display: var(--font-terminal);
+
+    /* Shadow formula */
+    --neo-dark-shadow:  rgba(0, 0, 0, 0.5);
+    --neo-light-shadow: rgba(26, 26, 22, 0.3);
   }
 
   * {
@@ -37,8 +85,8 @@
   }
 
   body {
-    background: var(--dune-body);
-    color: var(--dune-bone);
+    background: var(--vault-body);
+    color: var(--vault-bone);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
   }
@@ -47,11 +95,11 @@
     position: absolute;
     left: -999px;
     top: 1rem;
-    background: var(--dune-surface);
-    color: var(--dune-bone);
+    background: var(--vault-surface);
+    color: var(--vault-bone);
     padding: 8px 12px;
-    border-radius: 8px;
-    border: 1px solid rgba(232, 192, 122, 0.2);
+    border-radius: 2px;
+    border: 1px solid rgba(184, 115, 51, 0.3);
     z-index: 100;
   }
   .skip-link:focus {
@@ -60,69 +108,20 @@
 }
 
 @layer components {
-  /* ─── Neomorphic Base ─── */
-  .neomorphic {
-    background: var(--dune-card);
-    border-radius: 20px;
+  /* ─── Terminal Frame — Core Card Style ─── */
+  .terminal-frame {
+    background: var(--vault-card);
+    border: 2px solid var(--vault-rust);
+    border-radius: 2px;
     box-shadow:
-      8px 8px 16px var(--neo-dark),
-      -4px -4px 12px var(--neo-light);
-    border: 1px solid rgba(232, 192, 122, 0.08);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .neomorphic:hover {
-    box-shadow:
-      12px 12px 24px var(--neo-dark),
-      -6px -6px 16px var(--neo-light);
-    transform: translateY(-2px);
-  }
-
-  .neomorphic-inset {
-    background: var(--dune-surface);
-    border-radius: 16px;
-    box-shadow:
-      inset 4px 4px 8px rgba(0, 0, 0, 0.3),
-      inset -4px -4px 8px rgba(52, 40, 24, 0.4);
-    border: 1px solid rgba(232, 192, 122, 0.05);
-  }
-
-  /* ─── Dune Glass Card ─── */
-  .glass {
-    background: rgba(42, 31, 18, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(232, 192, 122, 0.12);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      inset 0 0 30px rgba(0, 0, 0, 0.5),
+      0 0 8px rgba(184, 115, 51, 0.2);
+    position: relative;
+    overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .glass:hover {
-    background: rgba(52, 40, 24, 0.9);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-    transform: translateY(-2px);
-  }
-
-  .glass-card {
-    background: linear-gradient(135deg,
-      rgba(52, 40, 24, 0.9) 0%,
-      rgba(42, 31, 18, 0.85) 50%,
-      rgba(52, 40, 24, 0.88) 100%
-    );
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(232, 192, 122, 0.15);
-    border-radius: 20px;
-    box-shadow:
-      0 12px 40px rgba(0, 0, 0, 0.35),
-      inset 0 1px 0 rgba(232, 192, 122, 0.15),
-      inset 0 -1px 0 rgba(232, 192, 122, 0.05);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .glass-card::before {
+  .terminal-frame::before {
     content: '';
     position: absolute;
     top: 0;
@@ -131,40 +130,87 @@
     height: 2px;
     background: linear-gradient(90deg,
       transparent 0%,
-      var(--dune-amber) 25%,
-      var(--dune-turquoise) 75%,
+      var(--vault-rust) 20%,
+      var(--vault-turquoise) 50%,
+      var(--vault-rust) 80%,
       transparent 100%
     );
+    z-index: 1;
   }
 
-  .glass-card:hover {
-    background: linear-gradient(135deg,
-      rgba(62, 48, 30, 0.92) 0%,
-      rgba(52, 40, 24, 0.88) 50%,
-      rgba(62, 48, 30, 0.9) 100%
-    );
+  .terminal-frame:hover {
+    border-color: var(--vault-rustLight);
     box-shadow:
-      0 20px 60px rgba(0, 0, 0, 0.45),
-      inset 0 1px 0 rgba(232, 192, 122, 0.2),
-      inset 0 -1px 0 rgba(232, 192, 122, 0.08);
-    transform: translateY(-4px) scale(1.02);
+      inset 0 0 30px rgba(0, 0, 0, 0.5),
+      0 0 16px rgba(184, 115, 51, 0.3),
+      0 0 4px rgba(110, 231, 208, 0.1);
+  }
+
+  /* Terminal Header Bar */
+  .terminal-header {
+    font-family: var(--font-terminal);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--vault-rust);
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(184, 115, 51, 0.3);
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .terminal-header .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--vault-turquoise);
+    box-shadow: 0 0 6px var(--vault-turquoise);
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  /* Terminal Inset (pressed surfaces) */
+  .terminal-inset {
+    background: var(--vault-surface);
+    border: 1px solid rgba(184, 115, 51, 0.15);
+    border-radius: 2px;
+    box-shadow:
+      inset 4px 4px 8px rgba(0, 0, 0, 0.4),
+      inset -2px -2px 6px rgba(26, 26, 22, 0.3);
+  }
+
+  /* ─── Rust Texture Overlay ─── */
+  .rust-texture {
+    position: relative;
+  }
+  .rust-texture::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(184, 115, 51, 0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(160, 82, 45, 0.04) 0%, transparent 40%),
+      radial-gradient(ellipse at 50% 80%, rgba(139, 69, 19, 0.03) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
   }
 
   /* ─── Interview / PM Q&A Cards ─── */
   .interview-card {
-    @apply glass-card;
-    border-radius: 24px;
-    padding: 2rem;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    @apply terminal-frame;
+    padding: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .interview-card:hover {
-    transform: translateY(-6px) scale(1.01);
+    transform: translateY(-2px);
   }
 
   /* ─── Gradient Text ─── */
   .gradient-text {
-    background: linear-gradient(135deg, var(--dune-amber) 0%, var(--dune-turquoise) 50%, var(--dune-spice) 100%);
+    background: linear-gradient(135deg, var(--vault-rust) 0%, var(--vault-turquoise) 50%, var(--vault-rustLight) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -172,239 +218,516 @@
   }
 
   .gradient-text-cyan {
-    background: linear-gradient(135deg, var(--dune-turquoise) 0%, #2dd4bf 100%);
+    background: linear-gradient(135deg, var(--vault-turquoise) 0%, var(--vault-turquoiseDark) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .gradient-text-purple {
-    background: linear-gradient(135deg, var(--dune-lavender) 0%, #a78bfa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* ─── Buttons ─── */
-  .btn-glass {
-    background: linear-gradient(135deg, rgba(232, 192, 122, 0.12) 0%, rgba(232, 192, 122, 0.06) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(232, 192, 122, 0.2);
-    border-radius: 12px;
-    padding: 12px 24px;
-    color: var(--dune-bone);
-    font-weight: 600;
+  /* ─── Terminal Buttons ─── */
+  .btn-terminal {
+    background: rgba(184, 115, 51, 0.1);
+    border: 1px solid var(--vault-rust);
+    border-radius: 2px;
+    padding: 10px 20px;
+    color: var(--vault-turquoise);
+    font-family: var(--font-terminal);
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    cursor: pointer;
   }
 
-  .btn-glass::before {
+  .btn-terminal::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(232, 192, 122, 0.15), transparent);
+    background: linear-gradient(90deg, transparent, rgba(184, 115, 51, 0.15), transparent);
     transition: left 0.5s;
   }
 
-  .btn-glass:hover::before {
+  .btn-terminal:hover::before {
     left: 100%;
   }
 
-  .btn-glass:hover {
-    background: linear-gradient(135deg, rgba(232, 192, 122, 0.2) 0%, rgba(232, 192, 122, 0.1) 100%);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
+  .btn-terminal:hover {
+    background: rgba(184, 115, 51, 0.2);
+    box-shadow: 0 0 12px rgba(184, 115, 51, 0.3), 0 0 4px rgba(110, 231, 208, 0.15);
+    transform: translateY(-1px);
+    color: var(--vault-bone);
   }
 
   /* ─── Badges ─── */
   .confidence-badge {
-    background: linear-gradient(135deg, rgba(110, 231, 208, 0.2), rgba(45, 212, 191, 0.2));
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background: rgba(110, 231, 208, 0.1);
     border: 1px solid rgba(110, 231, 208, 0.3);
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--dune-turquoise);
-    box-shadow: 0 4px 16px rgba(110, 231, 208, 0.15);
+    border-radius: 2px;
+    padding: 3px 10px;
+    font-family: var(--font-terminal);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    color: var(--vault-turquoise);
+    box-shadow: 0 0 8px rgba(110, 231, 208, 0.1);
   }
 
   .category-badge {
-    background: linear-gradient(135deg, rgba(196, 181, 224, 0.2), rgba(167, 139, 250, 0.2));
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(196, 181, 224, 0.3);
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--dune-lavender);
-    box-shadow: 0 4px 16px rgba(196, 181, 224, 0.15);
+    background: rgba(184, 115, 51, 0.12);
+    border: 1px solid rgba(184, 115, 51, 0.3);
+    border-radius: 2px;
+    padding: 3px 10px;
+    font-family: var(--font-terminal);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--vault-rust);
   }
 
   .project-tag {
-    background: linear-gradient(135deg, rgba(224, 120, 80, 0.15), rgba(224, 120, 80, 0.08));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(224, 120, 80, 0.25);
-    border-radius: 16px;
-    padding: 6px 12px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--dune-spice);
+    background: rgba(184, 115, 51, 0.08);
+    border: 1px solid rgba(184, 115, 51, 0.25);
+    border-radius: 2px;
+    padding: 4px 10px;
+    font-family: var(--font-terminal);
+    font-size: 0.8rem;
+    color: var(--vault-rustLight);
     transition: all 0.3s ease;
   }
 
   .project-tag:hover {
-    background: linear-gradient(135deg, rgba(224, 120, 80, 0.25), rgba(224, 120, 80, 0.12));
-    transform: scale(1.05);
+    background: rgba(184, 115, 51, 0.18);
+    box-shadow: 0 0 8px rgba(184, 115, 51, 0.2);
   }
 
   .tech-tag {
-    background: linear-gradient(135deg, rgba(110, 231, 208, 0.12), rgba(110, 231, 208, 0.06));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(110, 231, 208, 0.06);
     border: 1px solid rgba(110, 231, 208, 0.2);
-    border-radius: 12px;
-    padding: 4px 8px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--dune-turquoise);
+    border-radius: 2px;
+    padding: 3px 8px;
+    font-family: var(--font-terminal);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    color: var(--vault-turquoise);
     transition: all 0.3s ease;
   }
 
   .tech-tag:hover {
-    background: linear-gradient(135deg, rgba(110, 231, 208, 0.2), rgba(110, 231, 208, 0.1));
-    transform: scale(1.05);
+    background: rgba(110, 231, 208, 0.12);
+    box-shadow: 0 0 6px rgba(110, 231, 208, 0.15);
+  }
+
+  /* ─── Pinterest-Inspired Chip System ─── */
+  .chip-filled {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: var(--font-terminal);
+    font-size: 0.63rem;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-width: 1px;
+    border-style: solid;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .chip-filled:hover {
+    filter: brightness(1.2);
+    box-shadow: 0 0 10px currentColor;
+  }
+
+  .chip-outline {
+    display: inline-flex;
+    align-items: center;
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-family: var(--font-terminal);
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+    border-width: 1px;
+    border-style: solid;
+    background: transparent;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .chip-outline:hover {
+    filter: brightness(1.15);
   }
 
   /* ─── Utility Colors ─── */
-  .accent-cyan { color: var(--dune-turquoise); }
-  .accent-teal { color: var(--dune-turquoise); }
-  .accent-purple { color: var(--dune-lavender); }
-  .accent-coral { color: var(--dune-spice); }
+  .accent-cyan { color: var(--vault-turquoise); }
+  .accent-teal { color: var(--vault-turquoiseDark); }
+  .accent-rust { color: var(--vault-rust); }
+  .accent-patina { color: var(--vault-patina); }
+
+  /* ─── Progress Bar Terminal ─── */
+  .progress-bar-terminal {
+    font-family: var(--font-terminal);
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+    color: var(--vault-turquoise);
+  }
+
+  /* ─── Screen Flicker ─── */
+  .screen-flicker {
+    animation: screenFlicker 4s ease-in-out infinite;
+  }
+
+  @keyframes screenFlicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.97; }
+    75% { opacity: 0.99; }
+    92% { opacity: 0.96; }
+    93% { opacity: 1; }
+  }
 
   .card-hover {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .card-hover:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(184, 115, 51, 0.2);
+  }
+
+  /* ─── Neo-TQ (turquoise variant — used by PMPipeline) ─── */
+  .neo-tq {
+    background: var(--vault-card);
+    border: 2px solid rgba(110, 231, 208, 0.2);
+    border-radius: 2px;
+    box-shadow:
+      inset 0 0 30px rgba(0, 0, 0, 0.5),
+      0 0 12px rgba(110, 231, 208, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .neo-tq:hover {
+    border-color: rgba(110, 231, 208, 0.35);
+    box-shadow:
+      inset 0 0 30px rgba(0, 0, 0, 0.5),
+      0 0 20px rgba(110, 231, 208, 0.15);
+  }
+
+  .neo-tq-inset {
+    background: var(--vault-surface);
+    border: 1px solid rgba(110, 231, 208, 0.1);
+    border-radius: 2px;
+    box-shadow:
+      inset 4px 4px 8px rgba(0, 0, 0, 0.4),
+      inset -2px -2px 6px rgba(26, 26, 22, 0.3);
+  }
+
+  /* ─── Architecture Node ─── */
+  .arch-node {
+    background: var(--vault-surface);
+    border: 1px solid rgba(184, 115, 51, 0.3);
+    border-radius: 2px;
+    padding: 8px 14px;
+    font-family: var(--font-terminal);
+    font-size: 0.75rem;
+    color: var(--vault-turquoise);
+    text-align: center;
+    white-space: nowrap;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .arch-node:hover {
+    border-color: var(--vault-turquoise);
+    box-shadow: 0 0 12px rgba(110, 231, 208, 0.2);
+  }
+
+  /* ─── Flow Connector (Challenge → Solution) ─── */
+  .flow-connector {
+    width: 2px;
+    background: linear-gradient(180deg, var(--vault-rust) 0%, var(--vault-turquoise) 100%);
+    opacity: 0.4;
+    min-height: 40px;
+  }
+
+  /* ─── Timeline ─── */
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--vault-rust);
+    background: var(--vault-body);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+  }
+
+  .timeline-dot.done {
+    background: var(--vault-turquoise);
+    border-color: var(--vault-turquoise);
+    box-shadow: 0 0 8px rgba(110, 231, 208, 0.4);
+  }
+
+  .timeline-dot.active {
+    background: var(--vault-amber);
+    border-color: var(--vault-amber);
+    box-shadow: 0 0 8px rgba(255, 182, 65, 0.4);
+    animation: node-pulse 2s ease-in-out infinite;
+  }
+
+  .timeline-dot.planned {
+    background: transparent;
+    border-color: rgba(184, 115, 51, 0.4);
+  }
+
+  .timeline-line {
+    width: 2px;
+    background: linear-gradient(180deg, var(--vault-turquoise) 0%, rgba(184, 115, 51, 0.3) 100%);
+    flex-shrink: 0;
+  }
+
+  /* ─── Metric Terminal Card ─── */
+  .metric-terminal {
+    background: var(--vault-surface);
+    border: 1px solid rgba(110, 231, 208, 0.15);
+    border-radius: 2px;
+    box-shadow:
+      inset 4px 4px 8px rgba(0, 0, 0, 0.4),
+      inset -2px -2px 6px rgba(26, 26, 22, 0.3);
+    padding: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .metric-terminal:hover {
+    border-color: rgba(110, 231, 208, 0.3);
+    box-shadow:
+      inset 4px 4px 8px rgba(0, 0, 0, 0.4),
+      inset -2px -2px 6px rgba(26, 26, 22, 0.3),
+      0 0 12px rgba(110, 231, 208, 0.1);
+  }
+
+  /* ─── Circuit Divider (between sections) ─── */
+  .circuit-divider {
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+
+  .circuit-divider::before {
+    content: '';
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 50%;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(184, 115, 51, 0.25) 15%,
+      rgba(184, 115, 51, 0.4) 50%,
+      rgba(184, 115, 51, 0.25) 85%,
+      transparent 100%
+    );
+  }
+
+  .circuit-divider-node {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--vault-rust);
+    background: var(--vault-body);
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 8px rgba(184, 115, 51, 0.3);
+    animation: node-pulse 3s ease-in-out infinite;
+  }
+
+  /* ─── Skill Roadmap (mind-map layout) ─── */
+  .roadmap-hub {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid var(--vault-rust);
+    background: radial-gradient(circle at center, var(--vault-card) 0%, var(--vault-body) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--font-terminal);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--vault-turquoise);
+    box-shadow:
+      0 0 20px rgba(110, 231, 208, 0.15),
+      0 0 40px rgba(110, 231, 208, 0.08),
+      inset 0 0 20px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .roadmap-branch {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+  }
+
+  .roadmap-branch-line {
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--vault-rust) 0%, var(--vault-turquoise) 100%);
+    opacity: 0.4;
+    flex-shrink: 0;
+  }
+
+  .roadmap-category {
+    font-family: var(--font-terminal);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--vault-rust);
+    padding: 4px 10px;
+    border: 1px solid rgba(184, 115, 51, 0.3);
+    border-radius: 2px;
+    background: rgba(184, 115, 51, 0.08);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .roadmap-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .roadmap-skill-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-family: var(--font-terminal);
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    color: var(--vault-turquoise);
+    background: rgba(110, 231, 208, 0.06);
+    border: 1px solid rgba(110, 231, 208, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .roadmap-skill-chip:hover {
+    background: rgba(110, 231, 208, 0.12);
+    box-shadow: 0 0 8px rgba(110, 231, 208, 0.15);
+    border-color: rgba(110, 231, 208, 0.3);
+  }
+
+  .roadmap-skill-chip .skill-pct {
+    color: var(--vault-amber);
+    font-size: 0.6rem;
+  }
+
+  /* ─── Workflow Steps (Pin 3 inspired) ─── */
+  .workflow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 12px;
+  }
+
+  .workflow-step-number {
+    font-family: var(--font-terminal);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--vault-rust);
+    opacity: 0.3;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .workflow-step-label {
+    font-family: var(--font-terminal);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    color: var(--vault-bone);
+  }
+
+  /* ─── Contact Terminal (enhanced) ─── */
+  .contact-terminal-cta {
+    background: var(--vault-card);
+    border: 2px solid var(--vault-rust);
+    border-radius: 2px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-terminal-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      var(--vault-rust) 20%,
+      var(--vault-turquoise) 50%,
+      var(--vault-rust) 80%,
+      transparent 100%
+    );
+  }
+
+  /* ─── Mobile Bottom Nav ─── */
+  .mobile-bottom-nav {
+    background: var(--vault-body);
+    border-top: 2px solid var(--vault-rust);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6);
+  }
+
+  .mobile-bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-family: var(--font-terminal);
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--vault-sand);
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    padding: 6px 4px;
+  }
+
+  .mobile-bottom-nav-item.active {
+    color: var(--vault-turquoise);
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(110, 231, 208, 0.4);
+  }
+
+  .mobile-bottom-nav-item.active svg {
+    filter: drop-shadow(0 0 4px rgba(110, 231, 208, 0.5));
   }
 }
 
 @layer utilities {
-  /* Animations */
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-
-  .float-animation {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% {
-      box-shadow: 0 0 20px rgba(232, 192, 122, 0.2);
-    }
-    50% {
-      box-shadow: 0 0 40px rgba(232, 192, 122, 0.4);
-    }
-  }
-
-  .pulse-glow {
-    animation: pulse-glow 3s ease-in-out infinite;
-  }
-
-  @keyframes shimmer {
-    0% { background-position: -200px 0; }
-    100% { background-position: calc(200px + 100%) 0; }
-  }
-
-  .shimmer {
-    background: linear-gradient(90deg, transparent, rgba(232, 192, 122, 0.08), transparent);
-    background-size: 200px 100%;
-    animation: shimmer 2s infinite;
-  }
-
-  /* Scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: rgba(42, 31, 18, 0.5);
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, var(--dune-amber), var(--dune-spice));
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, var(--dune-rust), var(--dune-amber));
-  }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition-duration: 0s !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* ══════════════════════════════════════════════════════════
-   FALLOUT TERMINAL × TURQUOISE NEOMORPHISM
-   Design tokens and CSS utilities for the pipeline UI
-   ══════════════════════════════════════════════════════════ */
-
-/* ── Additional CSS custom properties ─────────────────── */
-:root {
-  /* Turquoise glow intensities */
-  --tq-glow-xs:   rgba(110, 231, 208, 0.06);
-  --tq-glow-sm:   rgba(110, 231, 208, 0.12);
-  --tq-glow-md:   rgba(110, 231, 208, 0.25);
-  --tq-glow-lg:   rgba(110, 231, 208, 0.45);
-  --tq-glow-xl:   rgba(110, 231, 208, 0.70);
-
-  /* Amber terminal tones */
-  --amber-glow-sm: rgba(232, 192, 122, 0.15);
-  --amber-glow-md: rgba(232, 192, 122, 0.35);
-
-  /* Pipeline step node palette */
-  --node-cyan:   #6ee7d0;
-  --node-amber:  #e8c07a;
-  --node-purple: #c4b5e0;
-  --node-coral:  #e07850;
-
-  /* Terminal font stack */
-  --font-terminal: "Courier New", Courier, "Lucida Console", monospace;
-  --font-mono-code: "Fira Code", "Fira Mono", "JetBrains Mono", monospace;
-
-  /* Neomorphic shadow formula for turquoise-dark backgrounds */
-  --neo-dark-shadow:  rgba(0, 0, 0, 0.45);
-  --neo-light-shadow: rgba(52, 40, 24, 0.55);
-}
-
-/* ── Terminal font utility ─────────────────────────────── */
-@layer utilities {
+  /* ── Terminal font ─── */
   .font-terminal {
     font-family: var(--font-terminal);
     letter-spacing: 0.05em;
   }
 
-  /* ── CRT scanline overlay (apply to a full-bleed div) ── */
+  /* ── CRT scanline overlay ── */
   .crt-scanlines {
     background-image: repeating-linear-gradient(
       0deg,
@@ -417,12 +740,12 @@
     mix-blend-mode: overlay;
   }
 
-  /* ── CRT vignette (heavy dark border) ─────────────────── */
+  /* ── CRT vignette ─── */
   .crt-vignette {
     box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.75);
   }
 
-  /* ── Phosphor green/turquoise text glow ─────────────────── */
+  /* ── Phosphor turquoise text glow ─── */
   .text-glow-tq {
     text-shadow:
       0 0 6px var(--node-cyan),
@@ -430,57 +753,22 @@
       0 0 24px rgba(110, 231, 208, 0.25);
   }
 
+  /* ── Rust/amber text glow ─── */
+  .text-glow-rust {
+    text-shadow:
+      0 0 6px var(--vault-rust),
+      0 0 12px rgba(184, 115, 51, 0.5),
+      0 0 24px rgba(184, 115, 51, 0.25);
+  }
+
   .text-glow-amber {
     text-shadow:
-      0 0 6px var(--dune-amber),
-      0 0 12px rgba(232, 192, 122, 0.5),
-      0 0 24px rgba(232, 192, 122, 0.25);
+      0 0 6px var(--vault-amber),
+      0 0 12px rgba(255, 182, 65, 0.5),
+      0 0 24px rgba(255, 182, 65, 0.25);
   }
 
-  /* ── Turquoise neomorphic card ─────────────────────────── */
-  /*
-   * The turquoise neomorphism formula:
-   *  - Dark surface base (#342818 dune-card)
-   *  - Outer dark shadow: depth illusion
-   *  - Outer lighter shadow: lift illusion (same hue, lighter)
-   *  - Inner top/left highlight for bevelled look
-   *  - Turquoise ambient glow ring
-   *
-   * For GSAP breathing: animate a child overlay div's opacity 0→0.7→0
-   * with yoyo: true, repeat: -1 using sine.inOut ease.
-   */
-  .neo-tq {
-    background: var(--dune-card);
-    border-radius: 20px;
-    box-shadow:
-       8px  8px 16px var(--neo-dark-shadow),
-      -4px -4px 12px var(--neo-light-shadow),
-       0    0    0 1px rgba(110, 231, 208, 0.14),
-       0    0   20px  rgba(110, 231, 208, 0.07);
-    border: 1px solid rgba(110, 231, 208, 0.18);
-    transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .neo-tq:hover {
-    box-shadow:
-      12px 12px 24px var(--neo-dark-shadow),
-      -6px -6px 18px var(--neo-light-shadow),
-       0    0    0 1px rgba(110, 231, 208, 0.28),
-       0    0   32px  rgba(110, 231, 208, 0.15);
-  }
-
-  /* Inset (pressed) variant */
-  .neo-tq-inset {
-    background: var(--dune-surface);
-    border-radius: 16px;
-    box-shadow:
-      inset  4px  4px  8px rgba(0, 0, 0, 0.35),
-      inset -4px -4px  8px rgba(52, 40, 24, 0.45),
-      inset  0    0   12px rgba(110, 231, 208, 0.05);
-    border: 1px solid rgba(110, 231, 208, 0.08);
-  }
-
-  /* ── Glitch CSS animation (pure CSS, no GSAP required) ── */
+  /* ── Glitch CSS animation ── */
   @keyframes glitch-x {
     0%   { transform: translateX(0); clip-path: inset(5% 0 80% 0); }
     20%  { transform: translateX(-4px); }
@@ -490,9 +778,8 @@
     100% { transform: translateX(0); clip-path: inset(0 0 100% 0); }
   }
 
-  /* Glitch layer helper — apply to ::before/::after or sibling spans */
-  .glitch-layer-amber {
-    color: var(--dune-amber);
+  .glitch-layer-rust {
+    color: var(--vault-rust);
     mix-blend-mode: screen;
     animation: glitch-x 0.2s steps(1) forwards;
     position: absolute;
@@ -511,17 +798,7 @@
     user-select: none;
   }
 
-  /* ── Pipeline connector line ────────────────────────────── */
-  /*
-   * Use stroke-dasharray + stroke-dashoffset for a pure-CSS draw animation.
-   * GSAP DrawSVGPlugin is the cleaner approach, but for simple straight lines:
-   *
-   *   stroke-dasharray: 1000;
-   *   stroke-dashoffset: 1000;
-   *   animation: draw-line 1.5s ease-in-out forwards;
-   *
-   * For curves/complex paths always prefer DrawSVGPlugin.
-   */
+  /* ── Pipeline connector line ─── */
   @keyframes draw-line {
     to { stroke-dashoffset: 0; }
   }
@@ -532,7 +809,7 @@
     animation: draw-line 1.5s ease-in-out forwards;
   }
 
-  /* ── Pulsing node ring (CSS-only fallback) ─────────────── */
+  /* ── Pulsing node ring ─── */
   @keyframes node-pulse {
     0%, 100% {
       box-shadow:
@@ -552,7 +829,7 @@
     animation: node-pulse 2s ease-in-out infinite;
   }
 
-  /* ── Terminal cursor blink ─────────────────────────────── */
+  /* ── Terminal cursor blink ─── */
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50%       { opacity: 0; }
@@ -568,14 +845,39 @@
     margin-left: 2px;
   }
 
-  /* ── Boot sequence text lines ──────────────────────────── */
+  /* ── Terminal emulator cursor ─── */
+  @keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0; }
+  }
+
+  /* ── Terminal scrollbar ─── */
+  .scrollbar-terminal::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-terminal::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  .scrollbar-terminal::-webkit-scrollbar-thumb {
+    background: var(--vault-rust);
+    border-radius: 2px;
+  }
+  .scrollbar-terminal::-webkit-scrollbar-thumb:hover {
+    background: var(--vault-rustLight);
+  }
+  .scrollbar-terminal {
+    scrollbar-width: thin;
+    scrollbar-color: var(--vault-rust) rgba(0, 0, 0, 0.3);
+  }
+
+  /* ── Boot sequence text lines ─── */
   .boot-line {
     font-family: var(--font-terminal);
     font-size: clamp(0.65rem, 1.4vw, 0.875rem);
     color: rgba(110, 231, 208, 0.85);
     text-shadow: 0 0 6px rgba(110, 231, 208, 0.5);
     line-height: 1.8;
-    opacity: 0; /* revealed by GSAP */
+    opacity: 0;
   }
 
   .boot-line-ok {
@@ -583,11 +885,37 @@
   }
 
   .boot-line-warn {
-    color: rgba(232, 192, 122, 0.9);
-    text-shadow: 0 0 6px rgba(232, 192, 122, 0.5);
+    color: rgba(255, 182, 65, 0.9);
+    text-shadow: 0 0 6px rgba(255, 182, 65, 0.5);
   }
 
-  /* ── Fallout amber ─────────────────────────────────────── */
+  .boot-line-rust {
+    color: rgba(184, 115, 51, 0.9);
+    text-shadow: 0 0 6px rgba(184, 115, 51, 0.5);
+  }
+
+  /* ── Scan Sweep (card hover) ── */
+  @keyframes scan-sweep {
+    from { transform: translateX(-120%); }
+    to   { transform: translateX(120%); }
+  }
+
+  .scan-line {
+    position: absolute;
+    inset-y: 0;
+    width: 50%;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(184,115,51,0.10) 30%,
+      rgba(110,231,208,0.08) 50%,
+      transparent 100%
+    );
+    pointer-events: none;
+    transform: translateX(-120%);
+    z-index: 15;
+  }
+
+  /* ── Amber flicker ─── */
   @keyframes amber-flicker {
     0%, 100% { opacity: 1; }
     92%       { opacity: 1; }
@@ -601,12 +929,7 @@
     animation: amber-flicker 4s ease-in-out infinite;
   }
 
-  /* ── Motion path particle ──────────────────────────────── */
-  /*
-   * Used by useMotionPath hook. The element needs:
-   *   position: absolute (or SVG circle with no positioning)
-   *   transform-origin: center (for autoRotate)
-   */
+  /* ── Motion path particle ─── */
   .motion-particle {
     position: absolute;
     width: 12px;
@@ -617,18 +940,65 @@
     pointer-events: none;
     transform-origin: center;
   }
+
+  /* ── Animations ─── */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(184, 115, 51, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(184, 115, 51, 0.4);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200px 0; }
+    100% { background-position: calc(200px + 100%) 0; }
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, transparent, rgba(184, 115, 51, 0.08), transparent);
+    background-size: 200px 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  /* ── Scrollbar ─── */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(10, 10, 8, 0.8);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--vault-rust), var(--vault-rustDark));
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--vault-rustLight), var(--vault-rust));
+  }
 }
 
-/* ── Tailwind-friendly colour tokens reference (for JIT) ── */
-/*
-  Tailwind classes that map to the Fallout × Turquoise palette:
-    bg-[#1a1008]   → dune body
-    bg-[#2a1f12]   → dune surface
-    bg-[#342818]   → dune card
-    text-[#6ee7d0] → turquoise
-    text-[#e8c07a] → amber
-    text-[#e07850] → spice/coral
-    text-[#c4b5e0] → lavender
-    border-[#6ee7d0]/20  → turquoise border at 20% opacity
-    shadow-[0_0_20px_rgba(110,231,208,0.3)]  → turquoise glow shadow
-*/
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition-duration: 0s !important;
+    scroll-behavior: auto !important;
+  }
+}

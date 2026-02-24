@@ -177,7 +177,7 @@ export const skills: Skill[] = [
     level: 75,
     category: 'backend',
     experience: '1+ year',
-    projects: ['Hayalet', 'Go-Trade']
+    projects: ['Go-Trade', 'AdPro CLI']
   },
   {
     name: 'Fastify',
@@ -255,6 +255,57 @@ export const skills: Skill[] = [
     category: 'devops',
     experience: '1+ year',
     projects: ['AdPro CLI']
+  },
+
+  // Additional Skills
+  {
+    name: 'BLoC',
+    level: 80,
+    category: 'mobile',
+    experience: '2+ years',
+    projects: ['Barter Qween']
+  },
+  {
+    name: 'Riverpod',
+    level: 78,
+    category: 'mobile',
+    experience: '1+ year',
+    projects: ['AdPro']
+  },
+  {
+    name: 'Google ML Kit',
+    level: 72,
+    category: 'ai-ml',
+    experience: '1+ year',
+    projects: ['AdPro']
+  },
+  {
+    name: 'TensorFlow Lite',
+    level: 74,
+    category: 'ai-ml',
+    experience: '1+ year',
+    projects: ['AdPro', 'FitCheck']
+  },
+  {
+    name: 'Telegram Bot API',
+    level: 82,
+    category: 'tools',
+    experience: '2+ years',
+    projects: ['Indirim Kanallari', 'Hayalet']
+  },
+  {
+    name: 'Cheerio',
+    level: 76,
+    category: 'backend',
+    experience: '1+ year',
+    projects: ['Indirim Kanallari']
+  },
+  {
+    name: 'Sharp',
+    level: 74,
+    category: 'backend',
+    experience: '1+ year',
+    projects: ['OmniSell']
   }
 ];
 

@@ -24,43 +24,54 @@ export interface Project {
   featured?: boolean;
   year?: number;
   colorAccent?: string;
+  // Detail page enrichment fields
+  architecture?: string[];
+  timeline?: { phase: string; status: 'done' | 'active' | 'planned' }[];
+  relatedProjects?: string[];
+  linesOfCode?: string;
+  screens?: string;
+  endpoints?: string;
 }
 
 export const projects: Project[] = [
   {
     id: 'solar-analysis',
-    title: 'Solar Panel Anomaly Detection System',
-    description: 'AI-powered solar panel monitoring and anomaly detection platform',
-    longDescription: 'Advanced machine learning system for real-time solar panel performance monitoring and anomaly detection. Integrates with MapperX for comprehensive solar farm analysis.',
-    technologies: ['Python', 'TensorFlow', 'OpenCV', 'FastAPI', 'React', 'PostgreSQL', 'Redis', 'Docker'],
+    title: 'Solar Panel Thermal Analysis System',
+    description: 'Python 3.9+ Flask 2.0+ solar panel fault detection with ML, E2B Code Interpreter, and thermal image analysis',
+    longDescription: 'Advanced solar panel analysis platform built with Python 3.9+ and Flask 2.0+. Features ML-based fault detection for solar panels, E2B Code Interpreter integration for dynamic analysis, thermal image processing for panel diagnostics, and a mobile-responsive web dashboard. Currently 72% complete.',
+    technologies: ['Python 3.9+', 'Flask 2.0+', 'TensorFlow', 'OpenCV', 'E2B Code Interpreter', 'PostgreSQL', 'Redis', 'Docker'],
     features: [
-      'Real-time anomaly detection using computer vision',
+      'ML fault detection for solar panels',
+      'E2B Code Interpreter integration',
+      'Thermal image analysis for panel diagnostics',
+      'Mobile-responsive web dashboard',
       'Predictive maintenance algorithms',
       'Performance optimization recommendations',
-      'Comprehensive reporting dashboard',
-      'Integration with MapperX platform',
-      'Multi-site monitoring capabilities'
+      'Comprehensive reporting dashboard'
     ],
     githubUrl: 'https://github.com/yourusername/solar-analysis',
     image: '/images/solar-analysis.jpg',
     category: 'ai-ml',
     difficulty: 'expert',
-    impact: 'Reduced maintenance costs by 40% and improved energy efficiency by 25%',
+    impact: 'ML-powered thermal analysis reducing maintenance costs by 40% and improving energy efficiency by 25%',
     challenges: [
-      'Processing large-scale satellite imagery data',
-      'Real-time anomaly detection with high accuracy',
-      'Integration with existing solar farm management systems'
+      'Processing thermal imagery for accurate fault detection',
+      'Integrating E2B Code Interpreter for dynamic analysis',
+      'Building mobile-responsive dashboard for field workers'
     ],
     solutions: [
-      'Implemented distributed computing architecture',
-      'Developed custom CNN models for image analysis',
-      'Created RESTful API for seamless integration'
+      'Custom CNN models for thermal image fault classification',
+      'E2B sandboxed code execution for safe dynamic analysis',
+      'Responsive Flask templates with progressive enhancement'
     ],
     metrics: {
       accuracy: '94.5%',
       performance: 'Real-time processing < 2 seconds',
-      users: '5+ solar farms'
-    }
+      users: '72% complete'
+    },
+    status: 'wip',
+    year: 2025,
+    colorAccent: '#f59e0b'
   },
   {
     id: 'ai-algo-trade',
@@ -100,37 +111,42 @@ export const projects: Project[] = [
   },
   {
     id: 'adpro-mobile',
-    title: 'AdPro - Yapay Zeka Destekli Mobil Uygulama',
-    description: 'React Native ile geliştirilmiş gelişmiş yapay zeka özellikli mobil uygulama',
-    longDescription: 'React Native ile geliştirilmiş çapraz platform mobil uygulama. Yapay zeka destekli içerik üretimi, kullanıcı etkileşim analitiği ve sosyal medya entegrasyonu içeriyor.',
-    technologies: ['React Native', 'TypeScript', 'Supabase', 'Google Gemini AI', 'Expo', 'Redux', 'React Navigation'],
+    title: 'AdPro - AI-Powered Content & Social Media Platform',
+    description: 'Flutter + Riverpod mobile app with AI-powered content creation, social media management, and Next.js 15 admin panel',
+    longDescription: 'Cross-platform mobile application built with Flutter and Riverpod for AI-powered content creation and social media management. Integrates Google ML Kit and TensorFlow Lite for on-device AI capabilities, Supabase for backend, and Sentry for error monitoring. Includes a Next.js 15 admin panel and a dynamic theme system with holiday-specific themes.',
+    technologies: ['Flutter', 'Dart', 'Riverpod', 'Supabase', 'Google ML Kit', 'TensorFlow Lite', 'Sentry', 'Next.js 15', 'TypeScript'],
     features: [
-      'Yapay zeka destekli içerik üretimi',
-      'Gerçek zamanlı kullanıcı analitiği',
-      'Sosyal medya entegrasyonu',
-      'Gelişmiş kimlik doğrulama sistemi',
-      'Anlık bildirimler',
-      'Çevrimdışı öncelikli mimari'
+      'AI-powered content creation with on-device ML',
+      'Social media management & scheduling',
+      'Google ML Kit integration for smart features',
+      'TensorFlow Lite on-device inference',
+      'Next.js 15 admin panel',
+      'Dynamic theme system with holiday themes',
+      'Sentry error monitoring & crash reporting',
+      'Supabase real-time backend'
     ],
     githubUrl: 'https://github.com/yourusername/AdPro',
     image: '/images/adpro-mobile.jpg',
     category: 'mobile',
     difficulty: 'advanced',
-    impact: 'Yapay zeka özellikleri ile kullanıcı etkileşimini %60 artırdı',
+    impact: 'AI-powered content creation with on-device ML reducing server costs and improving response time',
     challenges: [
-      'Çapraz platform uyumluluğu',
-      'Mobil ortamda yapay zeka entegrasyonu',
-      'Gerçek zamanlı veri senkronizasyonu'
+      'On-device ML inference with TensorFlow Lite performance optimization',
+      'Dynamic theme system with seasonal/holiday variants',
+      'Real-time social media management across multiple platforms'
     ],
     solutions: [
-      'Platform özel optimizasyonlar uyguladım',
-      'Verimli yapay zeka servis mimarisi oluşturdum',
-      'Sağlam çevrimdışı öncelikli veri stratejisi geliştirdim'
+      'Optimized TFLite models with quantization for mobile deployment',
+      'Theme engine with hot-swappable seasonal configurations',
+      'Riverpod state management with Supabase real-time subscriptions'
     ],
     metrics: {
       users: '1000+ aktif kullanıcı',
       performance: 'App store rating: 4.8/5'
-    }
+    },
+    status: 'active',
+    year: 2025,
+    colorAccent: '#a78bfa'
   },
   {
     id: 'oto-mansuroglu',
@@ -244,43 +260,59 @@ export const projects: Project[] = [
 
   {
     id: 'hayalet',
-    title: 'Hayalet HFT Trading System',
-    description: 'Ultra-low latency high-frequency trading system for MT4 with Go + Python hybrid architecture',
-    longDescription: 'Production-grade HFT system combining Go decision engine with Python AI agents. Features named pipe bridge for MT4 communication under 2ms latency, grid trading strategies, smart hedge algorithms, and autonomous risk management across XAUUSDm, BTCUSDm, ETHUSDm pairs.',
-    technologies: ['Go', 'Python', 'MQL4', 'gRPC', 'WebSocket', 'Flask', 'Redis', 'Prometheus', 'Telegram API'],
+    title: 'Hayalet - 7D Decision Engine Trading System',
+    description: 'Python 3.8+ Flask trading system for MT4/MQL4 with 7D decision engine, 13+ toggleable modules, and multi-instance support',
+    longDescription: 'Production-grade algorithmic trading system built with Python 3.8+ and Flask for MT4/MQL4 integration. Features a 7-Dimensional decision engine powered by NumPy, 13+ toggleable analysis modules (stealth_evolver, indicator_scoring, ict_analysis, etc.), 15+ API endpoints, a real-time web dashboard, and multi-instance support for running multiple trading strategies concurrently.',
+    technologies: ['Python 3.8+', 'Flask', 'MQL4', 'NumPy', 'WebSocket', 'REST API', 'Telegram API'],
     features: [
-      'Named pipe bridge for MT4 (<2ms latency)',
-      '7 autonomous AI agents for market analysis',
-      'Smart hedge & grid trading algorithms',
+      '7D decision engine with NumPy',
+      '13+ toggleable modules (stealth_evolver, indicator_scoring, ict_analysis...)',
+      '15+ REST API endpoints',
       'Real-time Flask web dashboard',
+      'Multi-instance trading support',
       'Telegram notifications system',
-      'Prometheus metrics & monitoring',
-      '5D Genome stealth HFT plugin',
-      'Risk management with position sizing'
+      'Stealth evolution & indicator scoring',
+      'ICT analysis module integration'
     ],
     githubUrl: 'https://github.com/elkekoitan/Prometheus',
     image: '/images/hayalet.jpg',
     category: 'trading',
     difficulty: 'expert',
-    impact: 'Achieved sub-2ms decision latency with 18 Go packages and 7 Python agents',
+    impact: 'Modular 7D decision engine with 13+ toggleable analysis modules and multi-instance trading',
     challenges: [
-      'Named pipe communication between Go and MT4 with microsecond precision',
-      'Synchronizing 7 independent AI agents for coherent trading decisions',
-      'Managing concurrent positions across multiple currency pairs'
+      'Building a 7-dimensional decision engine for market analysis',
+      'Managing 13+ independently toggleable trading modules',
+      'Supporting multiple concurrent trading instances'
     ],
     solutions: [
-      'Custom Go named pipe bridge with binary protocol for ultra-low latency',
-      'Event-driven agent orchestration with Redis pub/sub',
-      'Grid-based risk management with dynamic position sizing'
+      '7D NumPy-based decision matrix with configurable dimension weights',
+      'Plugin architecture with hot-swappable module activation',
+      'Process isolation with shared state for multi-instance coordination'
     ],
     metrics: {
-      performance: '<2ms decision latency',
-      accuracy: '7 AI agents running concurrently'
+      performance: '15+ API endpoints, real-time dashboard',
+      accuracy: '13+ analysis modules running concurrently'
     },
     status: 'active',
     featured: true,
     year: 2024,
-    colorAccent: '#10b981'
+    colorAccent: '#10b981',
+    architecture: [
+      'Python Flask API Server',
+      'MT4/MQL4 Bridge Layer',
+      'Prediction Engine (NumPy + PyTorch)',
+      'Real-time WebSocket Feed',
+      'Dashboard CLI Interface',
+      'Telegram Notification Service',
+    ],
+    timeline: [
+      { phase: 'Core Engine & MT4 Bridge', status: 'done' },
+      { phase: '7D Decision Matrix', status: 'done' },
+      { phase: '13 Analysis Modules', status: 'done' },
+      { phase: 'Multi-Instance Support', status: 'active' },
+      { phase: 'Go HFT Integration', status: 'planned' },
+    ],
+    relatedProjects: ['go-trade', 'ict-ultra'],
   },
   {
     id: 'go-trade',
@@ -323,53 +355,73 @@ export const projects: Project[] = [
   {
     id: 'barter-qween',
     title: 'Barter Qween - University Exchange Platform',
-    description: 'Flutter barter platform for Bogazici University students with neuromorphic UI design',
-    longDescription: 'Modern peer-to-peer barter platform for university students. Features ultra-deep neuromorphic UI with 16-24 layer depth, real-time chat, Google Pay integration, and BLoC state management with Clean Architecture.',
-    technologies: ['Flutter', 'Dart', 'Firebase', 'BLoC', 'GetIt', 'Injectable', 'Google Pay', 'Cloud Functions'],
+    description: 'Flutter 3.24.3 barter platform for Bogazici University students with neuromorphic UI design system (40+ shadow presets)',
+    longDescription: 'Modern peer-to-peer barter platform for university students. 45K+ lines of code across 35+ screens and 24+ custom widgets. Features ultra-deep neuromorphic UI design system with 40+ shadow presets, real-time chat, Google Pay integration, and BLoC state management with Clean Architecture. Firebase backend with Firestore, Cloud Functions, Auth, Storage, and FCM push notifications. 65% production ready, beta v1.2.0.',
+    technologies: ['Flutter 3.24.3', 'Dart', 'Firebase Firestore', 'Firebase Auth', 'Firebase Storage', 'Cloud Functions', 'FCM', 'BLoC', 'GetIt DI', 'Injectable', 'Google Pay'],
     features: [
-      'Ultra-deep neuromorphic UI (16-24 layers)',
-      'Real-time chat messaging',
+      'Neuromorphic UI design system with 40+ shadow presets',
+      '35+ screens with 24+ custom widgets (45K LOC)',
+      'Real-time chat messaging with Firebase',
       'Google Pay integration',
-      'Push notifications system',
+      'FCM push notifications system',
       'Rating & review system',
       'Analytics tracking dashboard',
-      'Clean Architecture with BLoC pattern'
+      'Clean Architecture with BLoC pattern & GetIt DI'
     ],
     githubUrl: 'https://github.com/qween-code/barter-qween',
     image: '/images/barter-qween.jpg',
     category: 'mobile',
     difficulty: 'advanced',
-    impact: 'Created university-first barter economy with Pinterest-level design quality',
+    impact: 'Created university-first barter economy with Pinterest-level design quality — 45K LOC, 35+ screens',
     challenges: [
-      'Implementing 16-24 layer neuromorphic UI effects in Flutter',
-      'Real-time messaging with offline-first architecture',
+      'Building neuromorphic UI design system with 40+ shadow presets in Flutter',
+      'Real-time messaging with offline-first architecture across 35+ screens',
       'Secure payment integration for student transactions'
     ],
     solutions: [
-      'Custom Flutter widgets with layered shadow/gradient compositions',
+      '24+ custom Flutter widgets with layered shadow/gradient compositions',
       'Firebase Firestore with offline persistence and conflict resolution',
       'Google Pay SDK with Firebase Cloud Functions for secure processing'
     ],
     metrics: {
-      users: 'Beta v1.2.0',
-      performance: 'iOS & Android cross-platform'
+      users: 'Beta v1.2.0 (65% production ready)',
+      performance: 'iOS & Android cross-platform, 45K+ LOC'
     },
     status: 'active',
     year: 2025,
-    colorAccent: '#f472b6'
+    colorAccent: '#f472b6',
+    linesOfCode: '45,000+',
+    screens: '35+',
+    architecture: [
+      'Flutter 3.24.3 Presentation Layer',
+      'BLoC State Management + GetIt DI',
+      'Clean Architecture (Domain/Data/Presentation)',
+      'Firebase Backend (Firestore + Auth + Storage)',
+      'Cloud Functions (4 deployed)',
+      'FCM Push Notification Service',
+    ],
+    timeline: [
+      { phase: 'Architecture & Design System', status: 'done' },
+      { phase: '24+ Custom Widgets', status: 'done' },
+      { phase: 'Chat & Notifications', status: 'done' },
+      { phase: 'Payment Integration', status: 'active' },
+      { phase: 'Beta Testing & Launch', status: 'planned' },
+    ],
   },
   {
     id: 'diagnostic',
     title: 'AI Cancer Detection System',
-    description: 'Multi-modal cancer detection with ML pipeline, medical device firmware, and HL7/FHIR integration',
-    longDescription: 'Advanced medical diagnostic system combining impedance spectroscopy and optical analysis with AI. Features C++/RTOS device firmware, Qt/.NET host application, and a comprehensive ML pipeline with PyTorch models (1D-CNN, BiLSTM, mini-Transformer) for cancer tissue classification.',
-    technologies: ['Python', 'PyTorch', 'FastAPI', 'C++', 'RTOS', 'OpenAI API', 'PostgreSQL', 'MongoDB', 'HL7', 'FHIR'],
+    description: 'Multi-modal cancer detection with PyTorch + scikit-learn ML pipeline, GPT-4 consultation, HL7/FHIR, and C++/RTOS firmware',
+    longDescription: 'Advanced medical diagnostic system combining impedance spectroscopy and optical analysis with AI. Features a comprehensive ML pipeline: PyTorch deep learning (1D-CNN, BiLSTM, mini-Transformer) plus scikit-learn classical models (SVM, Random Forest, XGBoost) for multi-modal fusion. OpenAI GPT-4 consultation layer for second opinions. FastAPI inference service, HL7/FHIR medical standard compliance, PDF/A diagnostic report generation, and C++/RTOS device firmware.',
+    technologies: ['Python', 'PyTorch', 'scikit-learn', 'FastAPI', 'C++', 'RTOS', 'OpenAI GPT-4', 'PostgreSQL', 'MongoDB', 'HL7', 'FHIR'],
     features: [
-      'Multi-modal analysis (impedance + optical)',
-      'PyTorch ML pipeline (1D-CNN, BiLSTM, Transformer)',
+      'Multi-modal fusion (impedance + optical spectroscopy)',
+      'PyTorch deep learning (1D-CNN, BiLSTM, Transformer)',
+      'scikit-learn ensemble (SVM, Random Forest, XGBoost)',
+      'OpenAI GPT-4 consultation layer',
       'HL7 v2 & FHIR medical standard compliance',
-      'OpenAI second-opinion integration',
-      'PDF/A diagnostic reports generation',
+      'PDF/A diagnostic report generation',
+      'FastAPI inference service',
       'DVC & MLflow experiment tracking',
       'Device firmware (C++/RTOS)'
     ],
@@ -377,15 +429,15 @@ export const projects: Project[] = [
     image: '/images/diagnostic.jpg',
     category: 'ai-ml',
     difficulty: 'expert',
-    impact: 'Multi-modal AI approach for medical diagnostics with HL7/FHIR compliance',
+    impact: 'Multi-modal AI diagnostics with GPT-4 consultation and HL7/FHIR compliance',
     challenges: [
       'Multi-modal data fusion (impedance time-series + optical spectrum)',
-      'Medical regulatory compliance (HL7, FHIR)',
-      'Real-time inference on embedded hardware'
+      'Integrating GPT-4 consultation with ML pipeline outputs',
+      'Real-time inference on embedded hardware with C++/RTOS'
     ],
     solutions: [
-      'Ensemble ML models with SVM/RF/XGB + deep learning',
-      'Standards-compliant API with FHIR resource mapping',
+      'Ensemble: SVM/RF/XGB classical + 1D-CNN/BiLSTM/Transformer deep learning fusion',
+      'GPT-4 context-aware consultation with structured diagnostic prompts',
       'Optimized TensorRT inference for embedded deployment'
     ],
     metrics: {
@@ -395,19 +447,37 @@ export const projects: Project[] = [
     status: 'wip',
     featured: true,
     year: 2025,
-    colorAccent: '#ef4444'
+    colorAccent: '#ef4444',
+    architecture: [
+      'PyTorch Deep Learning (1D-CNN, BiLSTM, Transformer)',
+      'scikit-learn Ensemble (SVM, RF, XGBoost)',
+      'FastAPI Inference Service',
+      'OpenAI GPT-4 Consultation Layer',
+      'C++/RTOS Device Firmware',
+      'HL7/FHIR Medical Standards Bridge',
+    ],
+    timeline: [
+      { phase: 'ML Pipeline & Model Training', status: 'done' },
+      { phase: 'FastAPI Inference Service', status: 'done' },
+      { phase: 'GPT-4 Consultation Layer', status: 'active' },
+      { phase: 'Device Firmware (C++/RTOS)', status: 'active' },
+      { phase: 'Clinical Trials & Certification', status: 'planned' },
+    ],
+    relatedProjects: ['solar-analysis-v2'],
   },
   {
     id: 'omnisell',
     title: 'OmniSell - E-commerce Automation Platform',
-    description: 'AI-powered multi-marketplace listing automation for Etsy, Amazon, Shopify, and Trendyol',
-    longDescription: 'Unified e-commerce management platform that synchronizes product listings across multiple marketplaces. Features AI-powered listing optimization, automated inventory sync, and social media integration. Built with TypeScript ESM architecture and repository pattern.',
-    technologies: ['TypeScript', 'Fastify', 'Prisma', 'Vitest', 'OpenAI API', 'Etsy API', 'Amazon API', 'Shopify API'],
+    description: 'AI-powered multi-marketplace listing automation with BullMQ job queues, Sharp image processing, and AWS S3 storage',
+    longDescription: 'Unified e-commerce management platform that synchronizes product listings across Etsy, Amazon, Shopify, and Trendyol. Built with Fastify and Prisma in TypeScript. Features AI-powered listing generation via OpenAI API, BullMQ for background job queues, Sharp for image processing and optimization, and AWS S3 for media storage.',
+    technologies: ['TypeScript', 'Fastify', 'Prisma', 'Vitest', 'OpenAI API', 'AWS S3', 'BullMQ', 'Sharp', 'Etsy API', 'Amazon API', 'Shopify API', 'Trendyol API'],
     features: [
       'Multi-marketplace sync (Etsy, Amazon, Shopify, Trendyol)',
-      'AI-powered listing optimization',
+      'AI listing generation via OpenAI API',
+      'BullMQ background job queues for async processing',
+      'Sharp image processing & optimization',
+      'AWS S3 media storage',
       'Automated inventory management',
-      'Social media content generation',
       'Marketplace adapter interface pattern',
       'Comprehensive test suite with Vitest'
     ],
@@ -415,16 +485,16 @@ export const projects: Project[] = [
     image: '/images/omnisell.jpg',
     category: 'automation',
     difficulty: 'advanced',
-    impact: 'Unified 4 marketplace APIs into single management interface',
+    impact: 'Unified 4 marketplace APIs with AI listing generation and async job processing',
     challenges: [
       'Normalizing different marketplace API schemas',
-      'Rate limiting and API quota management across platforms',
-      'Consistent inventory sync with conflict resolution'
+      'Processing and optimizing product images at scale',
+      'Reliable async job processing for bulk listing operations'
     ],
     solutions: [
       'Adapter pattern with unified marketplace interface',
-      'Token bucket rate limiter with platform-specific configs',
-      'Event-sourced inventory with optimistic concurrency'
+      'Sharp pipeline with AWS S3 for optimized image delivery',
+      'BullMQ with Redis-backed queues for reliable job processing'
     ],
     status: 'active',
     year: 2025,
@@ -433,31 +503,33 @@ export const projects: Project[] = [
   {
     id: 'firealert',
     title: 'FireAlert - Fire Detection Mobile App',
-    description: 'Cross-platform fire alert system with NASA FIRMS satellite data and NestJS backend',
-    longDescription: 'Mobile application that leverages NASA FIRMS (Fire Information for Resource Management System) satellite data for real-time fire detection and alerting. Built with Expo/React Native for cross-platform deployment and NestJS for the backend API.',
-    technologies: ['React Native', 'Expo', 'TypeScript', 'NestJS', 'NASA FIRMS API', 'JWT', 'Detox'],
+    description: 'Expo + React Native fire alert system with NASA FIRMS data, NestJS backend, Detox E2E, and OpenAPI type generation',
+    longDescription: 'Mobile application that leverages NASA FIRMS (Fire Information for Resource Management System) satellite data for real-time fire detection and alerting. Built with Expo/React Native and TypeScript for cross-platform deployment, NestJS for the backend API. Features comprehensive documentation suite, Detox E2E testing framework, and OpenAPI-based automatic type generation for type-safe API communication.',
+    technologies: ['React Native', 'Expo', 'TypeScript', 'NestJS', 'NASA FIRMS API', 'JWT', 'Detox', 'OpenAPI'],
     features: [
       'Real-time NASA FIRMS satellite fire data',
       'Push notification alerts for nearby fires',
       'Interactive map with fire locations',
       'User profile management with JWT auth',
-      'E2E testing with Detox framework',
+      'Detox E2E testing framework',
+      'OpenAPI automatic type generation',
+      'Comprehensive documentation suite',
       'Alerts dashboard with filtering'
     ],
     githubUrl: 'https://github.com/elkekoitan/firealert-mobile-app',
     image: '/images/firealert.jpg',
     category: 'mobile',
     difficulty: 'advanced',
-    impact: 'Real-time fire detection using satellite data for public safety',
+    impact: 'Real-time fire detection using satellite data for public safety with full E2E test coverage',
     challenges: [
       'Processing NASA FIRMS satellite data in real-time',
       'Geolocation-based push notification system',
-      'Cross-platform performance optimization'
+      'Maintaining type-safe API contracts across frontend and backend'
     ],
     solutions: [
       'Efficient GeoJSON processing pipeline for satellite data',
       'Background location tracking with geofencing for alerts',
-      'Expo managed workflow with native module optimization'
+      'OpenAPI schema-driven type generation for end-to-end type safety'
     ],
     status: 'active',
     year: 2025,
@@ -466,32 +538,33 @@ export const projects: Project[] = [
   {
     id: 'indirim-kanallari',
     title: 'Indirim Kanallari - Deal Scraper & Telegram Bot',
-    description: 'Automated Turkish retail deal scraper with quality scoring and 12+ Telegram channel distribution',
-    longDescription: 'Intelligent deal discovery system that scrapes 11+ Turkish retailers, scores deals using a self-improving know-how system, and automatically distributes quality deals to 12+ Telegram channels. Features price tracking, similarity deduplication, and seasonal scoring bonuses.',
-    technologies: ['TypeScript', 'Node.js', 'Prisma', 'SQLite', 'Next.js 15', 'Telegram Bot API', 'Puppeteer'],
+    description: 'Node.js 20+ LTS deal scraper with 11 retailer scrapers, Telegram bot with inline voting, 30-day price history, and merchant reputation',
+    longDescription: 'Intelligent deal discovery system built with Node.js 20+ LTS and TypeScript. Uses Prisma ORM to manage data, scrapes 11 Turkish retailers (Trendyol, BIM, A101, Migros, Amazon TR, and more), and distributes quality deals via Telegram bot with inline voting. Features deal quality scoring algorithm, 30-day price history tracking, merchant reputation system, Next.js 15 admin panel, and similarity deduplication engine.',
+    technologies: ['Node.js 20+ LTS', 'TypeScript', 'Prisma ORM', 'SQLite', 'Next.js 15', 'Telegram Bot API', 'Puppeteer', 'Cheerio'],
     features: [
-      '11+ Turkish retailer scrapers (Trendyol, BIM, A101...)',
-      'Self-improving deal quality scoring system',
-      '12+ Telegram channel auto-distribution',
-      'Price tracking and history',
-      'Similarity deduplication engine',
+      '11 retailer scrapers (Trendyol, BIM, A101, Migros, Amazon TR...)',
+      'Telegram bot with inline voting system',
+      'Deal quality scoring algorithm',
+      '30-day price history tracking',
+      'Merchant reputation system',
       'Next.js 15 admin panel',
+      'Similarity deduplication engine',
       'Seasonal bonus scoring'
     ],
     githubUrl: 'https://github.com/elkekoitan/indirim-kanallari',
     image: '/images/indirim-kanallari.jpg',
     category: 'automation',
     difficulty: 'advanced',
-    impact: 'Automated discovery and distribution of 300+ deals per cycle to 12+ channels',
+    impact: 'Automated discovery and distribution of 300+ deals per cycle with merchant reputation tracking',
     challenges: [
-      'Bypassing anti-scraping measures (CAPTCHA, WAF, rate limiting)',
-      'Quality scoring across diverse product categories',
-      'Maintaining 11+ scrapers with different site structures'
+      'Bypassing anti-scraping measures (CAPTCHA, WAF, rate limiting) across 11 retailers',
+      'Building accurate merchant reputation and deal quality scoring',
+      'Maintaining 30-day price history with efficient storage'
     ],
     solutions: [
-      'API-first scraping where available, headless browser fallback',
-      'ML-inspired scoring with category weights and seasonal adjustments',
-      'Modular scraper architecture with self-healing retry logic'
+      'API-first scraping with Cheerio fallback, headless Puppeteer for JS-heavy sites',
+      'Composite scoring with merchant history, price delta, and user voting signals',
+      'Prisma ORM with efficient time-series queries for price history'
     ],
     metrics: {
       performance: '~190 deals/cycle from Trendyol alone',
@@ -500,36 +573,53 @@ export const projects: Project[] = [
     status: 'production',
     featured: true,
     year: 2025,
-    colorAccent: '#8b5cf6'
+    colorAccent: '#8b5cf6',
+    architecture: [
+      'Node.js 20+ LTS Scraper Engine',
+      'Puppeteer + Cheerio (11 Retailers)',
+      'Prisma ORM + SQLite Database',
+      'Telegram Bot API Distribution',
+      'Next.js 15 Admin Panel',
+      'Deal Quality Scoring Algorithm',
+    ],
+    timeline: [
+      { phase: 'Scraper Engine & Retailers', status: 'done' },
+      { phase: 'Telegram Bot Integration', status: 'done' },
+      { phase: 'Admin Panel (Next.js 15)', status: 'done' },
+      { phase: 'Merchant Reputation System', status: 'done' },
+      { phase: 'ML-based Price Prediction', status: 'planned' },
+    ],
   },
   {
     id: 'mandira-claude',
-    title: 'Mandira Sut Takip - Dairy Farm Management',
-    description: 'Modern dairy farm management system with Next.js 14, Firebase, and real-time tracking',
-    longDescription: 'Comprehensive dairy farm management platform for tracking milk production, animal health, and farm operations. Built with Next.js 14 App Router, Firebase for real-time data, and Zustand for state management.',
-    technologies: ['Next.js 14', 'React 18', 'TypeScript', 'Firebase', 'Zustand', 'React Query', 'Tailwind CSS'],
+    title: 'Mandira Sut Takip v2.0 - Dairy Farm Management',
+    description: 'Modern dairy farm management system with Next.js 14, Firebase, React Query + Zustand, and 7 core modules',
+    longDescription: 'Comprehensive dairy farm management platform v2.0 with 7 core modules: animal management, milk production tracking, batch management, sales/shipping, financial tracking, health/vaccines, and reporting. Built with Next.js 14 App Router, Firebase (Firestore, Auth, Hosting), React Query for server state, and Zustand for client state management.',
+    technologies: ['Next.js 14', 'React 18', 'TypeScript', 'Firebase Firestore', 'Firebase Auth', 'Firebase Hosting', 'Zustand', 'React Query', 'Tailwind CSS'],
     features: [
-      'Real-time milk production tracking',
-      'Animal health record management',
-      'Firebase authentication & Firestore',
-      'Production analytics dashboard',
-      'Multi-user farm access control',
-      'Responsive mobile-friendly design'
+      'Animal management module',
+      'Milk production tracking & analytics',
+      'Batch management system',
+      'Sales & shipping management',
+      'Financial tracking & reporting',
+      'Health records & vaccine scheduling',
+      'Firebase Auth & Firestore real-time sync',
+      'React Query + Zustand hybrid state management'
     ],
     githubUrl: 'https://github.com/qween-code/mandira-sut-takip',
     image: '/images/mandira-claude.jpg',
     category: 'web',
     difficulty: 'advanced',
-    impact: 'Digitized dairy farm operations for real-time production monitoring',
+    impact: 'Digitized dairy farm operations with 7 core modules for complete farm lifecycle management (v2.0)',
     challenges: [
-      'Real-time data synchronization for field workers',
+      'Real-time data synchronization for field workers across 7 modules',
       'Offline-capable data entry for rural areas',
       'Complex analytics across seasonal production cycles'
     ],
     solutions: [
-      'Firebase Firestore with real-time listeners',
+      'Firebase Firestore with real-time listeners per module',
       'Service worker caching with background sync',
-      'Time-series aggregation with React Query caching'
+      'React Query server state + Zustand client state for optimal performance'
     ],
     status: 'production',
     year: 2024,
@@ -537,67 +627,92 @@ export const projects: Project[] = [
   },
   {
     id: 'pospro',
-    title: 'PosPro - Turkey POS System',
-    description: 'Enterprise POS system for Turkish market with Flutter cross-platform and FastAPI backend',
-    longDescription: 'Turkey-specific Point of Sale system built with Flutter for cross-platform deployment (Windows, Linux, Web, iOS, Android) and FastAPI backend. Features offline-first architecture, analytics dashboards with fl_chart, and Turkish tax compliance.',
-    technologies: ['Flutter', 'Dart', 'FastAPI', 'PostgreSQL', 'SQLite', 'GetX', 'fl_chart', 'Firebase'],
+    title: 'PosPro - Enterprise Hybrid POS System',
+    description: 'Enterprise-grade Flutter 3.16+ POS with FastAPI, 70+ DB tables, 200+ API endpoints, offline-first — 3x faster than Shopify POS',
+    longDescription: 'Enterprise-grade hybrid Point of Sale system built with Flutter 3.16+ and FastAPI with PostgreSQL 15+. Features 70+ database tables, 200+ API endpoints, offline-first architecture with automatic sync. Infrastructure includes Redis caching, Celery task queues, Docker containerization, and Kubernetes orchestration. Integrated Stripe/PayPal payment processing. Benchmarked at 3x faster than Shopify POS with TCO savings of $200K+ for enterprise deployments.',
+    technologies: ['Flutter 3.16+', 'Dart', 'FastAPI', 'PostgreSQL 15+', 'Redis', 'Celery', 'Docker', 'Kubernetes', 'Stripe', 'PayPal', 'SQLite'],
     features: [
       'Cross-platform (Windows/Linux/Web/iOS/Android)',
-      'Offline-first with SQLite local storage',
+      '70+ database tables, 200+ API endpoints',
+      'Offline-first with automatic sync',
+      'Redis caching & Celery task queues',
+      'Stripe & PayPal payment integration',
+      'Docker & Kubernetes deployment',
       'Turkish tax compliance (e-fatura)',
       'Real-time analytics with fl_chart',
-      'Multi-branch management',
-      'Inventory tracking system',
-      'GetX state management'
+      'Multi-branch management'
     ],
     image: '/images/pospro.jpg',
     category: 'web',
     difficulty: 'expert',
-    impact: 'Enterprise-grade POS solution serving Turkish retail market',
+    impact: '3x faster than Shopify POS with TCO savings of $200K+ for enterprise deployments',
     challenges: [
-      'Cross-platform UI consistency across 5 platforms',
-      'Offline-first architecture with sync on reconnect',
-      'Turkish tax regulation compliance'
+      'Managing 70+ database tables with complex relational integrity',
+      'Offline-first architecture with conflict resolution across 200+ endpoints',
+      'Kubernetes orchestration for multi-tenant enterprise deployments'
     ],
     solutions: [
-      'Flutter adaptive layouts with platform-specific widgets',
-      'SQLite + Firebase hybrid storage with conflict resolution',
-      'e-Fatura integration module with GIB API'
+      'PostgreSQL 15+ with partitioning and Redis caching layer',
+      'SQLite local store with Celery-driven background sync',
+      'Kubernetes with Helm charts for automated scaling and deployment'
     ],
+    metrics: {
+      performance: '3x faster than Shopify POS',
+      revenue: 'TCO savings $200K+'
+    },
     status: 'active',
     featured: true,
     year: 2025,
-    colorAccent: '#06b6d4'
+    colorAccent: '#06b6d4',
+    endpoints: '200+',
+    architecture: [
+      'Flutter 3.16+ Cross-Platform Client',
+      'FastAPI 0.104+ Backend Server',
+      'PostgreSQL 15+ (70+ Tables)',
+      'Redis Cache + Celery Task Queues',
+      'SQLite Offline Store + Auto-Sync',
+      'Docker + Kubernetes Orchestration',
+    ],
+    timeline: [
+      { phase: 'Database Schema (70+ tables)', status: 'done' },
+      { phase: 'API Layer (200+ endpoints)', status: 'done' },
+      { phase: 'Flutter POS Client', status: 'done' },
+      { phase: 'Payment Gateway Integration', status: 'active' },
+      { phase: 'Multi-Tenant SaaS Deploy', status: 'planned' },
+    ],
+    relatedProjects: ['omnisell'],
   },
   {
     id: 'sinav-analiz',
-    title: 'Sinav Analiz Uzmani - Education Analytics',
-    description: 'Advanced exam analysis platform for Turkish educators with AI-powered pedagogical insights',
-    longDescription: 'Comprehensive education analytics platform aligned with Turkish MEB curriculum. Features 17 analysis modules, Google Gemini AI-powered pedagogical suggestions, bilingual reports, and smart prompt builder for AI-assisted educational content creation.',
-    technologies: ['React 18', 'TypeScript 5', 'Supabase', 'Google Gemini AI', 'Chart.js', 'Zustand'],
+    title: 'Sinav Analiz Uzmani v2.0 - Education Analytics',
+    description: 'Advanced exam analysis platform for Turkish educators with Gemini AI pedagogy, Recharts visualization, and PDF/Word/Excel reporting',
+    longDescription: 'Comprehensive education analytics platform v2.0 aligned with Turkish MEB curriculum. Built with React 18, TypeScript, and Vite. Uses Supabase (PostgreSQL with RLS, Auth) for backend, Google Gemini AI for pedagogy recommendations, Recharts for data visualization, and jsPDF + docx for PDF/Word report generation. Features Excel import/export, Google OAuth 2.0 authentication, and 17 analysis modules.',
+    technologies: ['React 18', 'TypeScript', 'Vite', 'Supabase', 'PostgreSQL', 'RLS', 'Google Gemini AI', 'Recharts', 'jsPDF', 'docx', 'Google OAuth 2.0'],
     features: [
       '17 analysis modules for exam evaluation',
       'MEB curriculum-aligned analytics',
-      'AI-powered pedagogical suggestions (Gemini)',
-      'Bilingual reports (TR/EN)',
-      'Smart prompt builder for AI assistant',
-      'Student profile management',
-      'Class performance tracking'
+      'Google Gemini AI pedagogy recommendations',
+      'Recharts interactive data visualizations',
+      'PDF/Word report generation (jsPDF + docx)',
+      'Excel import/export for exam data',
+      'Google OAuth 2.0 authentication',
+      'Supabase with Row Level Security (RLS)',
+      'Smart prompt builder for AI assistant'
     ],
     githubUrl: 'https://github.com/salihaerdol/sinav-analiz-uzmani',
     image: '/images/sinav-analiz.jpg',
     category: 'ai-ml',
     difficulty: 'advanced',
-    impact: 'AI-enhanced education analytics serving Turkish teachers with 17 analysis modules',
+    impact: 'AI-enhanced MEB curriculum-aligned education analytics serving Turkish teachers with 17 analysis modules (v2.0)',
     challenges: [
       'Aligning analytics with complex MEB curriculum standards',
-      'Generating pedagogically sound AI suggestions',
-      'Processing and visualizing multi-dimensional exam data'
+      'Generating pedagogically sound AI suggestions with Gemini',
+      'Multi-format report generation (PDF, Word, Excel)'
     ],
     solutions: [
-      'Hierarchical curriculum mapping with Supabase relational model',
+      'Hierarchical curriculum mapping with Supabase PostgreSQL + RLS',
       'Fine-tuned Gemini prompts with pedagogical context injection',
-      'Custom Chart.js configurations for education-specific visualizations'
+      'jsPDF + docx libraries for rich report export with Recharts visualizations'
     ],
     metrics: {
       accuracy: '17 analysis modules',
@@ -642,32 +757,33 @@ export const projects: Project[] = [
   },
   {
     id: 'airchitecture',
-    title: 'Airchitecture - Meta-Agent AI System',
-    description: 'Super-organization intelligence architecture that creates and orchestrates its own agent army',
-    longDescription: 'Enterprise-grade meta-agent system designed to autonomously create, manage, and orchestrate AI agent networks. Features comprehensive architecture documentation covering vision, technical infrastructure, use cases, security/ethics, integration patterns, and system architecture diagrams.',
+    title: 'Airchitecture - Meta-Agent AI Architecture',
+    description: 'Enterprise intelligence system with thousands of specialized AI agents, orchestration management, collective memory, and zero-trust security',
+    longDescription: 'Enterprise-grade meta-agent AI architecture system documented across 9 comprehensive specification files. Designed for enterprise intelligence with thousands of specialized AI agents, orchestration management for agent lifecycle and coordination, collective memory systems for shared knowledge, and zero-trust security architecture. Covers vision, technical infrastructure, use cases, security/ethics, integration patterns, and system architecture.',
     technologies: ['LangChain', 'Python', 'Docker', 'Kubernetes', 'gRPC', 'Redis', 'PostgreSQL'],
     features: [
-      'Self-creating agent orchestration',
+      '9 comprehensive architecture documentation files',
+      'Thousands of specialized AI agents',
+      'Orchestration management system',
+      'Collective memory for shared knowledge',
+      'Zero-trust security architecture',
       'Dynamic agent lifecycle management',
-      'Multi-agent communication protocols',
-      'Security & ethics framework',
       'Enterprise integration patterns',
-      'Comprehensive 9-document architecture spec',
       'Scalable Kubernetes deployment'
     ],
     image: '/images/airchitecture.jpg',
     category: 'ai-ml',
     difficulty: 'expert',
-    impact: 'Pioneering meta-agent architecture for autonomous AI organization',
+    impact: 'Enterprise intelligence architecture with thousands of specialized AI agents and zero-trust security',
     challenges: [
-      'Designing self-referential agent creation systems',
-      'Ensuring safety in autonomous agent orchestration',
-      'Scalable communication between dynamic agent populations'
+      'Orchestrating thousands of specialized AI agents at scale',
+      'Building collective memory systems for persistent shared knowledge',
+      'Implementing zero-trust security for autonomous agent networks'
     ],
     solutions: [
-      'Hierarchical meta-agent architecture with safety boundaries',
-      'Ethics-first design with kill switches and audit trails',
-      'gRPC + Redis pub/sub for scalable inter-agent messaging'
+      'Hierarchical orchestration with agent specialization tiers',
+      'Distributed vector store with event-sourced collective memory',
+      'Zero-trust architecture with per-agent certificates and audit trails'
     ],
     status: 'planning',
     featured: true,

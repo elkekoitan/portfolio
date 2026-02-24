@@ -30,7 +30,7 @@ export default function HeroParticles() {
     resize()
     window.addEventListener('resize', resize)
 
-    const colors = ['#e8c07a', '#e07850', '#6ee7d0', '#ddd0b0', '#c07848', '#c4b5e0']
+    const colors = ['#B87333', '#A0522D', '#6ee7d0', '#CD853F', '#2ecfff', '#ffb641']
     const particles: Particle[] = Array.from({ length: 90 }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
@@ -43,7 +43,6 @@ export default function HeroParticles() {
       pulseSpeed: Math.random() * 0.02 + 0.01,
     }))
 
-    // Mouse interaction
     let mouseX = -1000
     let mouseY = -1000
     const handleMouseMove = (e: MouseEvent) => {
@@ -59,7 +58,6 @@ export default function HeroParticles() {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       particles.forEach(p => {
-        // Mouse repulsion
         const dx = p.x - mouseX
         const dy = p.y - mouseY
         const dist = Math.sqrt(dx * dx + dy * dy)
@@ -69,11 +67,10 @@ export default function HeroParticles() {
           p.vy += (dy / dist) * force * 0.3
         }
 
-        // Wind drift — desert sand effect
-        p.vx += Math.sin(time * 0.001 + p.y * 0.01) * 0.02
-        p.vy += Math.cos(time * 0.0008 + p.x * 0.01) * 0.008
+        // Static spark drift — radioactive fallout
+        p.vx += Math.sin(time * 0.002 + p.y * 0.005) * 0.01
+        p.vy += 0.005 + Math.cos(time * 0.001) * 0.003
 
-        // Velocity damping
         p.vx *= 0.99
         p.vy *= 0.99
 
@@ -81,7 +78,6 @@ export default function HeroParticles() {
         p.y += p.vy
         p.pulse += p.pulseSpeed
 
-        // Boundary wrap
         if (p.x < 0) p.x = canvas.width
         if (p.x > canvas.width) p.x = 0
         if (p.y < 0) p.y = canvas.height
@@ -90,7 +86,6 @@ export default function HeroParticles() {
         const pulsedOpacity = p.opacity * (0.7 + 0.3 * Math.sin(p.pulse))
         const pulsedSize = p.size * (0.8 + 0.2 * Math.sin(p.pulse * 0.7))
 
-        // Glow effect
         const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, pulsedSize * 3)
         gradient.addColorStop(0, p.color + Math.round(pulsedOpacity * 255).toString(16).padStart(2, '0'))
         gradient.addColorStop(1, p.color + '00')
@@ -100,7 +95,6 @@ export default function HeroParticles() {
         ctx.fillStyle = gradient
         ctx.fill()
 
-        // Core dot
         ctx.beginPath()
         ctx.arc(p.x, p.y, pulsedSize, 0, Math.PI * 2)
         ctx.fillStyle = p.color
@@ -109,7 +103,6 @@ export default function HeroParticles() {
         ctx.globalAlpha = 1
       })
 
-      // Connection lines
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const a = particles[i]

@@ -283,7 +283,7 @@ function StepCard({ step, index, total }: StepCardProps) {
       className="pipeline-step-card relative flex flex-col items-center"
       style={{
         // Neomorphic glow card base — technique 5
-        background: 'var(--dune-card)',
+        background: 'var(--vault-card)',
         borderRadius: '16px',
         border: `1px solid ${color}44`,
         boxShadow: `
@@ -345,7 +345,7 @@ function StepCard({ step, index, total }: StepCardProps) {
         ref={descRef}
         className="text-center mt-1"
         style={{
-          color: 'var(--dune-sand)',
+          color: 'var(--sand)',
           fontSize: '0.62rem',
           lineHeight: 1.4,
           opacity: 1,
@@ -367,7 +367,7 @@ function StepCard({ step, index, total }: StepCardProps) {
           {step.metricLabel && (
             <p
               className="font-mono"
-              style={{ color: 'var(--dune-sand)', fontSize: '0.55rem', opacity: 0.7, letterSpacing: '0.1em' }}
+              style={{ color: 'var(--sand)', fontSize: '0.55rem', opacity: 0.7, letterSpacing: '0.1em' }}
             >
               {step.metricLabel}
             </p>
@@ -569,14 +569,14 @@ export default function PipelineInfographic({
     return () => clearInterval(interval);
   }, []);
 
-  const accentColor = '#6ee7d0'; // dune-turquoise
+  const accentColor = '#6ee7d0'; // pipboy-400
 
   return (
     <section
       ref={wrapperRef}
       className="relative rounded-2xl overflow-hidden"
       style={{
-        background: 'var(--dune-body)',
+        background: 'var(--vault-body)',
         border: `1px solid ${accentColor}33`,
         boxShadow: `
           0 0 40px ${accentColor}11,
@@ -641,7 +641,7 @@ export default function PipelineInfographic({
           <p
             ref={subtitleRef}
             className="font-mono mt-2 opacity-0"
-            style={{ color: 'var(--dune-sand)', fontSize: '0.75rem', letterSpacing: '0.1em' }}
+            style={{ color: 'var(--sand)', fontSize: '0.75rem', letterSpacing: '0.1em' }}
           >
             {subtitle}
           </p>

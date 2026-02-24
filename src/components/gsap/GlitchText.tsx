@@ -90,6 +90,7 @@ export default function GlitchText({
   return (
     <div ref={wrapRef} className={`relative inline-block ${className}`} style={{ display: 'inline-block' }}>
       {/* Real visible text */}
+      {/* @ts-expect-error — dynamic ElementType tag */}
       <Tag style={{ position: 'relative', display: 'block' }}>{text}</Tag>
 
       {/* Glitch layer 1 — amber channel */}

@@ -1,8 +1,12 @@
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { getDict, type Locale } from '@/i18n/dictionaries'
+
+const VALID_LOCALES = ['tr', 'en', 'ru']
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
+  if (!VALID_LOCALES.includes(locale)) return {}
   const t = getDict(locale as Locale)
   return {
     metadataBase: new URL('https://hamza-turhan-portfolio.vercel.app'),
@@ -45,6 +49,7 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
+  if (!VALID_LOCALES.includes(locale)) notFound()
   const t = getDict(locale as Locale)
   return (
     <>

@@ -22,6 +22,8 @@ type Dict = {
     achievements: string
     ach: { completed: string; years: string; techs: string; success: string }
     bullets: [string, string, string, string]
+    workflowTitle: string
+    workflowSteps: [string, string, string]
   }
   projects: { title: string; subtitle: string }
   skills: { title: string; subtitle: string; categories: Record<string, string> }
@@ -37,7 +39,7 @@ type Dict = {
   footer: { text: string }
   projectCategories: Record<'ai-ml' | 'trading' | 'mobile' | 'web' | 'automation' | 'tools', string>
   projectDifficulty: Record<'beginner' | 'intermediate' | 'advanced' | 'expert', string>
-  projectDetail?: { back: string; features: string; challenges: string; solutions: string; metrics: string; impact: string; viewCode: string; liveDemo: string; status: string }
+  projectDetail?: { back: string; features: string; challenges: string; solutions: string; metrics: string; impact: string; viewCode: string; liveDemo: string; status: string; architecture: string; timeline: string; relatedProjects: string; techPipeline: string }
 }
 
 export const dictionaries: Record<Locale, Dict> = {
@@ -51,7 +53,7 @@ export const dictionaries: Record<Locale, Dict> = {
     },
     skipLink: 'İçeriğe atla',
     brand: 'Hamza Turhan',
-    nav: { home: 'Ana Sayfa', about: 'Hakkımda', projects: 'Projeler', skills: 'Yetenekler', pmInsights: 'PM Deneyimleri', contact: 'İletişim' },
+    nav: { home: 'Ana Sayfa', about: 'Hakkımda', projects: 'Projeler', skills: 'Yetenekler', pmInsights: 'Çalışma Sistemim', contact: 'İletişim' },
     hero: {
       title1: 'Fullstack Developer',
       title2: 'AI Sistem Mimarı',
@@ -60,7 +62,7 @@ export const dictionaries: Record<Locale, Dict> = {
       aiCardTitle: 'AI Verimlilik Uzmanı',
       aiFeatures: ['AI Tool Entegrasyonu', 'Otomasyon Sistemleri', 'Süreç Optimizasyonu'],
       stats: { prod: 'Verimlilik Artışı', ai: 'AI Projesi', years: 'Yıl Deneyim', tools: 'AI Tool' },
-      buttons: { viewProjects: 'AI Projelerimi Gör', interview: 'Çalışma Sistemimiz' },
+      buttons: { viewProjects: 'AI Projelerimi Gör', interview: 'Çalışma Sistemim' },
     },
     about: {
       title: 'Hakkımda',
@@ -75,6 +77,8 @@ export const dictionaries: Record<Locale, Dict> = {
         'Algoritmik Ticaret Platformları',
         'Çapraz Platform Mobil Geliştirme',
       ],
+      workflowTitle: 'Çalışma Akışım',
+      workflowSteps: ['Analiz & Planlama', 'Geliştirme & Test', 'Deploy & İzleme'],
     },
     projects: { title: 'Öne Çıkan Projeler', subtitle: 'Farklı alanlardaki uzmanlığımı gerçek dünya uygulamalarıyla sergiliyorum' },
     skills: {
@@ -87,13 +91,14 @@ export const dictionaries: Record<Locale, Dict> = {
         mobile: 'Mobil',
         database: 'Veritabanı',
         devops: 'DevOps',
+        tools: 'Araçlar',
       },
     },
     answers: {
-      title: 'PM Deneyimlerim',
-      subtitle: 'Gerçek projelerde karşılaştığım zorluklar ve çözümlerim',
-      stats: { answered: 'Cevaplanan Sorular', refs: 'Referans Projeler', avgConf: 'Ortalama Güven' },
-      filters: { all: 'Tümü', planning: 'Planlama', technical: 'Teknik Karar', team: 'Takım', client: 'Müşteri', risk: 'Risk', process: 'Süreç', product: 'Ürün' },
+      title: 'Çalışma Sistemim',
+      subtitle: 'Claude Code + Codex ile projeleri baştan sona nasıl çıkarıyorum — adım adım',
+      stats: { answered: 'Pipeline Aşaması', refs: 'Referans Projeler', avgConf: 'Ortalama Güven' },
+      filters: { all: 'Tümü', planning: 'Planlama', technical: 'Mimari', team: 'Kodlama', client: 'Altyapı', risk: 'Kalite', process: 'Entegrasyon', product: 'Ürün' },
       ctaViewProjects: 'Projeleri Görüntüle',
     },
     contact: {
@@ -129,6 +134,10 @@ export const dictionaries: Record<Locale, Dict> = {
       viewCode: 'Kodu Görüntüle',
       liveDemo: 'Canlı Demo',
       status: 'Durum',
+      architecture: 'Mimari',
+      timeline: 'Zaman Çizelgesi',
+      relatedProjects: 'İlişkili Projeler',
+      techPipeline: 'Teknoloji Pipeline',
     },
   },
   en: {
@@ -141,7 +150,7 @@ export const dictionaries: Record<Locale, Dict> = {
     },
     skipLink: 'Skip to content',
     brand: 'Hamza Turhan',
-    nav: { home: 'Home', about: 'About', projects: 'Projects', skills: 'Skills', pmInsights: 'PM Insights', contact: 'Contact' },
+    nav: { home: 'Home', about: 'About', projects: 'Projects', skills: 'Skills', pmInsights: 'Work System', contact: 'Contact' },
     hero: {
       title1: 'Fullstack Developer',
       title2: 'AI Systems Architect',
@@ -150,7 +159,7 @@ export const dictionaries: Record<Locale, Dict> = {
       aiCardTitle: 'AI Productivity Expert',
       aiFeatures: ['AI Tool Integration', 'Automation Systems', 'Process Optimization'],
       stats: { prod: 'Productivity Increase', ai: 'AI Projects', years: 'Years Experience', tools: 'AI Tools' },
-      buttons: { viewProjects: 'View AI Projects', interview: 'Work System' },
+      buttons: { viewProjects: 'View AI Projects', interview: 'My Work System' },
     },
     about: {
       title: 'About Me',
@@ -165,6 +174,8 @@ export const dictionaries: Record<Locale, Dict> = {
         'Algorithmic Trading Platforms',
         'Cross-platform Mobile Development',
       ],
+      workflowTitle: 'My Workflow',
+      workflowSteps: ['Analysis & Planning', 'Development & Testing', 'Deploy & Monitor'],
     },
     projects: { title: 'Featured Projects', subtitle: 'Showcasing expertise through real-world applications' },
     skills: {
@@ -177,15 +188,15 @@ export const dictionaries: Record<Locale, Dict> = {
         mobile: 'Mobile',
         database: 'Database',
         devops: 'DevOps',
+        tools: 'Tools',
       },
     },
     answers: {
-      title: 'PM Insights',
-      subtitle: 'Real challenges and solutions from my project management experience',
-      stats: { answered: 'Answered Questions', refs: 'Reference Projects', avgConf: 'Average Confidence' },
-      filters: { all: 'All', planning: 'Planning', technical: 'Technical', team: 'Team', client: 'Client', risk: 'Risk', process: 'Process', product: 'Product' },
+      title: 'My Work System',
+      subtitle: 'How I build projects from scratch with Claude Code + Codex — step by step',
+      stats: { answered: 'Pipeline Stages', refs: 'Reference Projects', avgConf: 'Average Confidence' },
+      filters: { all: 'All', planning: 'Planning', technical: 'Architecture', team: 'Coding', client: 'Infrastructure', risk: 'Quality', process: 'Integration', product: 'Product' },
       ctaViewProjects: 'View Projects',
-      originalNote: 'Note: Detailed answers are currently in Turkish.',
     },
     contact: {
       title: 'Get in Touch',
@@ -220,6 +231,10 @@ export const dictionaries: Record<Locale, Dict> = {
       viewCode: 'View Code',
       liveDemo: 'Live Demo',
       status: 'Status',
+      architecture: 'Architecture',
+      timeline: 'Timeline',
+      relatedProjects: 'Related Projects',
+      techPipeline: 'Tech Pipeline',
     },
   },
   ru: {
@@ -232,7 +247,7 @@ export const dictionaries: Record<Locale, Dict> = {
     },
     skipLink: 'Перейти к содержимому',
     brand: 'Hamza Turhan',
-    nav: { home: 'Главная', about: 'Обо мне', projects: 'Проекты', skills: 'Навыки', pmInsights: 'Опыт PM', contact: 'Контакты' },
+    nav: { home: 'Главная', about: 'Обо мне', projects: 'Проекты', skills: 'Навыки', pmInsights: 'Система работы', contact: 'Контакты' },
     hero: {
       title1: 'Fullstack разработчик',
       title2: 'Архитектор систем ИИ',
@@ -241,7 +256,7 @@ export const dictionaries: Record<Locale, Dict> = {
       aiCardTitle: 'Эксперт по продуктивности с ИИ',
       aiFeatures: ['Интеграция AI‑инструментов', 'Системы автоматизации', 'Оптимизация процессов'],
       stats: { prod: 'Рост продуктивности', ai: 'AI‑проекты', years: 'Годы опыта', tools: 'AI‑инструменты' },
-      buttons: { viewProjects: 'Смотреть AI‑проекты', interview: 'Система работы' },
+      buttons: { viewProjects: 'Смотреть AI‑проекты', interview: 'Моя система работы' },
     },
     about: {
       title: 'Обо мне',
@@ -256,6 +271,8 @@ export const dictionaries: Record<Locale, Dict> = {
         'Алгоритмические торговые платформы',
         'Кроссплатформенная мобильная разработка',
       ],
+      workflowTitle: 'Мой рабочий процесс',
+      workflowSteps: ['Анализ и планирование', 'Разработка и тестирование', 'Деплой и мониторинг'],
     },
     projects: { title: 'Избранные проекты', subtitle: 'Экспертиза в реальных приложениях' },
     skills: {
@@ -268,15 +285,15 @@ export const dictionaries: Record<Locale, Dict> = {
         mobile: 'Мобильная разработка',
         database: 'Базы данных',
         devops: 'DevOps',
+        tools: 'Инструменты',
       },
     },
     answers: {
-      title: 'Опыт PM',
-      subtitle: 'Реальные задачи и решения из моего опыта управления проектами',
-      stats: { answered: 'Отвеченные вопросы', refs: 'Референс‑проекты', avgConf: 'Средняя уверенность' },
-      filters: { all: 'Все', planning: 'Планирование', technical: 'Техническое', team: 'Команда', client: 'Клиент', risk: 'Риск', process: 'Процесс', product: 'Продукт' },
+      title: 'Моя система работы',
+      subtitle: 'Как я создаю проекты с нуля с Claude Code + Codex — шаг за шагом',
+      stats: { answered: 'Этапы пайплайна', refs: 'Референс‑проекты', avgConf: 'Средняя уверенность' },
+      filters: { all: 'Все', planning: 'Планирование', technical: 'Архитектура', team: 'Кодинг', client: 'Инфраструктура', risk: 'Качество', process: 'Интеграция', product: 'Продукт' },
       ctaViewProjects: 'Смотреть проекты',
-      originalNote: 'Примечание: подробные ответы пока на турецком языке.',
     },
     contact: {
       title: 'Связаться',
@@ -311,6 +328,10 @@ export const dictionaries: Record<Locale, Dict> = {
       viewCode: 'Смотреть код',
       liveDemo: 'Демо',
       status: 'Статус',
+      architecture: 'Архитектура',
+      timeline: 'Хронология',
+      relatedProjects: 'Связанные проекты',
+      techPipeline: 'Технологический конвейер',
     },
   },
 }

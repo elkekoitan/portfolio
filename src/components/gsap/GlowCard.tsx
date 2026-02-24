@@ -15,7 +15,7 @@
  *   gsap.to(el, { boxShadow: '0 0 40px #6ee7d044', yoyo: true, repeat: -1 })
  *
  * The "turquoise neomorphism" CSS formula:
- *   background: #342818  (dune-card)
+ *   background: #342818  (wasteland-700)
  *   box-shadow:
  *     8px  8px  16px rgba(0,0,0,0.4),          ← dark shadow (depth)
  *    -4px -4px  12px rgba(52,40,24,0.55),       ← light shadow (lift)
@@ -33,6 +33,8 @@ interface GlowCardProps {
   breatheDuration?: number;
   /** If true, also applies 3-D tilt on hover */
   tilt?: boolean;
+  /** Border radius — '2px' for terminal style, '20px' for neo (default) */
+  borderRadius?: string;
 }
 
 export default function GlowCard({
@@ -41,6 +43,7 @@ export default function GlowCard({
   glowColor = '#6ee7d0',
   breatheDuration = 3,
   tilt = true,
+  borderRadius = '20px',
 }: GlowCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
@@ -104,8 +107,8 @@ export default function GlowCard({
       ref={cardRef}
       className={`relative overflow-hidden ${className}`}
       style={{
-        background: 'var(--dune-card)',
-        borderRadius: '20px',
+        background: 'var(--vault-card)',
+        borderRadius,
         // Neomorphic shadow stack
         boxShadow: `
           8px  8px 16px rgba(0,0,0,0.4),
@@ -125,7 +128,7 @@ export default function GlowCard({
         style={{
           position: 'absolute',
           inset: 0,
-          borderRadius: '20px',
+          borderRadius,
           background: `radial-gradient(ellipse 80% 60% at 50% 0%, ${glowColor}22 0%, transparent 65%)`,
           opacity: 0.2,
           pointerEvents: 'none',

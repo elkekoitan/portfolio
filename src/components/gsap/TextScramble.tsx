@@ -79,5 +79,6 @@ export default function TextScramble({
     return () => { mountedRef.current = false }
   }, [animate])
 
+  // @ts-expect-error — dynamic ElementType tag
   return <Tag className={className}>{display}</Tag>
 }

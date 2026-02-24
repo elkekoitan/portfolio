@@ -1,6 +1,7 @@
 'use client'
 import { useRef, ReactNode, MouseEvent } from 'react'
 import gsap from 'gsap'
+import { audioEngine } from '@/lib/audio-engine'
 
 interface MagneticButtonProps {
   children: ReactNode
@@ -43,6 +44,7 @@ export default function MagneticButton({
   }
 
   const handleMouseEnter = () => {
+    audioEngine.hoverTick()
     gsap.to(ref.current, {
       scale: 1.05,
       duration: 0.2,
