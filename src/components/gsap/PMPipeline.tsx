@@ -22,9 +22,8 @@ if (typeof window !== 'undefined') {
 }
 
 /* ─────────────────────────────────────────────────────────
-   Pipeline Stage Data — Gerçek Çalışma Sürecim
-   Claude Code + Codex ile birlikte nasıl proje çıkarıyorum.
-   Her aşama gerçek projelerden (EstimatePro, bu portföy, Hayalet vb.)
+   Pipeline Stage Data — Technical Workflow
+   Claude Code + Codex Development Pipeline
 ───────────────────────────────────────────────────────── */
 const STAGES = [
   {
@@ -34,19 +33,25 @@ const STAGES = [
     color: '#6ee7d0',
     label: { tr: 'Keşif', en: 'Discovery', ru: 'Открытие' },
     category: { tr: 'Planlama', en: 'Planning', ru: 'Планирование' },
-    title: { tr: 'Fikir & Araştırma', en: 'Ideation & Research', ru: 'Идея и Исследование' },
+    title: { tr: 'Araştırma & Scope Tanımı', en: 'Research & Scope Definition', ru: 'Исследование и Scope' },
     approach: {
-      tr: 'Her proje bir ihtiyaçla başlıyor. Problemi tanımladıktan sonra Claude Code\'a açıyorum — birlikte rakip analizi yapıyoruz, teknoloji seçeneklerini tartışıyoruz, projenin scope\'unu belirliyoruz. EstimatePro\'da "proje effort tahminleri neden hep tutmuyor?" sorusuyla başladık, Claude ile ML tabanlı çözümün mimarisini birlikte çizdik. Bu portföyü de aynı şekilde: "Fallout temalı 3D portföy" fikrini Claude Code\'da plan modunda detaylandırdık.',
-      en: 'Every project starts with a need. After defining the problem, I open Claude Code — together we do competitor analysis, discuss tech options, define project scope. EstimatePro started with "why are project estimates always wrong?" — we designed the ML-based solution architecture together. This portfolio too: the "Fallout-themed 3D portfolio" idea was detailed in Claude Code\'s plan mode.',
-      ru: 'Каждый проект начинается с потребности. Определив проблему, открываю Claude Code — вместе анализируем конкурентов, обсуждаем технологии, определяем scope. EstimatePro начался с вопроса "почему оценки проектов всегда неточны?" — вместе спроектировали ML-решение.',
+      tr: 'Problem → Claude Code plan mode → mimari taslak → MVP scope. Rakip analizi, teknoloji karşılaştırması ve fizibilite birlikte yapılır.',
+      en: 'Problem → Claude Code plan mode → architecture draft → MVP scope. Competitor analysis, tech comparison and feasibility done together.',
+      ru: 'Проблема → Claude Code plan mode → черновик архитектуры → MVP scope. Анализ конкурентов, сравнение технологий.',
     },
+    commands: [
+      'claude --plan "Analyze market and define MVP scope"',
+      'claude "Compare Next.js vs Remix for this use case"',
+      'claude "Design database schema for [project]"',
+    ],
+    techStack: ['Claude Code', 'Plan Mode', 'Web Search', 'Context7'],
     steps: {
-      tr: ['Problem tanımı — Claude Code\'da beyin fırtınası', 'Rakip analizi + mevcut çözüm araştırması', 'Claude Code plan mode → mimari taslak', 'MVP scope: hangi özellikler ilk versiyonda olacak'],
-      en: ['Problem definition — brainstorming in Claude Code', 'Competitor analysis + existing solution research', 'Claude Code plan mode → architecture draft', 'MVP scope: which features ship in v1'],
-      ru: ['Определение проблемы — мозговой штурм в Claude Code', 'Анализ конкурентов + исследование решений', 'Claude Code plan mode → черновик архитектуры', 'MVP scope: какие фичи войдут в v1'],
+      tr: ['claude --plan → mimari tasarım', 'Rakip analizi + stack karşılaştırma', 'DB schema + API kontrat tasarımı', 'MVP scope → task listesi'],
+      en: ['claude --plan → architecture design', 'Competitor analysis + stack comparison', 'DB schema + API contract design', 'MVP scope → task list generation'],
+      ru: ['claude --plan → архитектура', 'Анализ конкурентов + стеки', 'Схема БД + контракт API', 'MVP scope → список задач'],
     },
-    metric: { tr: 'Birkaç saatte net proje planı', en: 'Clear project plan in hours', ru: 'Чёткий план за несколько часов' },
-    projects: ['project-effort', 'solar-analysis', 'hayalet'],
+    metric: { tr: 'Saatler içinde net mimari plan', en: 'Clear architecture in hours', ru: 'Чёткий план за часы' },
+    projects: ['EstimatePro', 'Solar Analysis', 'Hayalet'],
     confidence: 97,
   },
   {
@@ -56,19 +61,25 @@ const STAGES = [
     color: '#e8c07a',
     label: { tr: 'Doküman', en: 'Docs', ru: 'Документы' },
     category: { tr: 'Mimari', en: 'Architecture', ru: 'Архитектура' },
-    title: { tr: 'Dokümantasyon & Ajan Sistemi', en: 'Documentation & Agent System', ru: 'Документация и Агентная Система' },
+    title: { tr: 'Ajan Konfigürasyonu & Doküman', en: 'Agent Config & Documentation', ru: 'Конфиг Агента и Документы' },
     approach: {
-      tr: 'Koda başlamadan önce doküman altyapısını kuruyorum. CLAUDE.md dosyası projenin hafızası — kurallar, tercihler, mimari kararlar buraya yazılıyor. Memory dosyaları ile Claude Code oturumlar arası bağlam koruyor. EstimatePro\'da proje yapısını, veritabanı şemasını, API endpointlerini hep önce dokümante ettik. Bu portföyde de MEMORY.md ile tema renkleri, component yapısı, kullanılan pluginler kayıt altında.',
-      en: 'Before touching code, I set up the documentation infrastructure. CLAUDE.md is the project\'s memory — rules, preferences, architectural decisions go here. Memory files let Claude Code maintain context across sessions. In EstimatePro we documented project structure, DB schema, API endpoints first. This portfolio also has MEMORY.md tracking theme colors, components, plugins.',
-      ru: 'Перед кодом настраиваю документацию. CLAUDE.md — память проекта: правила, предпочтения, архитектурные решения. Memory-файлы сохраняют контекст между сессиями. В EstimatePro сначала задокументировали структуру, БД, API. В портфолио MEMORY.md хранит цвета, компоненты, плагины.',
+      tr: 'CLAUDE.md → proje kuralları, mimari kararlar. Memory dosyaları → oturumlar arası bağlam. settings.json → ajan izinleri ve otomasyon.',
+      en: 'CLAUDE.md → project rules, architecture decisions. Memory files → cross-session context. settings.json → agent permissions and automation.',
+      ru: 'CLAUDE.md → правила, решения. Memory → контекст между сессиями. settings.json → разрешения агента.',
     },
+    commands: [
+      'vim CLAUDE.md  # Project rules + architecture',
+      'ls .claude/memory/  # Persistent context files',
+      'cat .claude/settings.json  # Agent permissions',
+    ],
+    techStack: ['CLAUDE.md', 'Memory System', 'settings.json', 'TypeScript'],
     steps: {
-      tr: ['CLAUDE.md — proje kuralları + mimari kararlar', 'Memory dosyaları — oturumlar arası bağlam', 'Veritabanı şeması + API tasarımı dokümantasyonu', 'Ajan izinleri (settings.json) — hangi komutlar otomatik'],
-      en: ['CLAUDE.md — project rules + architecture decisions', 'Memory files — cross-session context', 'Database schema + API design documentation', 'Agent permissions (settings.json) — which commands auto-approved'],
-      ru: ['CLAUDE.md — правила проекта + архитектурные решения', 'Memory-файлы — контекст между сессиями', 'Документация схемы БД + API', 'Разрешения агента (settings.json) — авто-команды'],
+      tr: ['CLAUDE.md → kurallar + mimari kararlar', 'Memory → stack, patterns, debug notları', 'settings.json → allowedTools config', 'TypeScript interface + Prisma schema'],
+      en: ['CLAUDE.md → rules + architecture decisions', 'Memory → stack, patterns, debug notes', 'settings.json → allowedTools config', 'TypeScript interfaces + Prisma schema'],
+      ru: ['CLAUDE.md → правила + решения', 'Memory → стек, паттерны, заметки', 'settings.json → allowedTools конфиг', 'TypeScript интерфейсы + Prisma'],
     },
-    metric: { tr: 'Sıfır bağlam kaybı, oturumlar arası', en: 'Zero context loss across sessions', ru: 'Ноль потери контекста между сессиями' },
-    projects: ['project-effort', 'adpro-cli', 'omnisell'],
+    metric: { tr: 'Sıfır bağlam kaybı', en: 'Zero context loss', ru: 'Ноль потери контекста' },
+    projects: ['EstimatePro', 'AdPro CLI', 'OmniSell'],
     confidence: 96,
   },
   {
@@ -78,19 +89,25 @@ const STAGES = [
     color: '#c4b5e0',
     label: { tr: 'Kodlama', en: 'Coding', ru: 'Кодинг' },
     category: { tr: 'Geliştirme', en: 'Development', ru: 'Разработка' },
-    title: { tr: 'Claude Code + Codex ile Birlikte Kodlama', en: 'Pair Programming with Claude Code + Codex', ru: 'Парное Программирование с Claude Code + Codex' },
+    title: { tr: 'Claude Code + Codex Geliştirme', en: 'Claude Code + Codex Development', ru: 'Разработка с Claude Code + Codex' },
     approach: {
-      tr: 'Geliştirme süreci tam bir iş birliği. Claude Code\'da task oluşturuyorum, plan modunda mimariyi çiziyoruz, sonra adım adım implemente ediyoruz. Ben yönlendiriyorum, Claude Code yazıyor, birlikte review ediyoruz. Codex\'i paralel görevler için kullanıyorum. Bu portföyün 3D boot sekansı, GSAP animasyonları, prosedürel ses motoru — hepsi Claude Code ile birlikte yazıldı. Cursor, Windsurf, VS Code — onlarca farklı IDE denedim, sonunda Claude Code + Codex kombinasyonuna yerleştim.',
-      en: 'Development is true collaboration. I create tasks in Claude Code, design architecture in plan mode, then implement step by step. I direct, Claude Code writes, we review together. I use Codex for parallel tasks. This portfolio\'s 3D boot sequence, GSAP animations, procedural audio engine — all written with Claude Code. Tried dozens of IDEs: Cursor, Windsurf, VS Code — settled on Claude Code + Codex combo.',
-      ru: 'Разработка — настоящее сотрудничество. Создаю задачи в Claude Code, проектируем архитектуру в plan mode, затем шаг за шагом реализуем. Я направляю, Claude Code пишет, вместе ревьюим. Codex для параллельных задач. 3D boot, GSAP анимации, аудио-движок — всё написано с Claude Code.',
+      tr: 'Task sistemi ile adım adım. Plan mode → onay → implementasyon. Codex paralel worktree izolasyonu. Cursor, Windsurf denendi → Claude Code + Codex.',
+      en: 'Step-by-step with task system. Plan mode → approval → implementation. Codex parallel worktree isolation. Tried Cursor, Windsurf → Claude Code + Codex.',
+      ru: 'Пошагово через задачи. Plan mode → утверждение → реализация. Codex worktree изоляция. Пробовал Cursor, Windsurf → Claude Code + Codex.',
     },
+    commands: [
+      'claude "Implement auth module following CLAUDE.md"',
+      'claude --plan "Refactor to server components"',
+      'codex "Add unit tests for UserService" --worktree',
+    ],
+    techStack: ['Claude Code', 'Codex', 'Worktree', 'Task System'],
     steps: {
-      tr: ['Claude Code task sistemi — adım adım ilerleme', 'Plan mode → mimari onayı → implementasyon', 'Codex — paralel görevler + worktree izolasyonu', 'Farklı IDE\'ler (Cursor, Windsurf, VS Code) denendi → Claude Code + Codex'],
-      en: ['Claude Code task system — step-by-step progress', 'Plan mode → architecture approval → implementation', 'Codex — parallel tasks + worktree isolation', 'Tried IDEs (Cursor, Windsurf, VS Code) → settled on Claude Code + Codex'],
-      ru: ['Система задач Claude Code — шаг за шагом', 'Plan mode → утверждение архитектуры → реализация', 'Codex — параллельные задачи + worktree изоляция', 'Пробовал IDE (Cursor, Windsurf, VS Code) → Claude Code + Codex'],
+      tr: ['claude --plan → onay → implementasyon', 'TaskCreate → adım adım ilerleme takibi', 'codex --worktree → paralel izolasyon', 'Otomatik refactoring + type-safe migration'],
+      en: ['claude --plan → approval → implementation', 'TaskCreate → step-by-step progress tracking', 'codex --worktree → parallel isolation', 'Auto refactoring + type-safe migrations'],
+      ru: ['claude --plan → утверждение → реализация', 'TaskCreate → пошаговый прогресс', 'codex --worktree → параллельная изоляция', 'Авто-рефакторинг + type-safe миграции'],
     },
-    metric: { tr: 'Saatler içinde tam özellik teslimi', en: 'Full feature delivery in hours', ru: 'Полная фича за часы' },
-    projects: ['diagnostic', 'airchitecture', 'n8n-workflows'],
+    metric: { tr: 'Saatler içinde feature teslimi', en: 'Feature delivery in hours', ru: 'Фича за часы' },
+    projects: ['Diagnostic', 'Airchitecture', 'n8n Workflows'],
     confidence: 95,
   },
   {
@@ -100,19 +117,26 @@ const STAGES = [
     color: '#e07850',
     label: { tr: 'Git & CI/CD', en: 'Git & CI/CD', ru: 'Git и CI/CD' },
     category: { tr: 'Altyapı', en: 'Infrastructure', ru: 'Инфраструктура' },
-    title: { tr: 'Git Workflow & CI/CD Pipeline', en: 'Git Workflow & CI/CD Pipeline', ru: 'Git Workflow и CI/CD' },
+    title: { tr: 'Git Workflow & Auto Deploy', en: 'Git Workflow & Auto Deploy', ru: 'Git Workflow и Авто-деплой' },
     approach: {
-      tr: 'Her değişiklik düzgün bir git sürecinden geçiyor. Feature branch açıyorum, Claude Code ile commit mesajları yazıyorum, PR oluşturuyorum. Vercel\'de her push otomatik preview deploy alıyor. GitHub Actions\'da lint + type check + build pipeline çalışıyor. Bu portföyde Claude Code\'un kendi git entegrasyonunu kullanıyorum — otomatik staging, commit, push. Stitch entegrasyonları: Vercel + GitHub + n8n webhook\'ları birbirine bağlı.',
-      en: 'Every change goes through proper git workflow. Feature branches, commit messages with Claude Code, PR creation. Vercel auto-deploys preview on every push. GitHub Actions runs lint + type check + build pipeline. In this portfolio I use Claude Code\'s own git integration — auto staging, commit, push. Stitch integrations: Vercel + GitHub + n8n webhooks all connected.',
-      ru: 'Каждое изменение проходит через git workflow. Feature branches, коммиты с Claude Code, создание PR. Vercel авто-деплоит preview при каждом push. GitHub Actions: линт + type check + build. Использую git-интеграцию Claude Code — авто staging, commit, push.',
+      tr: 'Feature branch → Claude Code geliştirme → otomatik commit + PR. Vercel her push preview deploy. GitHub Actions lint + type check + build.',
+      en: 'Feature branch → Claude Code dev → auto commit + PR. Vercel preview deploy per push. GitHub Actions lint + type check + build.',
+      ru: 'Feature branch → разработка → авто коммит + PR. Vercel preview deploy. GitHub Actions lint + type check + build.',
     },
+    commands: [
+      'git checkout -b feat/new-feature',
+      'claude "Implement and commit when ready"',
+      'gh pr create --title "feat: add auth" --body "..."',
+      'vercel --prod  # Triggered on merge to main',
+    ],
+    techStack: ['Git', 'GitHub Actions', 'Vercel', 'gh CLI'],
     steps: {
-      tr: ['Feature branch → Claude Code ile geliştirme', 'Otomatik commit + PR (gh cli entegrasyonu)', 'Vercel preview deploy — her PR\'da canlı önizleme', 'GitHub Actions — lint, type check, build pipeline'],
-      en: ['Feature branch → development with Claude Code', 'Auto commit + PR (gh cli integration)', 'Vercel preview deploy — live preview on every PR', 'GitHub Actions — lint, type check, build pipeline'],
-      ru: ['Feature branch → разработка с Claude Code', 'Авто коммит + PR (gh cli интеграция)', 'Vercel preview deploy — живой предпросмотр', 'GitHub Actions — линт, type check, build'],
+      tr: ['git checkout -b feat/* → izole branch', 'Claude Code otomatik commit + mesaj', 'gh pr create → review + merge', 'Vercel auto-deploy → preview + prod'],
+      en: ['git checkout -b feat/* → isolated branch', 'Claude Code auto commit + message', 'gh pr create → review + merge', 'Vercel auto-deploy → preview + prod'],
+      ru: ['git checkout -b feat/* → изолированная ветка', 'Claude Code авто коммит + сообщение', 'gh pr create → ревью + merge', 'Vercel авто-деплой → preview + prod'],
     },
-    metric: { tr: 'Her push\'ta otomatik deploy', en: 'Auto deploy on every push', ru: 'Авто-деплой при каждом push' },
-    projects: ['adpro-cli', 'omnisell', 'indirim-kanallari'],
+    metric: { tr: 'Her push otomatik deploy', en: 'Auto deploy on every push', ru: 'Авто-деплой при push' },
+    projects: ['AdPro CLI', 'OmniSell', 'İndirim Kanalları'],
     confidence: 96,
   },
   {
@@ -122,19 +146,26 @@ const STAGES = [
     color: '#e8a0a0',
     label: { tr: 'Test', en: 'Testing', ru: 'Тесты' },
     category: { tr: 'Kalite', en: 'Quality', ru: 'Качество' },
-    title: { tr: 'Test & Debug Süreci', en: 'Testing & Debugging', ru: 'Тестирование и Отладка' },
+    title: { tr: 'Otomatik Test & Debug Loop', en: 'Automated Test & Debug Loop', ru: 'Авто-тест и Отладка' },
     approach: {
-      tr: 'Claude Code build çalıştırıyor, hata alınca kendisi düzeltiyor, Playwright ile tarayıcıda test ediyor. Bu portföyde 3D boot sekansında postprocessing crash vardı — Claude Code Playwright ile yakaladı, CSS alternatifiyle değiştirdi, sıfır hata olana kadar döngüde kaldı. CustomEase hatası, memory leak, GSAP ticker temizliği — hepsi otomatik test döngüsünde bulundu. "Teslim etmeden test et" prensibi.',
-      en: 'Claude Code runs builds, auto-fixes errors, tests in browser with Playwright. This portfolio had a postprocessing crash in the 3D boot — Claude Code caught it via Playwright, replaced with CSS alternative, looped until zero errors. CustomEase bug, memory leak, GSAP ticker cleanup — all found in automated test cycles. "Test before you ship" principle.',
-      ru: 'Claude Code запускает сборку, автоматически исправляет ошибки, тестирует в браузере через Playwright. В портфолио был краш postprocessing — Claude Code нашёл через Playwright, заменил CSS-альтернативой, крутился в цикле до нуля ошибок.',
+      tr: 'Build → Playwright headless test → screenshot + console error → hata varsa otomatik fix → retest. Sıfır error olana kadar döngü.',
+      en: 'Build → Playwright headless test → screenshot + console errors → auto-fix if errors → retest. Loop until zero errors.',
+      ru: 'Build → Playwright headless → скриншот + ошибки → авто-fix → повтор. Цикл до нуля ошибок.',
     },
+    commands: [
+      'npm run build  # TypeScript + ESLint check',
+      'npx playwright test --headed  # Visual verify',
+      'claude "Fix build errors and rerun tests"',
+      'npx playwright test --grep @smoke  # Smoke suite',
+    ],
+    techStack: ['Playwright', 'TypeScript', 'ESLint', 'npm scripts'],
     steps: {
-      tr: ['npm run build — TypeScript hata kontrolü', 'Playwright headless test — screenshot + console error', 'Hata → otomatik düzeltme → tekrar test döngüsü', 'Sıfır console error olana kadar devam'],
-      en: ['npm run build — TypeScript error check', 'Playwright headless test — screenshot + console errors', 'Error → auto-fix → retest loop', 'Continue until zero console errors'],
-      ru: ['npm run build — проверка TypeScript', 'Playwright headless тест — скриншот + ошибки консоли', 'Ошибка → авто-исправление → повторный тест', 'Продолжать до нуля ошибок'],
+      tr: ['npm run build → TS + ESLint kontrolü', 'npx playwright test → screenshot + error log', 'Hata → claude fix → retest döngüsü', 'Sıfır error + görsel doğrulama'],
+      en: ['npm run build → TS + ESLint check', 'npx playwright test → screenshot + error log', 'Error → claude fix → retest loop', 'Zero errors + visual verification'],
+      ru: ['npm run build → TS + ESLint проверка', 'npx playwright test → скриншот + логи', 'Ошибка → claude fix → повтор', 'Ноль ошибок + визуальная проверка'],
     },
-    metric: { tr: 'Sıfır console error ile teslim', en: 'Ship with zero console errors', ru: 'Доставка с нулём ошибок консоли' },
-    projects: ['hayalet', 'diagnostic', 'pospro'],
+    metric: { tr: 'Sıfır error ile teslim', en: 'Ship with zero errors', ru: 'Ноль ошибок' },
+    projects: ['Hayalet', 'Diagnostic', 'PosPro'],
     confidence: 98,
   },
   {
@@ -144,19 +175,26 @@ const STAGES = [
     color: '#ddd0b0',
     label: { tr: 'Entegrasyon', en: 'Integration', ru: 'Интеграция' },
     category: { tr: 'Bağlantı', en: 'Integration', ru: 'Интеграция' },
-    title: { tr: 'Servis Entegrasyonları & Otomasyon', en: 'Service Integrations & Automation', ru: 'Интеграция Сервисов' },
+    title: { tr: 'Servis Orkestrasyonu', en: 'Service Orchestration', ru: 'Оркестрация Сервисов' },
     approach: {
-      tr: 'Projeler tek başına yaşamıyor — birbirine bağlanıyor. n8n ile servisleri birbirine dikiyorum: Telegram bot → scraper → veritabanı → bildirim. Hayalet\'te MetaTrader 5 + Go backend + PostgreSQL + Telegram alert zinciri var. İndirim Kanalları\'nda 11 scraper → Supabase → Telegram bot pipeline\'ı 7/24 çalışıyor. Slack entegrasyonu, webhook\'lar, cron job\'lar — hepsi Claude Code ile birlikte kuruldu.',
-      en: 'Projects don\'t live alone — they connect. I stitch services together with n8n: Telegram bot → scraper → database → notification. Hayalet has MetaTrader 5 + Go backend + PostgreSQL + Telegram alert chain. Indirim Kanallari: 11 scrapers → Supabase → Telegram bot pipeline runs 24/7. Slack integration, webhooks, cron jobs — all set up with Claude Code.',
-      ru: 'Проекты не живут отдельно — они связаны. Сшиваю сервисы через n8n: Telegram бот → скрапер → БД → уведомление. Hayalet: MetaTrader 5 + Go + PostgreSQL + Telegram. Indirim Kanallari: 11 скраперов → Supabase → Telegram бот 24/7.',
+      tr: 'n8n workflow engine ile servisleri bağlar. Webhook → scraper → DB → bildirim pipeline. Telegram, Slack, MT5 entegrasyonları 7/24.',
+      en: 'Services connected via n8n workflow engine. Webhook → scraper → DB → notification pipelines. Telegram, Slack, MT5 integrations 24/7.',
+      ru: 'Сервисы через n8n. Webhook → скрапер → БД → уведомление. Telegram, Slack, MT5 24/7.',
     },
+    commands: [
+      'n8n start  # Self-hosted workflow engine',
+      'curl -X POST https://n8n.io/webhook/trigger',
+      'docker compose up -d  # MT5+Go+PostgreSQL stack',
+      'pm2 start ecosystem.config.js  # Daemon mgmt',
+    ],
+    techStack: ['n8n', 'Docker', 'Telegram API', 'Webhooks', 'pm2'],
     steps: {
-      tr: ['n8n workflow — servisleri birbirine bağlama', 'Webhook + API entegrasyonları', 'Telegram bot + bildirim pipeline\'ları', 'Cron job\'lar — 7/24 çalışan otomasyon'],
-      en: ['n8n workflows — stitching services together', 'Webhook + API integrations', 'Telegram bot + notification pipelines', 'Cron jobs — 24/7 automation'],
-      ru: ['n8n workflow — связь сервисов', 'Webhook + API интеграции', 'Telegram бот + уведомления', 'Cron job — автоматизация 24/7'],
+      tr: ['n8n workflow → servis orkestrasyonu', 'Webhook + REST API bağlantıları', 'docker compose → multi-service stack', 'pm2 / cron → 7/24 daemon management'],
+      en: ['n8n workflows → service orchestration', 'Webhook + REST API connections', 'docker compose → multi-service stack', 'pm2 / cron → 24/7 daemon management'],
+      ru: ['n8n workflow → оркестрация', 'Webhook + REST API', 'docker compose → multi-service стек', 'pm2 / cron → 24/7 управление'],
     },
-    metric: { tr: '50+ aktif otomasyon workflow', en: '50+ active automation workflows', ru: '50+ активных workflow автоматизации' },
-    projects: ['n8n-workflows', 'indirim-kanallari', 'slack-integration', 'hayalet'],
+    metric: { tr: '50+ aktif workflow', en: '50+ active workflows', ru: '50+ активных workflow' },
+    projects: ['n8n Workflows', 'İndirim Kanalları', 'Hayalet'],
     confidence: 96,
   },
   {
@@ -166,19 +204,26 @@ const STAGES = [
     color: '#6ee7d0',
     label: { tr: 'Sonuç', en: 'Result', ru: 'Результат' },
     category: { tr: 'Ürün', en: 'Product', ru: 'Продукт' },
-    title: { tr: 'Production & Sürekli Geliştirme', en: 'Production & Continuous Improvement', ru: 'Продакшн и Улучшение' },
+    title: { tr: 'Production & Sürekli İterasyon', en: 'Production & Continuous Iteration', ru: 'Продакшн и Итерация' },
     approach: {
-      tr: 'Proje production\'a çıktıktan sonra bitmez — sürekli geliştirme devam eder. Monitoring kurulur, hatalar izlenir, yeni özellikler eklenir. Bu portföy de öyle: Faz 1\'de 3D boot + GSAP animasyonlar, Faz 2\'de ses motoru + terminal emülatör + perk tree eklendi. Her oturum bir öncekinin üzerine inşa eder — Claude Code\'un memory sistemi sayesinde sıfırdan başlamaya gerek yok. 30+ projede bu döngü işliyor.',
-      en: 'A project doesn\'t end at production — continuous improvement continues. Monitoring is set up, bugs tracked, new features added. This portfolio: Phase 1 was 3D boot + GSAP animations, Phase 2 added audio engine + terminal emulator + perk tree. Each session builds on the previous — Claude Code\'s memory system means no starting from scratch. This cycle runs across 30+ projects.',
-      ru: 'Проект не заканчивается на продакшне — непрерывное улучшение. Настраивается мониторинг, отслеживаются баги, добавляются фичи. Это портфолио: Фаза 1 — 3D boot + GSAP, Фаза 2 — аудио + терминал + perk tree. Каждая сессия строит на предыдущей — memory Claude Code не теряет контекст.',
+      tr: 'Deploy → monitoring → hata takibi → sürekli iyileştirme. Memory sistemi bağlamı korur. Her oturum öncekinin devamı. 30+ projede aktif döngü.',
+      en: 'Deploy → monitoring → bug tracking → continuous improvement. Memory system preserves context. Each session builds on last. 30+ projects active.',
+      ru: 'Деплой → мониторинг → трекинг → улучшение. Memory сохраняет контекст. Каждая сессия продолжает предыдущую. 30+ проектов.',
     },
+    commands: [
+      'vercel logs hmztrhn.vercel.app  # Prod logs',
+      'claude "Analyze perf metrics and optimize"',
+      'gh issue create --title "Bug: ..." --body "..."',
+      'claude --resume  # Continue from last session',
+    ],
+    techStack: ['Vercel', 'Monitoring', 'Memory', 'gh CLI'],
     steps: {
-      tr: ['Production deploy + monitoring kurulumu', 'Kullanıcı geri bildirimi → yeni özellikler', 'Memory sistemi — her oturum öncekinin devamı', '30+ projede aktif sürekli geliştirme döngüsü'],
-      en: ['Production deploy + monitoring setup', 'User feedback → new features', 'Memory system — each session continues from last', '30+ projects in active continuous improvement'],
-      ru: ['Deploy в продакшн + мониторинг', 'Обратная связь → новые фичи', 'Memory система — каждая сессия продолжает предыдущую', '30+ проектов в активном цикле улучшения'],
+      tr: ['vercel --prod → deploy + monitoring', 'gh issue → bug tracking + feature req', 'claude --resume → oturum arası süreklilik', '30+ projede aktif iterasyon'],
+      en: ['vercel --prod → deploy + monitoring', 'gh issue → bug tracking + feature requests', 'claude --resume → cross-session continuity', '30+ projects active iteration'],
+      ru: ['vercel --prod → деплой + мониторинг', 'gh issue → баг-трекинг + фичи', 'claude --resume → межсессионная работа', '30+ проектов активный цикл'],
     },
     metric: { tr: '30+ proje, 99%+ uptime', en: '30+ projects, 99%+ uptime', ru: '30+ проектов, 99%+ uptime' },
-    projects: ['indirim-kanallari', 'hayalet', 'solar-analysis', 'pospro'],
+    projects: ['İndirim Kanalları', 'Hayalet', 'Solar Analysis'],
     confidence: 98,
   },
 ];
@@ -305,14 +350,12 @@ export default function PMPipeline({ locale }: PMPipelineProps) {
     if (!card) return;
 
     const tl = gsap.timeline();
-    // Glitch flash + slide in
     tl.fromTo(
       card,
       { opacity: 0, y: 20, filter: 'brightness(2) blur(4px)' },
       { opacity: 1, y: 0, filter: 'brightness(1) blur(0px)', duration: 0.35, ease: 'power3.out' }
     );
 
-    // Stagger steps
     const steps = card.querySelectorAll('.pm-step');
     if (steps.length) {
       tl.fromTo(
@@ -323,7 +366,16 @@ export default function PMPipeline({ locale }: PMPipelineProps) {
       );
     }
 
-    // Animate projects tags
+    const cmdLines = card.querySelectorAll('.pm-cmd-line');
+    if (cmdLines.length) {
+      tl.fromTo(
+        cmdLines,
+        { opacity: 0, x: -8 },
+        { opacity: 1, x: 0, duration: 0.25, stagger: 0.05, ease: 'power2.out' },
+        '-=0.2'
+      );
+    }
+
     const tags = card.querySelectorAll('.pm-project-tag');
     if (tags.length) {
       tl.fromTo(
@@ -342,7 +394,6 @@ export default function PMPipeline({ locale }: PMPipelineProps) {
   const selectStage = useCallback(
     (idx: number) => {
       setActiveIdx(idx);
-      // Reset auto-play timer
       if (autoPlayRef.current) clearInterval(autoPlayRef.current);
     },
     []
@@ -527,7 +578,7 @@ export default function PMPipeline({ locale }: PMPipelineProps) {
 
         <div className="relative z-10 p-5 md:p-7">
           {/* Title row */}
-          <div className="flex items-start gap-4 mb-5">
+          <div className="flex items-start gap-4 mb-4">
             <div
               className="flex-shrink-0 w-12 h-12 flex items-center justify-center terminal-inset"
               style={{ border: `1px solid ${stage.color}30` }}
@@ -541,32 +592,76 @@ export default function PMPipeline({ locale }: PMPipelineProps) {
               >
                 {stage.title[loc] || stage.title.tr}
               </h3>
-              <div className="font-terminal text-xs text-vault-sand/50 tracking-widest">
-                {String(stage.num).padStart(2, '0')} / {String(STAGES.length).padStart(2, '0')}
+              <div className="flex items-center gap-2">
+                <span className="font-terminal text-xs text-vault-sand/50 tracking-widest">
+                  {String(stage.num).padStart(2, '0')} / {String(STAGES.length).padStart(2, '0')}
+                </span>
+                <span className="text-vault-sand/20">|</span>
+                <div className="flex flex-wrap gap-1">
+                  {stage.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="font-terminal text-[0.5rem] px-1.5 py-0.5 tracking-wider"
+                      style={{
+                        color: stage.color,
+                        background: `${stage.color}10`,
+                        border: `1px solid ${stage.color}25`,
+                      }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Approach text */}
-          <div className="terminal-inset p-4 mb-5">
+          {/* Approach text — concise */}
+          <div className="terminal-inset p-3 mb-4">
             <p className="text-vault-sand text-sm font-terminal leading-relaxed">
               <span className="text-vault-turquoise">&gt;</span> {stage.approach[loc] || stage.approach.tr}
             </p>
           </div>
 
-          {/* Steps grid */}
-          <div className="grid sm:grid-cols-2 gap-2 mb-5">
-            {(stage.steps[loc] || stage.steps.tr).map((step, i) => (
-              <div key={i} className="pm-step flex items-start gap-3 terminal-inset p-3">
-                <span
-                  className="flex-shrink-0 font-terminal text-xs font-bold mt-0.5"
-                  style={{ color: stage.color }}
-                >
-                  [{String(i + 1).padStart(2, '0')}]
-                </span>
-                <span className="text-vault-sand text-sm font-terminal leading-snug">{step}</span>
+          {/* Two-column layout: Commands + Steps */}
+          <div className="grid md:grid-cols-2 gap-4 mb-5">
+            {/* CLI Commands */}
+            <div className="terminal-inset p-3">
+              <div className="font-terminal text-[0.55rem] uppercase tracking-widest mb-2" style={{ color: `${stage.color}60` }}>
+                TERMINAL
               </div>
-            ))}
+              <div className="space-y-1.5">
+                {stage.commands.map((cmd, i) => {
+                  const commentIdx = cmd.indexOf('  #');
+                  const cmdText = commentIdx > -1 ? cmd.slice(0, commentIdx) : cmd;
+                  const comment = commentIdx > -1 ? cmd.slice(commentIdx) : '';
+                  return (
+                    <div key={i} className="pm-cmd-line flex items-start gap-2 font-terminal text-xs">
+                      <span style={{ color: stage.color }}>$</span>
+                      <div className="min-w-0">
+                        <span className="text-vault-bone break-all">{cmdText}</span>
+                        {comment && <span className="text-vault-sand/30">{comment}</span>}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Steps */}
+            <div className="space-y-2">
+              {(stage.steps[loc] || stage.steps.tr).map((step, i) => (
+                <div key={i} className="pm-step flex items-start gap-3 terminal-inset p-2.5">
+                  <span
+                    className="flex-shrink-0 font-terminal text-xs font-bold mt-0.5"
+                    style={{ color: stage.color }}
+                  >
+                    [{String(i + 1).padStart(2, '0')}]
+                  </span>
+                  <span className="text-vault-sand text-xs font-terminal leading-snug">{step}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Footer: projects + outcome */}

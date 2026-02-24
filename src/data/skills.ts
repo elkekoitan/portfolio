@@ -306,7 +306,93 @@ export const skills: Skill[] = [
     category: 'backend',
     experience: '1+ year',
     projects: ['OmniSell']
-  }
+  },
+
+  // Additional Technologies
+  {
+    name: 'GSAP',
+    level: 88,
+    category: 'frontend',
+    experience: '2+ years',
+    projects: ['Portfolio', 'AdPro']
+  },
+  {
+    name: 'Three.js',
+    level: 78,
+    category: 'frontend',
+    experience: '1+ year',
+    projects: ['Portfolio']
+  },
+  {
+    name: 'Playwright',
+    level: 82,
+    category: 'tools',
+    experience: '1+ year',
+    projects: ['Portfolio', 'EstimatePro']
+  },
+  {
+    name: 'Claude Code',
+    level: 95,
+    category: 'tools',
+    experience: '1+ year',
+    projects: ['All Projects']
+  },
+  {
+    name: 'GraphQL',
+    level: 76,
+    category: 'backend',
+    experience: '1+ year',
+    projects: ['OmniSell', 'AdPro']
+  },
+  {
+    name: 'MongoDB',
+    level: 78,
+    category: 'database',
+    experience: '2+ years',
+    projects: ['FireAlert', 'Diagnostic']
+  },
+  {
+    name: 'GitHub Actions',
+    level: 80,
+    category: 'devops',
+    experience: '2+ years',
+    projects: ['Portfolio', 'EstimatePro']
+  },
+  {
+    name: 'Nginx',
+    level: 75,
+    category: 'devops',
+    experience: '2+ years',
+    projects: ['Solar Analysis', 'Hayalet']
+  },
+  {
+    name: 'Zustand',
+    level: 82,
+    category: 'frontend',
+    experience: '2+ years',
+    projects: ['Oto Mansuroğlu', 'AdPro']
+  },
+  {
+    name: 'Framer Motion',
+    level: 80,
+    category: 'frontend',
+    experience: '2+ years',
+    projects: ['Oto Mansuroğlu']
+  },
+  {
+    name: 'OpenAI API',
+    level: 85,
+    category: 'ai-ml',
+    experience: '2+ years',
+    projects: ['Airchitecture', 'Video Factory']
+  },
+  {
+    name: 'Slack API',
+    level: 78,
+    category: 'tools',
+    experience: '1+ year',
+    projects: ['Slack Integration']
+  },
 ];
 
 export const getSkillsByCategory = (category: Skill['category']): Skill[] => {
